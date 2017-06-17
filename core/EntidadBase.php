@@ -44,7 +44,7 @@ class EntidadBase{
         return $resultSet;
     }
     public function getByRut($id){
-        $query=$this->db->query("SELECT * FROM $this->table WHERE rut_usuario=$id");
+        $query=$this->db->query("SELECT * FROM usuarios WHERE rut_usuario='$id'");
 
         if($row = $query->fetch_object()) {
            $resultSet=$row;
@@ -69,7 +69,7 @@ class EntidadBase{
     }
     
     public function deleteByRut($id){
-        $query=$this->db->query("DELETE FROM $this->table WHERE rut_usuario=$id"); 
+        $query=$this->db->query("DELETE FROM $this->table WHERE rut_usuario='$id'"); 
         return $query;
     }
     
