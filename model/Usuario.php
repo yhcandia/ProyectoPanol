@@ -63,11 +63,11 @@ class Usuario extends EntidadBase{
     
     public function update($rut){
         $query="UPDATE usuarios SET rut_usuario = '$this->rutUsuario',"
-                . " nombre_usuario = '$this->nombreUsuario',"
-                . "mail_usuario = '$this->emailUsuario',"
                 . "id_rol = '$this->idRol',"
+                . "nombre_usuario = '$this->nombreUsuario',"
+                . "mail_usuario = '$this->emailUsuario',"
                 . "estado_usuario = '$this->estadoUsuario',"
-                . "password_usuario='$this->password' where rut_usuario= $rut";
+                . "password_usuario='$this->password' where rut_usuario= '$rut'";
         $update=$this->db()->query($query);
         $this->db()->error;
         return $update;
