@@ -23,6 +23,7 @@
                 <li><a href="./index.php?controller=categorias"><span class="icon-users"></span>Categorias</a></li>
                 <li><a href="./index.php?controller=roles"><span class="icon-users"></span>Roles</a></li>
                 <li><a href="./index.php?controller=materiales"><span class="icon-users"></span>Materiales</a></li>
+                <li><a href="./index.php?controller=proveedores"><span class="icon-users"></span>Proveedores</a></li>
                 <li><a href="./exit.php"><span class="icon-enter"></span>Salir</a></li>
             </ul>
         </nav>
