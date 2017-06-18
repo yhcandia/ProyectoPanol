@@ -77,7 +77,8 @@ class UsuariosController extends ControladorBase{
             $id=$_GET["id"];            
             $usuario=new Usuario($this->adapter);
             $datos['usuario'] = $usuario->getByRut($id); 
-            $this->view("actualizarUsuario",$datos);
+            $datos['actualizar'] = $usuario->getByRut($id); 
+            $this->view("usuario",$datos);
         }
         
     }
