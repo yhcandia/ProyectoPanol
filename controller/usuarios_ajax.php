@@ -60,7 +60,7 @@
                                             <td><?php echo $row['estado_usuario'];?></td>
                                             <td><?php echo $row['mail_usuario'];?></td>
                                             <td><?php echo $row['id_rol'];?></td>                                           
-                                            <td><input type="radio" id="valor1" name="valor1"  onclick="realizaProceso(this.value)" value="<?php echo $row['rut_usuario'];?>" /></td>
+                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['rut_usuario'];?>" /></td>
                                     </tr>                                 
                                    <?php
                             }
