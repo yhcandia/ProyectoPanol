@@ -19,11 +19,9 @@
         <form action="<?php echo $helper->url("proveedores","crear"); ?>" method="post" class="col-lg-5">
             <h3>Añadir Proveedor</h3>
             <hr/>
-            ID Proveedor: <input type="number" name="idProveedor" class="form-control"/>
-            ID Material: <input type="text" name="idMaterial" class="form-control"/>
             RUT Proveedor: <input type="text" name="rutProveedor" class="form-control"/>
             Nombre Proveedor: <input type="text" name="nombreProveedor" class="form-control"/>
-            Contacto: <input type="text" name="contacto" class="form-control"/>
+            Direccion Proveedor: <input type="text" name="direccionProveedor" class="form-control"/>
             <input type="submit" value="enviar" class="btn btn-success"/>
         </form>
         
@@ -34,10 +32,9 @@
         <section class="col-lg-7 usuario" style="height:400px;overflow-y:scroll;">
             <?php foreach($allProveedores as $proveedor) {?>
                 <?php echo $proveedor->id_proveedor; ?> -
-                <?php echo $proveedor->id_material; ?> -
                 <?php echo $proveedor->rut_proveedor; ?> -
                 <?php echo $proveedor->nombre_proveedor; ?> -   
-                <?php echo $proveedor->contacto; ?>    
+                <?php echo $proveedor->direccion_proveedor; ?>    
                 <div class="right">
                     <a href="<?php echo $helper->url("Proveedores","borrar"); ?>&id=<?php echo $proveedor->id_proveedor; ?>" class="btn btn-danger">Borrar</a>
                 </div>
