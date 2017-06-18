@@ -13,10 +13,9 @@
  */
 class Proveedor extends EntidadBase{
     private $id_proveedor;
-    private $id_material;
     private $rut_proveedor;
     private $nombre_proveedor;
-    private $contacto;
+    private $direccion_proveedor;
     
     public function __construct($adapter) {
         $table="proveedor";
@@ -27,10 +26,6 @@ class Proveedor extends EntidadBase{
         return $this->id_proveedor;
     }
 
-    function getId_material() {
-        return $this->id_material;
-    }
-
     function getRut_proveedor() {
         return $this->rut_proveedor;
     }
@@ -39,16 +34,12 @@ class Proveedor extends EntidadBase{
         return $this->nombre_proveedor;
     }
 
-    function getContacto() {
-        return $this->contacto;
+    function getDireccion_Proveedor() {
+        return $this->direccion_proveedor;
     }
 
     function setId_proveedor($id_proveedor) {
         $this->id_proveedor = $id_proveedor;
-    }
-
-    function setId_material($id_material) {
-        $this->id_material = $id_material;
     }
 
     function setRut_proveedor($rut_proveedor) {
@@ -59,17 +50,16 @@ class Proveedor extends EntidadBase{
         $this->nombre_proveedor = $nombre_proveedor;
     }
 
-    function setContacto($contacto) {
-        $this->contacto = $contacto;
+    function setDireccion_Proveedor($direccion_proveedor) {
+        $this->direccion_proveedor = $direccion_proveedor;
     }
 
     public function save(){
-        $query="INSERT INTO proveedor (id_proveedor,id_material,rut_proveedor,nombre_proveedor,contacto)
-                VALUES('".$this->id_proveedor."',
-                       '".$this->id_material."',
+        $query="INSERT INTO proveedor (rut_proveedor,nombre_proveedor,direccion_proveedor)
+                VALUES(
                        '".$this->rut_proveedor."',
                        '".$this->nombre_proveedor."',
-                       '".$this->contacto."');";
+                       '".$this->direccion_proveedor."');";
         $save=$this->db()->query($query);
         $this->db()->error;
         return $save;

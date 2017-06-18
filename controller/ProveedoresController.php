@@ -41,11 +41,9 @@ class ProveedoresController extends ControladorBase{
             
             //Creamos un usuario
             $Proveedor=new Proveedor($this->adapter);
-            $Proveedor->setId_proveedor($_POST["idProveedor"]); 
-            $Proveedor->setId_material($_POST["idMaterial"]); 
             $Proveedor->setRut_proveedor($_POST["rutProveedor"]); 
             $Proveedor->setNombre_proveedor($_POST["nombreProveedor"]); 
-            $Proveedor->setContacto($_POST["contacto"]); 
+            $Proveedor->setDireccion_Proveedor($_POST["direccionProveedor"]);
             $save=$Proveedor->save();
         }
         $this->redirect("Proveedores", "index");
