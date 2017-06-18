@@ -27,22 +27,16 @@
                     alert("Debe seleccionar un usuario");                  
                 }else{
                     ventana = confirm("¿Esta seguro que desea actualizar el registro?");
-                    if (ventana) {                      
+                    if (ventana) {     
                         window.location.href="<?php echo $helper->url("usuarios", "actualizar"); ?>&id="+id;            
                     }
                 }
             }
-            function clearjQueryCache(){
-                for (var x in jQuery.cache){
-                    delete jQuery.cache[x];
-                }
-            }
             function actualiza(){
-                var valida = <?php echo intval(isset($_GET['id']))?>;  
-                clearjQueryCache();
-                if(valida=='1'){
-                  
-                    $("#modEditar").click();               
+                var valida = <?php echo intval(isset($_GET['id']))?>;            
+                if(valida=='1'){   
+                    setTimeout(function(){ $("#modEditar").click(); }, 1000);
+                                   
                     return true;
                 }else{
                     return false;
@@ -76,6 +70,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
+            height: 50%;
             transform: translateX(-50%) translateY(-50%);
             }
         </style>
@@ -146,10 +141,7 @@
                    <a data-toggle="modal" id="modEditar" href="#ModalEditar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
               </div>
             <div>                  
-                <input type="hidden" value="sinValor" id="valorRadio" name="valorRadio">
-                <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
-                <a href="#" title="Remover" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-remove"></a>
-                <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a>      
+                <input type="hidden" value="sinValor" id="valorRadio" name="valorRadio">              
             </div>
         </div>
     </center>

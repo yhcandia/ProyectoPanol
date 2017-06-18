@@ -68,10 +68,14 @@
                             </tbody>
                         </table>               
 		<div class="table-pagination pull-right">
-			<?php echo paginate($reload, $page, $total_pages, $adjacents);?>             
-		</div>
-                          
-                      </div>                 
+			<?php echo paginate($reload, $page, $total_pages, $adjacents);?>  
+		</div>     
+                      </div>    
+                <div class=" pull-left">
+                    <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
+                    <a href="#" title="Remover" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-remove"></a>
+                    <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a>      
+                </div>
                 </div>
 			<?php
 			
