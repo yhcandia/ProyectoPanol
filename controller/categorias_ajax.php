@@ -16,12 +16,12 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
-		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM rol ");
+		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM categoria ");
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 		$total_pages = ceil($numrows/$per_page);
-		$reload = 'rolView.php';
+		$reload = 'categoriaView.php';
 		//consulta principal para recuperar los datos
-		$query = mysqli_query($con,"SELECT * FROM rol LIMIT $offset,$per_page");
+		$query = mysqli_query($con,"SELECT * FROM categoria LIMIT $offset,$per_page");
 		
 		if ($numrows>0){
 			?>
@@ -36,15 +36,17 @@
                       });
                 </script>
                 <div class="panel panel-default col-md-8 center-block">
-                    <div class="panel-body ">Roles en el sistema</div>
+                    <div class="panel-body ">Categorias en el sistema</div>
                       <div class="panel-footer">   
                         <table class="table">
                     
                             <thead>
 				<th></th>
-                                <th>Id Rol</th>
+                                <th>Id Categoria</th>
+                                <th>Id Pañol</th>
                                 <th>Nombre</th>
-                                <th>Estado del rol</th>
+                                <th>Estado</th>
+                                <th>Desechable</th>
                                 <th></th>
                             </thead>
                             <tbody>                          
@@ -53,14 +55,21 @@
                                     ?>                                 
                                     <tr>
                                             <td><span class="glyphicon glyphicon-user"></span></td>
-                                            <td><?php echo $row['id_rol'];?></td>                                           
-                                            <td><?php echo $row['nombre_rol'];?></td>                                                                                 
-                                            <?php if ($row['estado_rol']==1){?>
+                                            <td><?php echo $row['id_categoria'];?></td>                                           
+                                            <td><?php echo $row['id_panol'];?></td>                                           
+                                            <td><?php echo $row['nombre_categoria'];?></td>                                           
+                                            <?php if ($row['estado_categoria']==1){?>
                                             <td><?php echo "ACTIVO";?></td>
                                             <?php }else{?>
                                             <td><?php echo "INACTIVO";?></td>
                                             <?php } ?>
-                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_rol'];?>" /></td>
+                                            
+                                            <?php if ($row['desechable']==1){?>
+                                            <td><?php echo "NO";?></td>
+                                            <?php }else{?>
+                                            <td><?php echo "SI";?></td>
+                                            <?php } ?>
+                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_categoria'];?>" /></td>
                                     </tr>                                 
                                    <?php
                             }
@@ -83,7 +92,7 @@
 			?>
 			<div class="alert alert-warning alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h4>Aviso!!!</h4> No hay datos para mostrarr<br>
+              <h4>Aviso!!!</h4> No hay datos para mostrar<br>
               <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
             </div>
 			<?php

@@ -52,6 +52,15 @@ class EntidadBase{
         
         return $resultSet;
     }
+    public function getByIdCat($id){
+        $query=$this->db->query("SELECT * FROM $this->table WHERE id_categoria=$id");
+
+        if($row = $query->fetch_object()) {
+           $resultSet=$row;
+        }
+        
+        return $resultSet;
+    }
     public function getByRut($id){
         $query=$this->db->query("SELECT * FROM usuarios WHERE rut_usuario='$id'");
 
@@ -76,13 +85,17 @@ class EntidadBase{
         $query=$this->db->query("DELETE FROM $this->table WHERE id='$id'"); 
         return $query;
     }
+    public function deleteByIdCat($id){
+        $query=$this->db->query("UPDATE $this->table SET estado_categoria='0' WHERE id_categoria='$id'"); 
+        return $query;
+    }
     public function deleteByIdRol($id){
-        $query=$this->db->query("DELETE FROM $this->table WHERE id_rol='$id'"); 
+        $query=$this->db->query("UPDATE $this->table SET estado_rol='0' WHERE id_rol='$id'"); 
         return $query;
     }
     
     public function deleteByRut($id){
-        $query=$this->db->query("DELETE FROM $this->table WHERE rut_usuario='$id'"); 
+        $query=$this->db->query("UPDATE $this->table SET estado_usuario='0' WHERE rut_usuario='$id'"); 
         return $query;
     }
     

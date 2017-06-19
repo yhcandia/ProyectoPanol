@@ -106,7 +106,11 @@
 
                                         <div class="form-group"><label>Rut: </label> <input type="text" class="form-control" name="rutUsuario"/></div>
                                         <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreUsuario"/></div>
-                                        <div class="form-group"><label>estadoUsuario: </label><input type="number" class="form-control" name="estadoUsuario"/></div>
+                                        <div class="form-group"><label>Estado: </label>
+                                                        <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
+                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                    </select></div>
                                         <div class="form-group"><label>emailUsuario: </label><input type="text" class="form-control" name="emailUsuario"/></div>
                                         <div class="form-group"><label>idRol: </label><input type="number" class="form-control" name="idRol"/></div>
                                         <div class="form-group"><label>Contraseña: </label><input type="password" class="form-control" name="password"/></div>
@@ -133,7 +137,11 @@
                                         <div class="form-group"><input type="hidden" name="rut" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
                                         <div class="form-group"><label>Rut:</label> <input type="text" name="rutUsuario" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
                                         <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>estado Usuario:</label> <input type="number" name="estadoUsuario" value="<?php echo $usuario->estado_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Estado: </label>
+                                                        <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
+                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                    </select></div>
                                         <div class="form-group"><label>emailUsuario:</label> <input type="text" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>idRol:</label> <input type="number" name="idRol" value="<?php echo $usuario->id_rol ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Contraseña:</label> <input type="password" name="password" value="<?php echo $usuario->password_usuario ?>" class="form-control"/></div>

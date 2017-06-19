@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
-        <title>Mantenedor Categorias</title>
+        <title>Mantenedor Categoria</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -104,13 +104,19 @@
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("categorias", "crear"); ?>">
 
-                                        <div class="form-group"><label>Nombre categoria: </label> <input type="text" class="form-control" name="nombreRol"/></div>
+                                        <div class="form-group"><label>Nombre categoria: </label> <input type="text" class="form-control" name="nombreCategoria"/></div>
                                         <div class="form-group"><label>Desechable: </label>
                                                         <select name="desechable" class="form-control" name="desechable"/>
                                                         <option  class="form-control" value="0"> Desechable </option>
                                                         <option  class="form-control" value="1"> Retornable </option>
-                                                    </select>
-                                            <input type="number" </div>
+                                                        </select></div>
+                                        <div class="form-group"><label>Estado: </label>
+                                                        <select name="estadoCategoria" class="form-control" name="estadoCategoria"/>
+                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                    </select></div>
+                                            <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" name="idPanol"/></div>
+                                            
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>
@@ -130,10 +136,21 @@
                                     <h4 class="modal-title">Editar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" action="<?php echo $helper->url("roles","update"); ?>" method="post">
-                                        <div class="form-group"><input type="hidden" name="idRol" value="<?php echo $rol->id_rol ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre del rol:</label> <input type="text" name="nombreRol" value="<?php echo $rol->nombre_rol ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Estado del rol:</label> <input type="number" name="estadoRol" value="<?php echo $rol->estado_rol ?>" class="form-control"/></div>
+                                    <form role="form" action="<?php echo $helper->url("categorias","update"); ?>" method="post">
+                                        <div class="form-group"><input type="hidden" name="idCategoria" value="<?php echo $categoria->id_categoria ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Nombre categoria</label> <input type="text" name="nombreCategoria" value="<?php echo $categoria->nombre_categoria ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Desechable: </label>
+                                                        <select name="desechable" class="form-control" />
+                                                        <option  class="form-control" value="0"> Desechable </option>
+                                                        <option  class="form-control" value="1"> Retornable </option>
+                                                        </select></div>
+                                        <div class="form-group"><label>Estado: </label>
+                                                        <select name="estadoCategoria" class="form-control"/>
+                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                    </select></div>
+                                        <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" value="<?php echo $categoria->id_panol ?>"name="idPanol"/></div>
+
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>

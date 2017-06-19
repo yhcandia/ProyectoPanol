@@ -38,9 +38,48 @@ class CategoriasController extends ControladorBase{
             $Categoria->setId_panol($_POST["idPanol"]); 
             $Categoria->setNombreCategoria($_POST["nombreCategoria"]); 
             $Categoria->setDesechable($_POST["desechable"]); 
+            $Categoria->setEstadoCategoria($_POST["estadoCategoria"]); 
             $save=$Categoria->save();
         }
         $this->redirect("Categorias", "index");
+    }
+    
+    public function borrar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];
+            
+            
+            $categoria=new Categoria($this->adapter);
+            $categoria->deleteByIdCat($id); 
+        }
+        $this->redirect("Categorias", "index");
+    }
+    
+    public function update(){
+        if(isset($_POST["idCategoria"])){
+            
+            //Creamos un usuario
+            $id=$_POST["idCategoria"];
+            $categoria=new Categoria($this->adapter);
+            $categoria->setNombreCategoria($_POST["nombreCategoria"]);
+            $categoria->setEstadoCategoria($_POST["estadoCategoria"]);
+            $categoria->setId_panol($_POST["idPanol"]);
+            $categoria->setDesechable($_POST["desechable"]);
+            $save=$categoria->update($id);
+        }
+        $this->redirect("Categorias", "index");
+    }
+    
+    
+    public function actualizar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];            
+            $categoria=new Categoria($this->adapter);
+            $datos['categoria'] = $categoria->getByIdCat($id); 
+            //$datos['actualizar'] = $categoria->getId_categoria($id); 
+            $this->view("categoria",$datos);
+        }
+        
     }
 
 }

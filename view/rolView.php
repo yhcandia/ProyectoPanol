@@ -105,7 +105,11 @@
                                     <form role="form" method="post" action="<?php echo $helper->url("roles", "crear"); ?>">
 
                                         <div class="form-group"><label>Nombre rol: </label> <input type="text" class="form-control" name="nombreRol"/></div>
-                                        <div class="form-group"><label>Estado: </label> <input type="number" class="form-control" name="estadoRol"/></div>
+                                        <div class="form-group"><label>Estado: </label>
+                                                        <select name="estadoRol" class="form-control" name="estadoRol"/>
+                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                    </select></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>
@@ -128,7 +132,11 @@
                                     <form role="form" action="<?php echo $helper->url("roles","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="idRol" value="<?php echo $rol->id_rol ?>"    class="form-control"/></div>
                                         <div class="form-group"><label>Nombre del rol:</label> <input type="text" name="nombreRol" value="<?php echo $rol->nombre_rol ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Estado del rol:</label> <input type="number" name="estadoRol" value="<?php echo $rol->estado_rol ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Estado: </label>
+                                                        <select name="estadoRol" class="form-control" name="estadoRol"/>
+                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                    </select></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
