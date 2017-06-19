@@ -14,7 +14,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un usuario");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea eliminar el registro?");
+                    ventana = confirm("¿Esta seguro que desea activar/desactivar el usuario seleccionado?");
                     if (ventana) {
                         window.location.href="<?php echo $helper->url("usuarios", "borrar"); ?>&id="+id;
                     }
@@ -26,7 +26,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un usuario");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea actualizar el registro?");
+                    ventana = confirm("¿Esta seguro que desea actualizar el usuario seleccionado?");
                     if (ventana) {     
                         window.location.href="<?php echo $helper->url("usuarios", "actualizar"); ?>&id="+id;            
                     }
@@ -35,7 +35,7 @@
             function actualiza(){
                 var valida = <?php echo intval(isset($_GET['id']))?>;            
                 if(valida=='1'){   
-                    setTimeout(function(){ $("#modEditar").click(); }, 0);
+                    setTimeout(function(){ $("#modEditar").click(); }, 1000);
                                    
                     return true;
                 }else{

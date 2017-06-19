@@ -95,6 +95,7 @@ class EntidadBase{
     }
     
     public function deleteByRut($id){
+        
         $query=$this->db->query("UPDATE $this->table SET estado_usuario='0' WHERE rut_usuario='$id'"); 
         return $query;
     }

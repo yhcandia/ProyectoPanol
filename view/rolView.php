@@ -35,7 +35,7 @@
             function actualiza(){
                 var valida = <?php echo intval(isset($_GET['id']))?>;            
                 if(valida=='1'){   
-                    setTimeout(function(){ $("#modEditar").click(); }, 0);
+                    setTimeout(function(){ $("#modEditar").click(); }, 1000);
                                    
                     return true;
                 }else{

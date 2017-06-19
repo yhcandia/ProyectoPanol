@@ -54,7 +54,7 @@
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
                                     <tr>
-                                            <td><span class="glyphicon glyphicon-user"></span></td>
+                                            <td><span class="glyphicon glyphicon-book"></span></td>
                                             <td><?php echo $row['id_categoria'];?></td>                                           
                                             <td><?php echo $row['id_panol'];?></td>                                           
                                             <td><?php echo $row['nombre_categoria'];?></td>                                           
@@ -82,7 +82,7 @@
                       </div>    
                     <div class="pull-left" style="bottom:20px;position: absolute;">
                     <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
-                    <a href="#" title="Remover" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-remove"></a>
+                    <a href="#" title="Desactivar" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a>      
                 </div>
                 </div>
