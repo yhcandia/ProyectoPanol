@@ -1,3 +1,4 @@
+
 <?php
 //Configuración global
 require_once 'config/global.php';
@@ -18,3 +19,8 @@ if(isset($_GET["controller"])){
     lanzarAccion($controllerObj);
 }
 ?>
+<html>
+    <body bgcolor="#002c55">
+        
+    </body>
+</html>

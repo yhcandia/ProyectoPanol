@@ -67,17 +67,29 @@
 	</script>  
         <style>
             .container .panel {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 50%;
-            transform: translateX(-50%) translateY(-50%);
+                position: absolute;
+                top: 250%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .principal{
+                position:relative;
+            }
+            footer {
+                padding-top:10px;
+                width:100%;
+                top: 520%;
+                height:60px;
+                position:absolute;
+                bottom:0;
+                border-top: solid 5px #FAAF3A;
             }
         </style>
     </head>
-    <body onload="actualiza()">
+    <body style="background-color:#012C56;" onload="actualiza()">
     <center>
-        <div class="container">
+        <div class="principal">
+        <div class="container" style="padding-bottom:100px;">           
             <div class="row">
                 <div class="col-md-12">
                     <div class="modal fade" id="ModalAgregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -144,7 +156,8 @@
                 <input type="hidden" value="sinValor" id="valorRadio" name="valorRadio">              
             </div>
         </div>
+            <footer><center><img src="view/img/logo.png" alt="Duoc Uc"/><center></footer>
+        </div>
     </center>
-
-</body>
+    </body>
 </html>
