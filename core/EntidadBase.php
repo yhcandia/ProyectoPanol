@@ -43,6 +43,15 @@ class EntidadBase{
         
         return $resultSet;
     }
+    public function getByIdRol($id){
+        $query=$this->db->query("SELECT * FROM $this->table WHERE id_rol=$id");
+
+        if($row = $query->fetch_object()) {
+           $resultSet=$row;
+        }
+        
+        return $resultSet;
+    }
     public function getByRut($id){
         $query=$this->db->query("SELECT * FROM usuarios WHERE rut_usuario='$id'");
 
@@ -65,6 +74,10 @@ class EntidadBase{
     
     public function deleteById($id){
         $query=$this->db->query("DELETE FROM $this->table WHERE id='$id'"); 
+        return $query;
+    }
+    public function deleteByIdRol($id){
+        $query=$this->db->query("DELETE FROM $this->table WHERE id_rol='$id'"); 
         return $query;
     }
     

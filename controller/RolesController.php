@@ -34,15 +34,51 @@ class RolesController extends ControladorBase{
         ));
     }
     
+    public function borrar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];
+            
+            
+            $rol=new Rol($this->adapter);
+            $rol->deleteByIdRol($id); 
+        }
+        $this->redirect("Roles", "index");
+    }
+    
     public function crear(){
         if(isset($_POST["nombreRol"])){
             
             //Creamos un usuario
             $Rol=new Rol($this->adapter);
             $Rol->setNombreRol($_POST["nombreRol"]); 
-            $Rol->setIdRol($_POST["nombreRol"]); 
+            $Rol->setEstadoRol($_POST["estadoRol"]); 
             $save=$Rol->save();
         }
         $this->redirect("Roles", "index");
+    }
+    
+    public function update(){
+        if(isset($_POST["idRol"])){
+            
+            //Creamos un usuario
+            $id=$_POST["idRol"];
+            $rol=new Rol($this->adapter);
+            $rol->setNombreRol($_POST["nombreRol"]);
+            $rol->setEstadoRol($_POST["estadoRol"]);
+            $save=$rol->update($id);
+        }
+        $this->redirect("Roles", "index");
+    }
+    
+    
+    public function actualizar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];            
+            $rol=new Rol($this->adapter);
+            $datos['rol'] = $rol->getByIdRol($id); 
+            $datos['actualizar'] = $rol->getIdRol($id); 
+            $this->view("rol",$datos);
+        }
+        
     }
 }
