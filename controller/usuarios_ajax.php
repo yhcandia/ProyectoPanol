@@ -7,6 +7,7 @@
     if (@mysqli_connect_errno()) {
         die("Connect failed: ".mysqli_connect_errno()." : ". mysqli_connect_error());
     }
+    $con->query("SET NAMES utf8");
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if($action == 'ajax'){
 		include 'paginador.php'; //incluir el archivo de paginación
