@@ -1,6 +1,8 @@
 <?php
     # conectare la base de datos
     $db_cfg = require_once '../config/database.php';
+    
+    //include '../view/listas/mostrarMateriales.php';
     $con=@mysqli_connect($db_cfg["host"],$db_cfg["user"], $db_cfg["pass"], $db_cfg["database"]);
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
@@ -47,7 +49,7 @@
                             <thead>
 				<th></th>
                                 <th>Id Prestamo</th>
-                                <th>Rut Usuario</th>
+                                <th>Nombre Solicitante</th>
                                 <th>Material</th>
                                 <th>Cantidad</th>
                                 <th>Fecha prestamo</th>
@@ -62,9 +64,33 @@
                                     ?>                                 
                                     <tr>
                                             <td><span class="glyphicon glyphicon-book"></span></td>
-                                            <td><?php echo $row['id_prestamo'];?></td>                                           
-                                            <td><?php echo $row['rut_usuario'];?></td>                                           
-                                            <td><?php echo $row['id_material'];?></td>                                           
+                                            <td><?php echo $row['id_prestamo'];?></td>
+                                            <?php
+                                            $usuarios=include ('../view/listas/mostrarUsuarios.php');
+                                            while ($row2 = mysqli_fetch_row($usuarios)) {
+                                                ?>
+                                            <?php if ($row2[0]==$row['rut_usuario']) {
+                                                ?>
+                                            <td><?php echo $row2[2];?></td>
+                                            <?php } ?>
+
+                                                <?php
+                                            }
+                                            ?>
+                                            
+                                            <?php
+                                            $materiales=include ('../view/listas/mostrarMateriales.php');
+                                            while ($row2 = mysqli_fetch_row($materiales)) {
+                                                ?>
+                                            <?php if ($row2[0]==$row['id_material']) {
+                                                ?>
+                                            <td><?php echo $row2[2];?></td>
+                                            <?php } ?>
+
+                                                <?php
+                                            }
+                                            ?>
+                                                                            
                                             <td><?php echo $row['cantidad'];?></td>                                           
                                             <td><?php echo $row['fecha_prestamo'];?></td>                                           
                                             <td><?php echo $row['fecha_limite'];?></td>                                           

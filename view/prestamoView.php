@@ -109,17 +109,17 @@
                                     
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" method="post" action="<?php echo $helper->url("categorias", "crear"); ?>">
+                                    <form role="form" method="post" action="<?php echo $helper->url("prestamos", "crear"); ?>">
                                         <?php
                                        
                                         ?>    
-                                        <div class="form-group"><label>Seleccione usuario: </label>
+                                        <div class="form-group"><label>Seleccione solicitante: </label>
                                           
                                         <select class="form-control" name="rutUsuario">
 					
 		
                                             <?php
-                                            $materiales = include('listas/mostrar.php');
+                                            $usuarios = include('listas/mostrarUsuarios.php');
                                             while ($row = mysqli_fetch_row($usuarios)) {
                                                 ?>
 
