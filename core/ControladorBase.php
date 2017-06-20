@@ -21,7 +21,7 @@ class ControladorBase{
         
         require_once 'core/AyudaVistas.php';
         $helper=new AyudaVistas();
-    
+        
         require_once 'view/'.$vista.'View.php';
     }
     

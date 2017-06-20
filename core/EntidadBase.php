@@ -30,8 +30,11 @@ class EntidadBase{
         while ($row = $query->fetch_object()) {
            $resultSet[]=$row;
         }
-        
+        if($resultSet=null){
+            return null;
+        }
         return $resultSet;
+        
     }
     
     public function getById($id){

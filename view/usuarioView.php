@@ -78,7 +78,7 @@
             footer {
                 padding-top:10px;
                 width:100%;
-                top: 520%;
+                top: 580%;
                 height:60px;
                 position:absolute;
                 bottom:0;

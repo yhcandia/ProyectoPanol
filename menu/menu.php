@@ -19,11 +19,13 @@
           <nav>
             <ul>
                 <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                <li><a href="./index.php?controller=prestamo"><span class="glyphicon glyphicon-transfer"></span>Prestamo</a></li>
                 <li><a href="./index.php?controller=usuarios"><span class="icon-users"></span>Usuarios</a></li>
-                <li><a href="./index.php?controller=categorias"><span class="glyphicon glyphicon-book"></span>Categorias</a></li>
                 <li><a href="./index.php?controller=roles"><span class="icon-users"></span>Roles</a></li>
                 <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
+                <li><a href="./index.php?controller=categorias"><span class="glyphicon glyphicon-book"></span>Categorias</a></li>
                 <li><a href="./index.php?controller=proveedores"><span class="icon-users"></span>Proveedores</a></li>
+                <li><a href="./index.php?controller=panol"><span class="glyphicon glyphicon-home"></span>Pañol</a></li>
                 <li><a href="./exit.php"><span class="icon-enter"></span>Salir</a></li>
             </ul>
         </nav>

@@ -10,6 +10,11 @@ class UsuariosController extends ControladorBase{
         $this->adapter=$this->conectar->conexion();
     }
     
+    public function getAdapter(){
+     return $this->adapter;
+    }
+
+
     public function index(){
         
         //Creamos el objeto usuario
@@ -77,7 +82,7 @@ class UsuariosController extends ControladorBase{
             $id=$_GET["id"];            
             $usuario=new Usuario($this->adapter);
             $datos['usuario'] = $usuario->getByRut($id); 
-            $datos['actualizar'] = $usuario->getByRut($id); 
+//            $datos['actualizar'] = $usuario->getByRut($id); 
             $this->view("usuario",$datos);
         }
         
