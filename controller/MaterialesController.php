@@ -42,16 +42,50 @@ class MaterialesController extends ControladorBase{
     public function crear(){
         if(isset($_POST["nombreMaterial"])){
             
-            //Creamos un usuario
             $Material=new Material($this->adapter);
             $Material->setIdCategoria($_POST["idCategoria"]); 
-            $Material->setIdMaterial($_POST["idCategoria"]); 
-            $Material->setIdProveedor($_POST["idProveedor"]); 
             $Material->setNombreMaterial($_POST["nombreMaterial"]); 
-            $Material->setImagen($_POST["nombreMaterial"]); 
+            $Material->setEstadoMaterial($_POST["estadoMaterial"]);
+            $Material->setStock($_POST["stock"]); 
             
             $save=$Material->save();
         }
         $this->redirect("Materiales", "index");
+    }
+    
+    public function update(){
+        if(isset($_POST["id"])){
+            
+            //Creamos un prov
+            $id=$_POST["id"];
+            $material=new Material($this->adapter);
+            $material->setIdCategoria($_POST["idCategoria"]);
+            $material->setNombreMaterial($_POST["nombreMaterial"]);
+            $material->setEstadoMaterial($_POST["estadoMaterial"]);
+            $material->setStock($_POST["stock"]);
+            $save=$material->update($id);
+        }
+        $this->redirect("Materiales", "index");
+    }
+    
+    public function borrar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];
+            
+            
+            $material=new Material($this->adapter);
+            $material->deleteById($id); 
+        }
+        $this->redirect("Materiales", "index");
+    }    
+    
+    public function actualizar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];            
+            $proveedor=new Proveedor($this->adapter);
+            $datos['proveedor'] = $proveedor->getByRutProveedor($id); 
+            $this->view("proveedor",$datos);
+        }
+        
     }
 }

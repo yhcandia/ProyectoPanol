@@ -7,15 +7,16 @@
 class Material extends EntidadBase{
     private $idMaterial;
     private $idCategoria;
-    private $idProveedor;
     private $nombreMaterial;
+    private $estadoMaterial;
+    private $stock;
     private $imagen;
     
     public function __construct($adapter) {
         $table="material";
         parent::__construct($table, $adapter);
     }
-    
+
     function getIdMaterial() {
         return $this->idMaterial;
     }
@@ -24,12 +25,16 @@ class Material extends EntidadBase{
         return $this->idCategoria;
     }
 
-    function getIdProveedor() {
-        return $this->idProveedor;
-    }
-
     function getNombreMaterial() {
         return $this->nombreMaterial;
+    }
+
+    function getEstadoMaterial() {
+        return $this->estadoMaterial;
+    }
+
+    function getStock() {
+        return $this->stock;
     }
 
     function getImagen() {
@@ -44,27 +49,42 @@ class Material extends EntidadBase{
         $this->idCategoria = $idCategoria;
     }
 
-    function setIdProveedor($idProveedor) {
-        $this->idProveedor = $idProveedor;
-    }
-
     function setNombreMaterial($nombreMaterial) {
         $this->nombreMaterial = $nombreMaterial;
+    }
+
+    function setEstadoMaterial($estadoMaterial) {
+        $this->estadoMaterial = $estadoMaterial;
+    }
+
+    function setStock($stock) {
+        $this->stock = $stock;
     }
 
     function setImagen($imagen) {
         $this->imagen = $imagen;
     }
+    
+    public function update($id){
+        $query="UPDATE material SET id_categoria= '$this->idCategoria',"
+                . "nombre_material = '$this->nombreMaterial',"
+                . "estado_material = '$this->estadoMaterial',"
+                . "stock = '$this->stockt',"
+                . "imagen='$this->imagen' where id_material= '$id'";
+        $update=$this->db()->query($query);
+        $this->db()->error;
+        return $update;
+    }
 
     public function save(){
-        $query="INSERT INTO material (id_material,id_categoria,id_proveedor,nombre_material,imagen)
-                VALUES('".NULL."',
-                       '".$this->idCategoria."',
-                       '".$this->idProveedor."',
+        $query="INSERT INTO material (id_categoria,nombre_material,estado_material,stock)
+                VALUES('".$this->idCategoria."',
                        '".$this->nombreMaterial."',
-                       '".$this->nombreMaterial."');";
+                       '".$this->estadoMaterial."',
+                       '".$this->stock."'');";
+        
         $save=$this->db()->query($query);
-        //$this->db()->error;
+        $this->db()->error;
         return $save;
     }
 
