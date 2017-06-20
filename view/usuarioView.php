@@ -9,6 +9,7 @@
         <title>.: USUARIOS :.</title>
         <style>
         </style>
+        <script type="text/javascript" src="js/validarut.js"></script>
         <script language="javascript" type="text/javascript">
             function confirmarRemover(id) {
                 if(id=='sinValor'){
@@ -102,17 +103,29 @@
                                     <h4 class="modal-title">Agregar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" method="post" action="<?php echo $helper->url("usuarios", "crear"); ?>">
+                                    <form role="form" name="form1" method="post" action="<?php echo $helper->url("usuarios", "crear"); ?>" onsubmit="javascript:return Rut(document.form1.rut.value)">
 
-                                        <div class="form-group"><label>Rut: </label> <input type="text" class="form-control" name="rutUsuario"/></div>
+                                        <div class="form-group"><label>Rut: </label> <input type="text" name="rut" class="form-control" /></div>
                                         <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreUsuario"/></div>
                                         <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
+                                                        <select name="estadoUsuario" class="form-control"/>
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                        <div class="form-group"><label>emailUsuario: </label><input type="text" class="form-control" name="emailUsuario"/></div>
-                                        <div class="form-group"><label>idRol: </label><input type="number" class="form-control" name="idRol"/></div>
+                                        <div class="form-group"><label>emailUsuario: </label><input type="email" class="form-control" name="emailUsuario"/></div>
+                                        <div class="form-group"><label>Rol: </label>
+                                            <select name="idRol" class="form-control"/>                                           
+                                            <?php
+                                            $roles = include('listas/mostrarRoles.php');
+                                            while ($row = mysqli_fetch_row($roles)) {
+                                                ?>
+
+                                                <option value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
+
+                                                <?php
+                                            }
+                                            ?>
+                                            </select></div>                                   
                                         <div class="form-group"><label>Contraseña: </label><input type="password" class="form-control" name="password"/></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
