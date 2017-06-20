@@ -23,6 +23,7 @@
                         if($_SESSION['session']['idRol'] == "1"){                   
                             ?>    
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                            <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Prestamo</a></li>
                             <li><a href="./index.php?controller=usuarios"><span class="icon-users"></span>Usuarios</a></li>
                             <li><a href="./index.php?controller=categorias"><span class="glyphicon glyphicon-book"></span>Categorias</a></li>
                             <li><a href="./index.php?controller=roles"><span class="icon-users"></span>Roles</a></li>
