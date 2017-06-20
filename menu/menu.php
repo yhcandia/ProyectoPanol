@@ -33,8 +33,10 @@
                         if($_SESSION['session']['idRol'] == "2"){                   
                             ?>    
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                            <li><a href="./index.php?controller=proveedores"><span class="icon-users"></span>Proveedores</a></li>
                             <li><a href="./index.php?controller=categorias"><span class="glyphicon glyphicon-book"></span>Categorias</a></li>
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
+                            <li><a href="./index.php?controller=panol"><span class="glyphicon glyphicon-home"></span>Pañol</a></li>
                             <?php
                         } 
                             
