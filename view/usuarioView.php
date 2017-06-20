@@ -152,8 +152,15 @@
                                         <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
-                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <?php if ($usuario->estado_usuario == 1) {?>
+                                                        <option  class="form-control" value="1" selected> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
+                                                        <?php } 
+                                                        
+                                                        if ($usuario->estado_usuario == 0) {?>
+                                                        <option  class="form-control" value="1" > Activo </option>
+                                                        <option  class="form-control" value="0" selected> Desactivado </option>
+                                                        <?php } ?>
                                                     </select></div>
                                         <div class="form-group"><label>emailUsuario:</label> <input type="text" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>idRol:</label> <input type="number" name="idRol" value="<?php echo $usuario->id_rol ?>" class="form-control"/></div>

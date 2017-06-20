@@ -134,8 +134,15 @@
                                         <div class="form-group"><label>Nombre del rol:</label> <input type="text" name="nombreRol" value="<?php echo $rol->nombre_rol ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoRol" class="form-control" name="estadoRol"/>
-                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <?php if ($rol->estado_rol == 1) {?>
+                                                        <option  class="form-control" value="1" selected> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
+                                                        <?php } 
+                                                        
+                                                        if ($rol->estado_rol == 0) {?>
+                                                        <option  class="form-control" value="1" > Activo </option>
+                                                        <option  class="form-control" value="0" selected> Desactivado </option>
+                                                        <?php } ?>
                                                     </select></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>

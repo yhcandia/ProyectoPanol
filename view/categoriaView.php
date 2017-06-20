@@ -146,8 +146,15 @@
                                                         </select></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoCategoria" class="form-control"/>
-                                                        <option  class="form-control" value="1"> Activo </option>
+                                                        <?php if ($categoria->estado_categoria == 1) {?>
+                                                        <option  class="form-control" value="1" selected> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
+                                                        <?php } 
+                                                        
+                                                        if ($categoria->estado_categoria == 0) {?>
+                                                        <option  class="form-control" value="1" > Activo </option>
+                                                        <option  class="form-control" value="0" selected> Desactivado </option>
+                                                        <?php } ?>
                                                     </select></div>
                                         <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" value="<?php echo $categoria->id_panol ?>"name="idPanol"/></div>
 

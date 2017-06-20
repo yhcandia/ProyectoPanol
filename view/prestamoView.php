@@ -191,8 +191,33 @@
                                                         </select></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoCategoria" class="form-control"/>
-                                                        <option  class="form-control" value="1"> Activo </option>
-                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                        <?php if ($categoria->estado_prestamo == 0) {?>
+                                                        <option  class="form-control" value="0" selected> Desactivado </option>
+                                                        <option  class="form-control" value="1"> Recibido </option>
+                                                        <option  class="form-control" value="2"> Pendiente </option>
+                                                        <option  class="form-control" value="3"> Por Confirmar </option>
+                                                        <?php } 
+                                                        
+                                                        if ($categoria->estado_prestamo == 1) {?>
+                                                        <option  class="form-control" value="0" > Desactivado </option>
+                                                        <option  class="form-control" value="1" selected> Recibido </option>
+                                                        <option  class="form-control" value="2"> Pendiente </option>
+                                                        <option  class="form-control" value="3"> Por Confirmar </option>
+                                                        <?php }
+                                                        
+                                                        if ($categoria->estado_prestamo == 2) {?>
+                                                        <option  class="form-control" value="0" > Desactivado </option>
+                                                        <option  class="form-control" value="1" > Recibido </option>
+                                                        <option  class="form-control" value="2" selected> Pendiente </option>
+                                                        <option  class="form-control" value="3"> Por Confirmar </option>
+                                                        <?php }
+                                                        
+                                                        if ($categoria->estado_prestamo == 3) {?>
+                                                        <option  class="form-control" value="0" > Desactivado </option>
+                                                        <option  class="form-control" value="1" > Recibido </option>
+                                                        <option  class="form-control" value="2" > Pendiente </option>
+                                                        <option  class="form-control" value="3" selected> Por Confirmar </option>
+                                                        <?php }?>
                                                     </select></div>
                                         <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" value="<?php echo $categoria->id_panol ?>"name="idPanol"/></div>
 
