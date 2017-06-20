@@ -74,6 +74,16 @@ class EntidadBase{
         return $resultSet;
     }
     
+    public function getByRutProveedor($id){
+        $query=$this->db->query("SELECT * FROM proveedor WHERE rut_proveedor='$id'");
+
+        if($row = $query->fetch_object()) {
+           $resultSet=$row;
+        }
+        
+        return $resultSet;
+    }
+    
     public function getBy($column,$value){
         $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
 
@@ -103,6 +113,10 @@ class EntidadBase{
         return $query;
     }
     
+    public function deleteProveedorByRut($id){
+       $query=$this->db->query("UPDATE $this->table SET estado_proveedor='0' WHERE rut_proveedor='$id'"); 
+        return $query;
+    }
     
     public function deleteBy($column,$value){
         $query=$this->db->query("DELETE FROM $this->table WHERE $column='$value'"); 
