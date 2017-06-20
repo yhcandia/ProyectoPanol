@@ -28,12 +28,39 @@ class UsuariosController extends ControladorBase{
        
         //Cargamos la vista index y le pasamos valores
         $this->view("usuario",array(
-            "allusers"=>$allusers,
-			
-            "Hola"    =>"Soy Víctor Robles"
+            "allusers"=>$allusers
         ));
     }
-    
+     public function login() {
+
+        if (isset($_REQUEST["nnombre"]) && isset($_REQUEST["npassword"])) {
+            $oUsu = new Usuario($this->adapter);
+            $oUsu->setRutUsuario($_REQUEST["nnombre"]);
+            $oUsu->setPassword($_REQUEST["npassword"]);
+            if ($oUsu->VerificaUsuarioClave()) {
+                //echo "Todo bien";
+                $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
+                $_SESSION["session"]["idRol"] = $oUsu->getIdRol();
+                $_SESSION["session"]["rutUsuario"] = $oUsu->getRutUsuario();
+                $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
+                $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
+                $this->redirect("Usuarios", "index");
+            } else {
+                $this->view("login", array(
+                    "error" => "El usuario o la clave es incorrecta"
+                ));
+            }
+        }else {
+               $this->view("login", array(
+                    "error" => ""
+                ));
+            }
+    }
+    public function logout(){
+        session_destroy();
+        $this->redirect("Usuarios", "index");
+        
+    }
     public function crear(){
         if(isset($_POST["rutUsuario"])){
             

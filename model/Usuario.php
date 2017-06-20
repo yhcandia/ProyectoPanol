@@ -11,7 +11,8 @@ class Usuario extends EntidadBase{
         $table="usuarios";
         parent::__construct($table, $adapter);
     }
-    
+  
+  
     function getRutUsuario() {
         return $this->rutUsuario;
     }
@@ -85,7 +86,23 @@ class Usuario extends EntidadBase{
         $this->db()->error;
         return $save;
     }
-    
+    function VerificaUsuarioClave(){
+        $sql="SELECT * FROM usuarios WHERE rut_usuario='$this->rutUsuario' and password_usuario='$this->password'";
+              
+        $resultado=  $this->db()->query($sql);
+               
+        if ($resultado->num_rows>=1){
+            $row = $resultado->fetch_row();
+            $this->rutUsuario = $row[0];
+            $this->idRol = $row[1];
+            $this->nombreUsuario=$row[2];
+            $this->emailUsuario = $row[3];
+            $this->estadoUsuario = $row[4];
+            return true;
+        }else{
+            return false;
+        }
+    }
     
 
 }
