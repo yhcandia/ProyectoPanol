@@ -36,6 +36,18 @@ class EntidadBase{
         return $resultSet;
         
     }
+    public function getAllUsers(){
+        $query=$this->db->query("SELECT * FROM usuarios");
+
+        while ($row = $query->fetch_object()) {
+           $resultSet[]=$row;
+        }
+        if($resultSet=null){
+            return null;
+        }
+        return $resultSet;
+        
+    }
     
     public function getById($id){
         $query=$this->db->query("SELECT * FROM $this->table WHERE id=$id");
