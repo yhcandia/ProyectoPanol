@@ -149,7 +149,7 @@
                                                         <?php } ?>
                                                         
                                                     </select></div>
-                                        <div class="form-group"><label>Stock:</label> <input type="text" name="stock" value="<?php echo $material->stock ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Stock:</label> <input type="text" name="stock" value="<?php echo $material->stock_material ?>" class="form-control"/></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>

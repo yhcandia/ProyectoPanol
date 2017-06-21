@@ -69,7 +69,7 @@ class Material extends EntidadBase{
         $query="UPDATE material SET id_categoria= '$this->idCategoria',"
                 . "nombre_material = '$this->nombreMaterial',"
                 . "estado_material = '$this->estadoMaterial',"
-                . "stock = '$this->stockt',"
+                . "stock_material = '$this->stock',"
                 . "imagen='$this->imagen' where id_material= '$id'";
         $update=$this->db()->query($query);
         $this->db()->error;
@@ -77,11 +77,11 @@ class Material extends EntidadBase{
     }
 
     public function save(){
-        $query="INSERT INTO material (id_categoria,nombre_material,estado_material,stock)
+        $query="INSERT INTO material (id_categoria,nombre_material,estado_material,stock_material)
                 VALUES('".$this->idCategoria."',
                        '".$this->nombreMaterial."',
                        '".$this->estadoMaterial."',
-                       '".$this->stock."'');";
+                       '".$this->stock."');";
         
         $save=$this->db()->query($query);
         $this->db()->error;

@@ -59,9 +59,16 @@
                                             <td><span class="glyphicon glyphicon-book"></span></td>
                                             <td><?php echo $row['id_material'];?></td>                                           
                                             <td><?php echo $row['id_categoria'];?></td>                                           
-                                            <td><?php echo $row['nombre_material'];?></td>                                           
-                                            <td><?php echo $row['estado_material'];?></td>                                           
-                                            <td><?php echo $row['stock'];?></td>                                           
+                                            <td><?php echo $row['nombre_material'];?></td>   
+                                            
+                                            <?php if($row['estado_material'] == 1)
+                                                echo "<td>ACTIVO</td>"; ?>
+                                            
+                                            <?php if($row['estado_material'] == 0)
+                                                
+                                                 echo "<td>DESACTIVADO</td>"; ?>
+                                            
+                                            <td><?php echo $row['stock_material'];?></td>                                           
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_material'];?>" /></td>
                                     </tr>                                 
                                    <?php
