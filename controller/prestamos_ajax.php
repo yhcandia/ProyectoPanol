@@ -26,7 +26,7 @@
 		$reload = 'prestamoView.php';
 		//consulta principal para recuperar los datos
 		$query = mysqli_query($con,"SELECT * FROM prestamo LIMIT $offset,$per_page");
-                $allusers = mysqli_query($con,"SELECT * FROM usuarios");
+                
 		
 		if ($numrows>0){
 			?>
@@ -58,7 +58,12 @@
                                 <th>Estado</th>
                                 <th></th>
                             </thead>
-                            <tbody>                          
+                            <tbody>
+                                
+                                
+                                
+                                
+                                
                             <?php
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
@@ -120,9 +125,16 @@
                       </div>    
                     <div class="pull-left" style="bottom:20px;position: absolute;">
                     <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
-                    <a href="#" title="Desactivar" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
-                    <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a>      
-                </div>
+                    <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a> 
+                    <?echo "        " ?>
+                    <a href="#" title="Marcar Recibido" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
+                    <a href="#" title="Marcar Pendiente" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
+                    <a href="#" title="Marcar Por confirmar" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-pushpin"></a>
+                    <a href="#" title="Marcar Desactivado" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
+                    </div>
+                    
+                    
+                    
                 </div>
 			<?php
 			

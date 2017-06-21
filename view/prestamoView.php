@@ -25,11 +25,11 @@
         <script language="javascript" type="text/javascript">
             function confirmarEditar(id) {
                 if(id=='sinValor'){
-                    alert("Debe seleccionar una categoria");                  
+                    alert("Debe seleccionar prestamo");                  
                 }else{
                     ventana = confirm("¿Esta seguro que desea actualizar el registro?");
                     if (ventana) {     
-                        window.location.href="<?php echo $helper->url("categorias", "actualizar"); ?>&id="+id;            
+                        window.location.href="<?php echo $helper->url("prestamos", "actualizar"); ?>&id="+id;            
                     }
                 }
             }
@@ -70,6 +70,7 @@
         
             
 	</script>
+        
         <style>
             .container .panel {
                 position: absolute;
@@ -110,20 +111,16 @@
                                 </div>
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("prestamos", "crear"); ?>">
-                                        <?php
-                                       
-                                        ?>    
+                                         
                                         <div class="form-group"><label>Seleccione solicitante: </label>
                                           
                                         <select class="form-control" name="rutUsuario">
-					
-		
                                             <?php
                                             $usuarios = include('listas/mostrarUsuarios.php');
                                             while ($row = mysqli_fetch_row($usuarios)) {
                                                 ?>
 
-                                                <option value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
 
                                                 <?php
                                             }
@@ -147,11 +144,12 @@
                                             <div class="form-group"><label>Cantidad: </label> <input type="number" class="form-control" name="cantidad"/></div>
                                             <div class="form-group"><label >Fecha de presamo:</label>
                                             					
-                                                    <p><input type="date" class="form-control" name ="fechaPrestamo" id="fechaPrestamo" required></p>
+                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fechaPrestamo"/></p>
+
                                             </div>
                                             <div class="form-group"><label >Fecha de devolucion:</label>
                                             					
-                                                    <p><input type="date" class="form-control" name ="fechaDevolucion" id="fechaDevolucion" required></p>
+                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fechaDevolucion"/></p>
                                             </div>
                                             <div class="form-group"><label>Observacion: </label> <input type="text" class="form-control" name="observacion"/></div>
                                             <div class="form-group"><label>Estado de prestamo: </label>
@@ -181,46 +179,82 @@
                                     <h4 class="modal-title">Editar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" action="<?php echo $helper->url("categorias","update"); ?>" method="post">
-                                        <div class="form-group"><input type="hidden" name="idCategoria" value="<?php echo $categoria->id_categoria ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre categoria</label> <input type="text" name="nombreCategoria" value="<?php echo $categoria->nombre_categoria ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Desechable: </label>
-                                                        <select name="desechable" class="form-control" />
-                                                        <option  class="form-control" value="0"> Desechable </option>
-                                                        <option  class="form-control" value="1"> Retornable </option>
-                                                        </select></div>
+                                    <form role="form" action="<?php echo $helper->url("prestamos","update"); ?>" method="post">
+                                        <div class="form-group"><input type="hidden" name="idPrestamo" value="<?php echo $prestamo->id_prestamo ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Seleccione solicitante: </label>
+                                        <select class="form-control" name="rutUsuario">
+                                            <?php
+                                            $usuarios = include('listas/mostrarUsuarios.php');
+                                            while ($row = mysqli_fetch_row($usuarios)) {
+                                                
+                                            if ($prestamo->rut_usuario==$row[0]){?>
+                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php }
+                                            }
+                                            ?>
+						</select></div>
+                                                
+                                            <div class="form-group"><label>Seleccione material: </label>
+                                          
+                                        <select class="form-control" name="idMaterial">
+                                            <?php
+                                            $materiales = include('listas/mostrarMateriales.php');
+                                            while ($row = mysqli_fetch_row($materiales)) {
+                                                if ($prestamo->id_material==$row[0]){?>
+                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php }
+                                            }
+                                            ?>
+						</select></div>
+                                        <div class="form-group"><label>Cantidad:</label> <input type="text" name="cantidad" value="<?php echo $prestamo->cantidad ?>"    class="form-control"/></div>
+                                        
+                                        <div class="form-group"><label >Fecha de presamo:</label>
+                                            					
+                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_prestamo)) ?>" type="date" class="form-control" name="fechaPrestamo"/></p>
+                                            </div>
+                                        
+                                            <div class="form-group"><label >Fecha de devolucion:</label>
+                                            					
+                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_limite)) ?>" type="date" class="form-control" name="fechaDevolucion"/></p>
+                                            </div>
+                                        
+                                        <div class="form-group"><label>Observacion:</label> <input type="text" name="observacion" value="<?php echo $prestamo->observacion ?>"    class="form-control"/></div>
+                                
+                                
                                         <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoCategoria" class="form-control"/>
-                                                        <?php if ($categoria->estado_prestamo == 0) {?>
+                                                        <select name="estadoPrestamo" class="form-control"/>
+                                                        <?php if ($prestamo->estado_prestamo == 0) {?>
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <option  class="form-control" value="1"> Recibido </option>
                                                         <option  class="form-control" value="2"> Pendiente </option>
-                                                        <option  class="form-control" value="3"> Por Confirmar </option>
+                                                        <option  class="form-control" value="3"> Por confirmar </option>
                                                         <?php } 
                                                         
-                                                        if ($categoria->estado_prestamo == 1) {?>
-                                                        <option  class="form-control" value="0" > Desactivado </option>
-                                                        <option  class="form-control" value="1" selected> Recibido </option>
+                                                        if ($prestamo->estado_prestamo == 1) {?>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                        <option  class="form-control" value="1" selected > Recibido </option>
                                                         <option  class="form-control" value="2"> Pendiente </option>
-                                                        <option  class="form-control" value="3"> Por Confirmar </option>
+                                                        <option  class="form-control" value="3"> Por confirmar </option>
                                                         <?php }
                                                         
-                                                        if ($categoria->estado_prestamo == 2) {?>
-                                                        <option  class="form-control" value="0" > Desactivado </option>
-                                                        <option  class="form-control" value="1" > Recibido </option>
+                                                        if ($prestamo->estado_prestamo == 2) {?>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                        <option  class="form-control" value="1"> Recibido </option>
                                                         <option  class="form-control" value="2" selected> Pendiente </option>
-                                                        <option  class="form-control" value="3"> Por Confirmar </option>
+                                                        <option  class="form-control" value="3"> Por confirmar </option>
                                                         <?php }
                                                         
-                                                        if ($categoria->estado_prestamo == 3) {?>
-                                                        <option  class="form-control" value="0" > Desactivado </option>
-                                                        <option  class="form-control" value="1" > Recibido </option>
-                                                        <option  class="form-control" value="2" > Pendiente </option>
-                                                        <option  class="form-control" value="3" selected> Por Confirmar </option>
+                                                        if ($prestamo->estado_prestamo == 3) {?>
+                                                        <option  class="form-control" value="0"> Desactivado </option>
+                                                        <option  class="form-control" value="1"> Recibido </option>
+                                                        <option  class="form-control" value="2"> Pendiente </option>
+                                                        <option  class="form-control" value="3" selected> Por confirmar </option>
                                                         <?php }?>
                                                     </select></div>
-                                        <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" value="<?php echo $categoria->id_panol ?>"name="idPanol"/></div>
-
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>

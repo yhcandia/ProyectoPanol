@@ -76,6 +76,15 @@ class EntidadBase{
         
         return $resultSet;
     }
+    public function getByIdPrest($id){
+        $query=$this->db->query("SELECT * FROM $this->table WHERE id_prestamo=$id");
+
+        if($row = $query->fetch_object()) {
+           $resultSet=$row;
+        }
+        
+        return $resultSet;
+    }
     public function getByRut($id){
         $query=$this->db->query("SELECT * FROM usuarios WHERE rut_usuario='$id'");
 

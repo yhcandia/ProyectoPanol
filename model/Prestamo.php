@@ -100,10 +100,13 @@ class Prestamo extends EntidadBase{
     }
     
     public function update($id){
-        $query="UPDATE categoria SET nombre_categoria= '$this->nombreCategoria',"
-                . "id_panol = '$this->id_panol',"
-                . "estado_categoria = '$this->estadoCategoria',"
-                . "desechable='$this->desechable' where id_categoria= '$id'";
+        $query="UPDATE prestamo SET rut_usuario= '$this->rut_usuario',"
+                . "id_material = '$this->id_material',"
+                . "cantidad = '$this->cantidad',"
+                . "fecha_prestamo = '$this->fecha_prestamo',"
+                . "fecha_limite = '$this->fecha_limite',"
+                . "observacion = '$this->observacion',"
+                . "estado_prestamo='$this->estado_prestamo' where id_prestamo= '$id'";
         $update=$this->db()->query($query);
         $this->db()->error;
         return $update;

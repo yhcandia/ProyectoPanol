@@ -57,28 +57,31 @@ class PrestamosController extends ControladorBase{
     }
     
     public function update(){
-        if(isset($_POST["idCategoria"])){
+        if(isset($_POST["idPrestamo"])){
             
             //Creamos un usuario
-            $id=$_POST["idCategoria"];
-            $categoria=new Categoria($this->adapter);
-            $categoria->setNombreCategoria($_POST["nombreCategoria"]);
-            $categoria->setEstadoCategoria($_POST["estadoCategoria"]);
-            $categoria->setId_panol($_POST["idPanol"]);
-            $categoria->setDesechable($_POST["desechable"]);
-            $save=$categoria->update($id);
+            $id=$_POST["idPrestamo"];
+            $prestamo=new Prestamo($this->adapter);
+            $prestamo->setRut_usuario($_POST["rutUsuario"]);
+            $prestamo->setId_material($_POST["idMaterial"]);
+            $prestamo->setCantidad($_POST["cantidad"]);
+            $prestamo->setFecha_prestamo($_POST["fechaPrestamo"]);
+            $prestamo->setFecha_limite($_POST["fechaDevolucion"]);
+            $prestamo->setObservacion($_POST["observacion"]);
+            $prestamo->setEstado_prestamo($_POST["estadoPrestamo"]);
+            $save=$prestamo->update($id);
         }
-        $this->redirect("Categorias", "index");
+        $this->redirect("Prestamos", "index");
     }
     
     
     public function actualizar(){
         if(isset($_GET["id"])){ 
             $id=$_GET["id"];            
-            $categoria=new Categoria($this->adapter);
-            $datos['categoria'] = $categoria->getByIdCat($id); 
+            $prestamos=new Prestamo($this->adapter);
+            $datos['prestamo'] = $prestamos->getByIdPrest($id); 
             //$datos['actualizar'] = $categoria->getId_categoria($id); 
-            $this->view("categoria",$datos);
+            $this->view("prestamo",$datos);
         }
         
     }
