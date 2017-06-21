@@ -96,6 +96,16 @@ class EntidadBase{
         return $resultSet;
     }
     
+    public function getByIdMaterial($value){
+        $query=$this->db->query("SELECT * FROM material WHERE id_material='$value'");
+
+        while($row = $query->fetch_object()) {
+           $resultSet[]=$row;
+        }
+        
+        return $resultSet;
+    }
+    
     public function getBy($column,$value){
         $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
 

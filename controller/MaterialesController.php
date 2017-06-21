@@ -56,7 +56,6 @@ class MaterialesController extends ControladorBase{
     public function update(){
         if(isset($_POST["id"])){
             
-            //Creamos un prov
             $id=$_POST["id"];
             $material=new Material($this->adapter);
             $material->setIdCategoria($_POST["idCategoria"]);
@@ -82,9 +81,9 @@ class MaterialesController extends ControladorBase{
     public function actualizar(){
         if(isset($_GET["id"])){ 
             $id=$_GET["id"];            
-            $proveedor=new Proveedor($this->adapter);
-            $datos['proveedor'] = $proveedor->getByRutProveedor($id); 
-            $this->view("proveedor",$datos);
+            $material=new Material($this->adapter);
+            $datos['material'] = $material->getByIdMaterial($id); 
+            $this->view("material",$datos);
         }
         
     }

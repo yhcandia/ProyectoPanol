@@ -62,7 +62,7 @@
                                             <td><?php echo $row['nombre_material'];?></td>                                           
                                             <td><?php echo $row['estado_material'];?></td>                                           
                                             <td><?php echo $row['stock'];?></td>                                           
-                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_material   '];?>" /></td>
+                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_material'];?>" /></td>
                                     </tr>                                 
                                    <?php
                             }

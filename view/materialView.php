@@ -132,24 +132,24 @@
                                     <h4 class="modal-title">Editar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" action="<?php echo $helper->url("proveedores","update"); ?>" method="post">
-                                        <div class="form-group"><input type="hidden" name="rut" value="<?php echo $proveedor->rut_proveedor ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>RUT:</label> <input type="text" name="rutProveedor" value="<?php echo $proveedor->rut_proveedor ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreProveedor" value="<?php echo $proveedor->nombre_proveedor ?>" class="form-control"/></div>
+                                    <form role="form" action="<?php echo $helper->url("materiales","update"); ?>" method="post">
+                                        <div class="form-group"><input type="hidden" name="id" value="<?php echo $material->id_material ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>ID Categoria:</label> <input type="text" name="idCategoria" value="<?php echo $material->id_categoria ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreMaterial" value="<?php echo $material->nombre_material ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoProveedor" class="form-control" name="estadoProveedor"/>
-                                                        <?php if ($proveedor->estado_proveedor == 1) {?>
+                                                        <select name="estadoMaterial" class="form-control" name="estadoMaterial"/>
+                                                        <?php if ($material->estado_material == 1) {?>
                                                         <option  class="form-control" value="1" selected> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <?php } 
                                                         
-                                                        if ($proveedor->estado_proveedor == 0) {?>
+                                                        if ($material->estado_material == 0) {?>
                                                         <option  class="form-control" value="1" > Activo </option>
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <?php } ?>
                                                         
                                                     </select></div>
-                                        <div class="form-group"><label>Direccion:</label> <input type="text" name="direccionProveedor" value="<?php echo $proveedor->direccion_proveedor ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Stock:</label> <input type="text" name="stock" value="<?php echo $material->stock ?>" class="form-control"/></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
