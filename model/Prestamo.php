@@ -98,6 +98,20 @@ class Prestamo extends EntidadBase{
         //$this->db()->error;
         return $save;
     }
+    public function saveProfesor(){
+        $query="INSERT INTO prestamo (id_prestamo,rut_usuario,id_material,cantidad,fecha_prestamo,fecha_limite,observacion,estado_prestamo)
+                VALUES('".NULL."',
+                       '".$this->rut_usuario."',
+                       '".$this->id_material."',
+                       '".$this->cantidad."',
+                       '".$this->fecha_prestamo."',
+                       '".NULL."',
+                       '".$this->observacion."',
+                       '3');";
+        $save=$this->db()->query($query);
+        //$this->db()->error;
+        return $save;
+    }
     
     public function update($id){
         $query="UPDATE prestamo SET rut_usuario= '$this->rut_usuario',"

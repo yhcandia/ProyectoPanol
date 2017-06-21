@@ -78,7 +78,7 @@ class UsuariosPanolController extends ControladorBase{
             $usuario->setPassword(sha1($_POST["password"]));
             $save=$usuario->save();
         }
-        $this->redirect("Usuarios", "index");
+        $this->redirect("UsuariosPanol", "index");
     }
     
     public function update(){
@@ -99,7 +99,7 @@ class UsuariosPanolController extends ControladorBase{
             $usuario->setPassword(sha1($_POST["password"]));
             $save=$usuario->update($rut);
         }
-        $this->redirect("Usuarios", "index");
+        $this->redirect("UsuariosPanol", "index");
     }
     
     public function borrar(){
@@ -110,7 +110,7 @@ class UsuariosPanolController extends ControladorBase{
             $usuario=new Usuario($this->adapter);
             $usuario->deleteByRut($id); 
         }
-        $this->redirect("Usuarios", "index");
+        $this->redirect("UsuariosPanol", "index");
     }
     public function actualizar(){
         if(isset($_GET["id"])){ 
@@ -118,7 +118,7 @@ class UsuariosPanolController extends ControladorBase{
             $usuario=new Usuario($this->adapter);
             $datos['usuario'] = $usuario->getByRut($id); 
 //            $datos['actualizar'] = $usuario->getByRut($id); 
-            $this->view("usuario",$datos);
+            $this->view("usuarioPanol",$datos);
         }
         
     }

@@ -36,7 +36,7 @@ class UsuariosController extends ControladorBase{
         if (isset($_REQUEST["nnombre"]) && isset($_REQUEST["npassword"])) {
             $oUsu = new Usuario($this->adapter);
             $oUsu->setRutUsuario($_REQUEST["nnombre"]);
-            $oUsu->setPassword($_REQUEST["npassword"]);
+            $oUsu->setPassword(md5($_REQUEST["npassword"]));
             if ($oUsu->VerificaUsuarioClave()) {
                 //echo "Todo bien";
                 $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
@@ -44,7 +44,13 @@ class UsuariosController extends ControladorBase{
                 $_SESSION["session"]["rutUsuario"] = $oUsu->getRutUsuario();
                 $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
                 $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
-                $this->redirect("Usuarios", "index");
+                if ($_SESSION["session"]["idRol"] == '0'){
+                $this->redirect("Prestamos", "index");    
+                }
+                if ($_SESSION["session"]["idRol"] == '1'){
+                $this->redirect("Prestamos", "index");    
+                }
+               
             } else {
                 $this->view("login", array(
                     "error" => "El usuario o la clave es incorrecta"
@@ -75,7 +81,7 @@ class UsuariosController extends ControladorBase{
             $usuario->setTelefonoUsuario($_POST["telefonoUsuario"]);
             $usuario->setEmailUsuario($_POST["emailUsuario"]);
             $usuario->setIdRol($_POST["idRol"]);
-            $usuario->setPassword(sha1($_POST["password"]));
+            $usuario->setPassword(md5($_POST["password"]));
             $save=$usuario->save();
         }
         $this->redirect("Usuarios", "index");
@@ -96,7 +102,7 @@ class UsuariosController extends ControladorBase{
             $usuario->setEscuelaUsuario($_POST["escuelaUsuario"]);
             $usuario->setEmailUsuario($_POST["emailUsuario"]);
             $usuario->setIdRol($_POST["idRol"]);
-            $usuario->setPassword(sha1($_POST["password"]));
+            $usuario->setPassword(md5($_POST["password"]));
             $save=$usuario->update($rut);
         }
         $this->redirect("Usuarios", "index");

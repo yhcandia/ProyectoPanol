@@ -46,6 +46,7 @@
         </script>
         
         <script>
+            
 	$(document).ready(function(){
                 $("#valorRadio").attr("value", "sinValor");
 		load(1);  
@@ -54,6 +55,7 @@
                 $("#valorRadio").attr("value", "sinValor");
 		var parametros = {"action":"ajax","page":page};
 		$("#loader").fadeIn('slow');
+                
 		$.ajax({
 			url:'controller/prestamos_ajax.php',
 			data: parametros,

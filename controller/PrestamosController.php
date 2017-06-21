@@ -44,6 +44,21 @@ class PrestamosController extends ControladorBase{
         }
         $this->redirect("Prestamos", "index");
     }
+    public function crearProfesor(){
+        if(isset($_POST["rutUsuario"])){
+            
+            //Creamos un usuario
+            $Prestamo=new Prestamo($this->adapter);
+            $Prestamo->setRut_usuario($_POST["rutUsuario"]); 
+            $Prestamo->setId_material($_POST["idMaterial"]); 
+            $Prestamo->setCantidad($_POST["cantidad"]); 
+            $Prestamo->setFecha_prestamo($_POST["fechaPrestamo"]);            
+            $Prestamo->setObservacion($_POST["observacion"]); 
+            
+            $save=$Prestamo->saveProfesor();
+        }
+        $this->redirect("Prestamos", "index");
+    }
     
     public function borrar(){
         if(isset($_GET["id"])){ 
@@ -53,7 +68,7 @@ class PrestamosController extends ControladorBase{
             $categoria=new Categoria($this->adapter);
             $categoria->deleteByIdCat($id); 
         }
-        $this->redirect("Categorias", "index");
+        $this->redirect("Prestamos", "index");
     }
     
     public function update(){
