@@ -1,5 +1,5 @@
 <?php
-class UsuariosController extends ControladorBase{
+class UsuariosPanolController extends ControladorBase{
     public $conectar;
     public $adapter;
 	
@@ -27,7 +27,7 @@ class UsuariosController extends ControladorBase{
         
        
         //Cargamos la vista index y le pasamos valores
-        $this->view("usuario",array(
+        $this->view("usuarioPanol",array(
             "allusers"=>$allusers
         ));
     }

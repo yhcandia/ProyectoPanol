@@ -17,7 +17,7 @@
                 }else{
                     ventana = confirm("¿Esta seguro que desea activar/desactivar el usuario seleccionado?");
                     if (ventana) {
-                        window.location.href="<?php echo $helper->url("usuarios", "borrar"); ?>&id="+id;
+                        window.location.href="<?php echo $helper->url("usuariosPanol", "borrar"); ?>&id="+id;
                     }
                 }
             }
@@ -29,7 +29,7 @@
                 }else{
                     ventana = confirm("¿Esta seguro que desea actualizar el usuario seleccionado?");
                     if (ventana) {     
-                        window.location.href="<?php echo $helper->url("usuarios", "actualizar"); ?>&id="+id;            
+                        window.location.href="<?php echo $helper->url("usuariosPanol", "actualizar"); ?>&id="+id;            
                     }
                 }
             }
@@ -54,7 +54,7 @@
 		var parametros = {"action":"ajax","page":page};
 		$("#loader").fadeIn('slow');
 		$.ajax({
-			url:'controller/usuarios_ajax.php',
+			url:'controller/usuariosPanol_ajax.php',
 			data: parametros,
 			 beforeSend: function(objeto){
 			$("#loader").html("<img src='view/img/loader.gif'>");
@@ -123,9 +123,9 @@
                                             $roles = include('listas/mostrarRoles.php');
                                             while ($row = mysqli_fetch_row($roles)) {
                                                 ?>
-
-                                                <option value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
-
+                                                <?php if ($row[0]!=1 && $row[0]!=0) {?>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                                <?php } ?>
                                                 <?php
                                             }
                                             ?>

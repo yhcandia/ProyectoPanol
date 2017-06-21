@@ -8,7 +8,7 @@
     if (@mysqli_connect_errno()) {
         die("Connect failed: ".mysqli_connect_errno()." : ". mysqli_connect_error());
     }
-        $con->query("SET NAMES utf8");
+    $con->query("SET NAMES utf8");
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if($action == 'ajax'){
 		include 'paginador.php'; //incluir el archivo de paginación
@@ -18,12 +18,12 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
-		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM rol ");
+		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM usuarios ");
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 		$total_pages = ceil($numrows/$per_page);
-		$reload = 'rolView.php';
+		$reload = 'usuarioView.php';
 		//consulta principal para recuperar los datos
-		$query = mysqli_query($con,"SELECT * FROM rol LIMIT $offset,$per_page");
+		$query = mysqli_query($con,"SELECT * FROM usuarios LIMIT $offset,$per_page");
 		
 		if ($numrows>0){
 			?>
@@ -38,15 +38,20 @@
                       });
                 </script>
                 <div class="panel panel-default col-md-8 center-block">
-                    <div class="panel-body ">Roles en el sistema</div>
+                    <div class="panel-body ">Datos Usuario</div>
                       <div class="panel-footer">   
                         <table class="table">
                     
                             <thead>
 				<th></th>
-                                <th>Id Rol</th>
-                                <th>Nombre</th>
-                                <th>Estado del rol</th>
+                                <th>rut</th>
+                                <th>nombre</th>
+                                <th>apellido</th>
+                                <th>escuela</th>
+                                <th>telefono</th>
+                                <th>estado</th>
+                                <th>email</th>
+                                <th>rol</th>
                                 <th></th>
                             </thead>
                             <tbody>                          
@@ -54,15 +59,23 @@
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
                                     <tr>
+                                            
+                                            <?php if($row['id_rol']!=1 && $row['id_rol']!=0) { ?>
                                             <td><span class="glyphicon glyphicon-user"></span></td>
-                                            <td><?php echo $row['id_rol'];?></td>                                           
-                                            <td><?php echo $row['nombre_rol'];?></td>                                                                                 
-                                            <?php if ($row['estado_rol']==1){?>
+                                            <td><?php echo $row['rut_usuario'];?></td>
+                                            <td><?php echo $row['nombre_usuario'];?></td>
+                                            <td><?php echo $row['apellido_usuario'];?></td>
+                                            <td><?php echo $row['escuela_usuario'];?></td>
+                                            <td><?php echo $row['telefono_usuario'];?></td>
+                                            <?php if ($row['estado_usuario']==1){?>
                                             <td><?php echo "ACTIVO";?></td>
                                             <?php }else{?>
                                             <td><?php echo "INACTIVO";?></td>
                                             <?php } ?>
-                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_rol'];?>" /></td>
+                                            <td><?php echo $row['mail_usuario'];?></td>
+                                            <td><?php echo $row['id_rol'];?></td>                                           
+                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['rut_usuario'];?>" /></td>
+                                            <?php } ?> 
                                     </tr>                                 
                                    <?php
                             }
@@ -74,7 +87,7 @@
 		</div>     
                       </div>    
                     <div class="pull-left" style="bottom:20px;position: absolute;">
-                    
+                    <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
                     <a href="#" title="Desactivar" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a>      
                 </div>
