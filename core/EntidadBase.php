@@ -146,7 +146,7 @@ class EntidadBase{
     }
     
     public function deleteByIdMaterial($value){
-        $query=$this->db->query("UPDATE material SET estado_material='0' WHERE id_material='$id'"); 
+        $query=$this->db->query("UPDATE material SET estado_material='0' WHERE id_material='$value'"); 
         return $query;
     }
     
