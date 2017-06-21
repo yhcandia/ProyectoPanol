@@ -68,8 +68,7 @@
                                             <?php
                                             $usuarios=include ('../view/listas/mostrarUsuarios.php');
                                             while ($row2 = mysqli_fetch_row($usuarios)) {
-                                                ?>
-                                            <?php if ($row2[0]==$row['rut_usuario']) {
+                                                 if ($row2[0]==$row['rut_usuario']) {
                                                 ?>
                                             <td><?php echo $row2[2];?></td>
                                             <?php } ?>

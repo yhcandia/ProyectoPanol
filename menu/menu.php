@@ -20,7 +20,7 @@
                 <ul>
                     <?php
                    if (isset($_SESSION['session'])) {
-                        if($_SESSION['session']['idRol'] == '1'){                   
+                        if($_SESSION['session']['idRol'] == '0'){                   
                             ?>    
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>                      
                             <li><a href="./index.php?controller=usuarios"><span class="icon-users"></span>Usuarios</a></li>
@@ -30,30 +30,30 @@
                             <li><a href="./index.php?controller=proveedores"><span class="icon-users"></span>Proveedores</a></li>
                             <?php
                         }
-                        if($_SESSION['session']['idRol'] == '2'){                   
+                        if($_SESSION['session']['idRol'] == '1'){                   
                             ?>    
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Prestamo</a></li>
                             <li><a href="./index.php?controller=usuariosPanol"><span class="icon-users"></span>Usuarios</a></li>
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
-                             <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>                      
+                                                  
                             
                             <?php
                         } 
-                        if($_SESSION['session']['idRol'] == '3'){                   
+                        if($_SESSION['session']['idRol'] == '2'){                   
                             ?>    
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Solicitar Prestamo</a></li>
                             <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>
                             <?php
                         } 
-                        if($_SESSION['session']['idRol'] == '4' || $_SESSION['session']['idRol'] == '5'){                   
+                        if($_SESSION['session']['idRol'] == '3' || $_SESSION['session']['idRol'] == '4'){                   
                             ?>  
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
                             <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>                        
                             <?php
                         } 
-                         if($_SESSION['session']['idRol'] == '6'){                   
+                         if($_SESSION['session']['idRol'] == '5'){                   
                             ?>    
                             <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
                             <li><a href="./index.php?controller=verReportes"><span class="glyphicon glyphicon-transfer"></span>Ver Reportes</a></li>

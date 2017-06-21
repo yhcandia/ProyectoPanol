@@ -124,7 +124,7 @@
                                             while ($row = mysqli_fetch_row($roles)) {
                                                 ?>
 
-                                                <option value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
 
                                                 <?php
                                             }
@@ -172,6 +172,21 @@
                                         <div class="form-group"><label>emailUsuario:</label> <input type="text" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Escuela:</label> <input type="text" name="escuelaUsuario" value="<?php echo $usuario->escuela_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>idRol:</label> <input type="number" name="idRol" value="<?php echo $usuario->id_rol ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Rol: </label>
+                                            <select name="idRol" class="form-control"/>                                           
+                                            <?php
+                                            $roles = include('listas/mostrarRoles.php');
+                                            while ($row = mysqli_fetch_row($roles)) {
+                                                if ($row[0]==$usuario->id_rol){
+                                                ?>
+                                                
+                                            <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php } else{ ?>
+                                            <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php }
+                                            }
+                                            ?>
+                                            </select></div>
                                         <div class="form-group"><label>Contraseña:</label> <input type="password" name="password" value="<?php echo $usuario->password_usuario ?>" class="form-control"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>

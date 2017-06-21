@@ -137,9 +137,7 @@
                                                         <?php if ($rol->estado_rol == 1) {?>
                                                         <option  class="form-control" value="1" selected> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
-                                                        <?php } 
-                                                        
-                                                        if ($rol->estado_rol == 0) {?>
+                                                        <?php } else{ ?>
                                                         <option  class="form-control" value="1" > Activo </option>
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <?php } ?>

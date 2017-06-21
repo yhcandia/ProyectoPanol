@@ -71,7 +71,18 @@
                                             <td><?php echo "INACTIVO";?></td>
                                             <?php } ?>
                                             <td><?php echo $row['mail_usuario'];?></td>
-                                            <td><?php echo $row['id_rol'];?></td>                                           
+                                            
+                                            <?php
+                                            $usuarios=include ('../view/listas/mostrarRoles.php');
+                                            while ($row2 = mysqli_fetch_row($usuarios)) {
+                                                 if ($row2[0]==$row['id_rol']) {
+                                                ?>
+                                            <td><?php echo $row2[2];?></td>
+                                            <?php } ?>
+
+                                                <?php
+                                            }
+                                            ?>
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['rut_usuario'];?>" /></td>
                                     </tr>                                 
                                    <?php
