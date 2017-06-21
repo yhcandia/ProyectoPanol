@@ -21,7 +21,7 @@
 		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM material ");
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 		$total_pages = ceil($numrows/$per_page);
-		$reload = 'solicitarView.php';
+		$reload = 'materialView.php';
 		//consulta principal para recuperar los datos
 		$query = mysqli_query($con,"SELECT * FROM material LIMIT $offset,$per_page");
 		

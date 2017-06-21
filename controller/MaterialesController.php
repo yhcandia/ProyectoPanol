@@ -73,7 +73,7 @@ class MaterialesController extends ControladorBase{
             
             
             $material=new Material($this->adapter);
-            $material->deleteById($id); 
+            $material->deleteByIdMaterial($id); 
         }
         $this->redirect("Materiales", "index");
     }    

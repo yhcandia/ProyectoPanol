@@ -145,6 +145,11 @@ class EntidadBase{
         return $query;
     }
     
+    public function deleteByIdMaterial($value){
+        $query=$this->db->query("UPDATE material SET estado_material='0' WHERE id_material='$id'"); 
+        return $query;
+    }
+    
 
     /*
      * Aqui podemos montarnos un monton de métodos que nos ayuden
