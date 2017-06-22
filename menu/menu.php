@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Menu</title>
+        <title>Sistema Pañol</title>
         <link rel="stylesheet" href="menu/stilo.css">
         <link rel="stylesheet" href="menu/font.css">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,7 +14,7 @@
     <body>
         <header>
             <div class="menu_bar">
-                <a href="#" class="bt-menu"><span class="icon-home"></span> Menu <div  style="position: absolute;background:#00162B; right: 5px; top: 10px; height: 60px; width: 25%;text-align: center; font-size: 70%">Bienvenid@ <?php echo $_SESSION['session']['nombreUsuario']; ?>&#32; <?php echo $_SESSION['session']['nombreUsuario']; ?></div></a>         
+                <a href="#" class="bt-menu"><span class="icon-home"></span> Menu <div  style="position: absolute;background:#00162B; right: 5px; top: 10px; height: 60px; width: 25%;text-align: center; font-size: 70%">Bienvenid@ <?php echo $_SESSION['session']['nombreUsuario']." ".$_SESSION['session']['apellido']; ?></div></a>         
             </div>
             <nav>
                 <ul>

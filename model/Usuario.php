@@ -158,8 +158,9 @@ class Usuario extends EntidadBase{
             $this->rutUsuario = $row[0];
             $this->idRol = $row[1];
             $this->nombreUsuario=$row[2];
-            $this->emailUsuario = $row[3];
-            $this->estadoUsuario = $row[4];
+            $this->apellidoUsuario=$row[3];
+            $this->emailUsuario = $row[4];  
+            $this->estadoUsuario = $row[8];
             return true;
         }else{
             return false;

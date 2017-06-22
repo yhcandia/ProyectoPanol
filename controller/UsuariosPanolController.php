@@ -40,6 +40,7 @@ class UsuariosPanolController extends ControladorBase{
             if ($oUsu->VerificaUsuarioClave()) {
                 //echo "Todo bien";
                 $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
+                $_SESSION["session"]["apellido"] = $oUsu->getApellidoUsuario();
                 $_SESSION["session"]["idRol"] = $oUsu->getIdRol();
                 $_SESSION["session"]["rutUsuario"] = $oUsu->getRutUsuario();
                 $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
