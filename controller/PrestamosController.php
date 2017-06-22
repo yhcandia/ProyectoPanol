@@ -27,6 +27,22 @@ class PrestamosController extends ControladorBase{
             "allusers"=>$allusers
         ));
     }
+        public function prestamoProfesor(){
+        if(isset($_REQUEST["id_material"])){
+            
+            //Creamos un usuario
+            $Prestamo=new Prestamo($this->adapter);
+            $Prestamo->setRut_usuario($_SESSION["session"]["rutUsuario"]); 
+            $Prestamo->setId_material($_REQUEST["id_material"]); 
+            $Prestamo->setCantidad($_REQUEST["cant"]); 
+            $Prestamo->setFecha_prestamo(date('Y-m-d')); 
+            $Prestamo->setObservacion($_REQUEST["observacion"]); 
+            $Prestamo->setEstado_prestamo(3); 
+            
+            $save=$Prestamo->save();
+        }
+        $this->redirect("Materiales", "index");
+    }
     public function crear(){
         if(isset($_POST["rutUsuario"])){
             
