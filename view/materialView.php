@@ -127,7 +127,7 @@
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
                                         <div class="form-group"><label>Stock: </label><input required="" min="0" type="number" class="form-control" name="stock"/></div>
-                                        <div class="form-group"><label>Imagen: </label><input type="file" class="form-control" name="image" accept="image/*"/></div>
+                                        <div class="form-group"><label>Imagen: </label><input required="" type="file" class="form-control" name="image" accept="image/*"/></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>
@@ -180,7 +180,7 @@
                                                         
                                                     </select></div>
                                         <div class="form-group"><label>Stock:</label> <input required="" min="0" type="number" name="stock" value="<?php echo $material->stock_material ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Imagen: </label><input type="file" class="form-control" name="image" accept="image/*"/></div>
+                                        <div class="form-group"><label>Imagen: </label><input type="file" required="" class="form-control" name="image" accept="image/*"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>

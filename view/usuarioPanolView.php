@@ -105,18 +105,18 @@
                                 <div class="modal-body">
                                     <form role="form" name="form1" method="post" action="<?php echo $helper->url("usuarios", "crear"); ?>" onsubmit="javascript:return Rut(document.form1.rut.value)">
 
-                                        <div class="form-group"><label>Rut: </label> <input type="text" name="rutUsuario" class="form-control" /></div>
-                                        <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreUsuario"/></div>
-                                        <div class="form-group"><label>Apellido: </label><input type="text" class="form-control" name="apellidoUsuario"/></div>
-                                        <div class="form-group"><label>Domicilio: </label><input type="text" class="form-control" name="domicilioUsuario"/></div>
-                                        <div class="form-group"><label>Telefono: </label><input type="text" class="form-control" name="telefonoUsuario"/></div>
+                                        <div class="form-group"><label>RUT: </label> <input required="" type="text" name="rutUsuario" class="form-control" /></div>
+                                        <div class="form-group"><label>Nombre: </label><input required="" type="text" class="form-control" name="nombreUsuario"/></div>
+                                        <div class="form-group"><label>Apellido: </label><input required="" type="text" class="form-control" name="apellidoUsuario"/></div>
+                                        <div class="form-group"><label>Domicilio: </label><input required="" type="text" class="form-control" name="domicilioUsuario"/></div>
+                                        <div class="form-group"><label>Telefono: </label><input required="" type="number" min="1" class="form-control" name="telefonoUsuario"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control"/>
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                        <div class="form-group"><label>emailUsuario: </label><input type="email" class="form-control" name="emailUsuario"/></div>
-                                        <div class="form-group"><label>Escuela: </label><input type="text" class="form-control" name="escuelaUsuario"/></div>
+                                        <div class="form-group"><label>Email Usuario: </label><input required="" type="email" class="form-control" name="emailUsuario"/></div>
+                                        <div class="form-group"><label>Escuela: </label><input required="" type="text" class="form-control" name="escuelaUsuario"/></div>
                                         <div class="form-group"><label>Rol: </label>
                                             <select name="idRol" class="form-control"/>                                           
                                             <?php
@@ -130,7 +130,7 @@
                                             }
                                             ?>
                                             </select></div>                                   
-                                        <div class="form-group"><label>Contraseña: </label><input type="password" class="form-control" name="password"/></div>
+                                        <div class="form-group"><label>Contraseña: </label><input required="" type="password" class="form-control" name="password"/></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>

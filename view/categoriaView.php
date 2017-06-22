@@ -104,7 +104,7 @@
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("categorias", "crear"); ?>">
 
-                                        <div class="form-group"><label>Nombre categoria: </label> <input type="text" class="form-control" name="nombreCategoria"/></div>
+                                        <div class="form-group"><label>Nombre categoria: </label> <input required type="text" class="form-control" name="nombreCategoria"/></div>
                                         <div class="form-group"><label>Desechable: </label>
                                                         <select name="desechable" class="form-control" name="desechable"/>
                                                         <option  class="form-control" value="0"> Desechable </option>
