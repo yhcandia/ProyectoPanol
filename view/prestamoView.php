@@ -49,6 +49,24 @@
         
         
         
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("select[name=idMaterial]").click(function () {                              
+                              $("#cantidad").attr("max", $( "#idMaterial option:selected" ).attr("value2"));
+                          });
+            }); 
+            </script>
+  
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <script language="javascript" type="text/javascript">
             function confirmarEditar(id) {
                 if(id=='sinValor'){
@@ -65,7 +83,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar prestamo");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea actualizar el registro a pendiente?");
+                    ventana = confirm("Favor indique fecha de devolucion");
                     if (ventana) {
                         var valida='2';
                         window.location.href="<?php echo $helper->url("prestamos", "actualizar"); ?>&id="+id;            
@@ -171,29 +189,31 @@
                                             while ($row = mysqli_fetch_row($usuarios)) {
                                                 ?>
 
-                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-
+                                            <option value="<?php echo $row[0] ?>"  ><?php echo $row[2] ?></option>
+                                                
                                                 <?php
                                             }
                                             ?>
 						</select></div>
                                         
+
                                         <div class="form-group"><label>Seleccione material: </label>
                                           
-                                            <select class="form-control" name="idMaterial" required="">
+                                            <select class="form-control" onchange="ShowSelected();" name="idMaterial" required="" id="idMaterial" >
                                             <option value="">-- Seleccione --</option>
                                             <?php
                                             $materiales = include('listas/mostrarMateriales.php');
                                             while ($row = mysqli_fetch_row($materiales)) {
                                                 ?>
 
-                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <option  value="<?php echo $row[0] ?>" value2="<?php echo $row[4] ?>" ><?php echo $row[2] ?></option>
 
                                                 <?php
                                             }
                                             ?>
 						</select></div>
-                                            <div class="form-group"><label>Cantidad: </label> <input type="number" class="form-control" name="cantidad"/></div>
+                                        
+                                        <div class="form-group"><label>Cantidad: </label> <input type="number"  min='1'  max='1' id="cantidad" class="form-control" name="cantidad"/></div>
                                             <div class="form-group"><label >Fecha de presamo:</label>
                                             					
                                                     <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fechaPrestamo"/></p>
@@ -303,7 +323,7 @@
                                             }
                                             ?>
 						</select></div>
-                                        <div class="form-group"><label>Cantidad:</label> <input type="text" name="cantidad" value="<?php echo $prestamo->cantidad ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Cantidad:</label> <input type="text" id="cantidad" min='1' max='1' name="cantidad" value="<?php echo $prestamo->cantidad ?>"    class="form-control"/></div>
                                         
                                         <div class="form-group"><label >Fecha de presamo:</label>
                                             					
@@ -345,8 +365,8 @@
                                                         if ($prestamo->estado_prestamo == 3) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1"> Recibido </option>
-                                                        <option  class="form-control" value="2"> Pendiente </option>
-                                                        <option  class="form-control" value="3" selected> Por confirmar </option>
+                                                        <option  class="form-control" value="2" selected> Pendiente </option>
+                                                        <option  class="form-control" value="3" > Por confirmar </option>
                                                         <?php }?>
                                                     </select></div>
                                         

@@ -39,6 +39,11 @@
                               $("#valorRadio").attr("value", $('input:radio[name=valor1]:checked').val());
                           });
                       });
+                      function enviarValorUrl(val){
+                        var val2 = val;                         
+                        var elemento = document.querySelector('#imagenPop');
+                        elemento.setAttribute("src",val2);
+                      }
                 </script>
                 <div class="panel panel-default col-md-8 center-block">
                     <div class="panel-body ">Prestamos en el sistema</div>
@@ -51,6 +56,7 @@
                                 <th>Id Prestamo</th>
                                 <th>Nombre Solicitante</th>
                                 <th>Material</th>
+                                <th>Imagen</th>
                                 <th>Cantidad</th>
                                 <th>Fecha prestamo</th>
                                 <th>Fecha limite</th>
@@ -81,7 +87,7 @@
                                                 <?php
                                             }
                                             ?>
-                                            
+
                                             <?php
                                             $materiales=include ('../view/listas/mostrarMateriales.php');
                                             while ($row3 = mysqli_fetch_row($materiales)) {
@@ -89,26 +95,29 @@
                                              if ($row3[0]==$row['id_material']) {
                                                 ?>
                                             <td><?php echo $row3[2];?></td>
+                                            <?php $foto = $row3[5];
+                                            $Base64Img = base64_decode($foto); ?>
+                                            <td>
+                                            <a data-toggle="modal" name="myModalImagebtn" id="myModalImagebtn" href="#myModalImage" onclick="enviarValorUrl('data:image/png;base64,<?php echo $foto;?>')" title="Ver Imagen" class="btn">Ver Imagen</a></td>   
                                             <?php
                                             } 
                                             }
-                                            ?>
-                                                                            
+                                            ?>                     
                                             <td><?php echo $row['cantidad'];?></td>                                           
                                             <td><?php echo $row['fecha_prestamo'];?></td>                                           
                                             <td><?php echo $row['fecha_limite'];?></td>                                           
                                             <td><?php echo $row['observacion'];?></td>                                           
                                             <?php if ($row['estado_prestamo']==0){?>
-                                            <td><?php echo "DESACTIVADO";?></td>
+                                            <td><a readonly title="DESACTIVADO" class="btn btn-danger glyphicon glyphicon-ban-circle"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==1){?>
-                                            <td><?php echo "RECIBIDO";?></td>
+                                            <td><a readonly title="RECIBIDO" class="btn btn-success glyphicon glyphicon-ok"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==2){?>
-                                            <td><?php echo "PENDIENTE";?></td>
+                                            <td><a readonly title="PENDIENTE" class="btn btn-warning glyphicon glyphicon-time"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==3){?>
-                                            <td><?php echo "POR CONFIRMAR";?></td>
+                                            <td><a readonly title="POR REVISAR" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
                                             <?php }?>
                                            
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_prestamo'];?>" /></td>
@@ -128,12 +137,22 @@
                     <?echo "        " ?>
                     <a href="#" title="Marcar Recibido" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
                     <a href="#" title="Marcar Pendiente" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
-                    <a href="#" title="Marcar Por confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-pushpin"></a>
+                    <a href="#" title="Marcar Por confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-eye-open"></a>
                     <a href="#" title="Marcar Desactivado" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     </div>
-                    
-                    
-                    
+                </div>
+                <div id="myModalImage" class="modal fade" role="dialog">  
+                    <div class="modal-dialog">
+                        <div class="modal-content">      
+                            <div class="modal-header">        
+                                <button type="button" class="close" data-dismiss="modal">×</button>        
+                                <h4 class="modal-title">Imagen</h4>      </div>      
+                            <div class="modal-body"><img id="imagenPop" src="" class="img-rounded" width="304" height="236" />   </div>      
+                            <div class="modal-footer">        
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>     
+                            </div>  
+                        </div>  
+                    </div>    
                 </div>
 			<?php
 			
