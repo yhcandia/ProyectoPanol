@@ -14,7 +14,7 @@
     <body>
         <header>
             <div class="menu_bar">
-                <a href="#" class="bt-menu"><span class="icon-home"></span> Menu</a>         
+                <a href="#" class="bt-menu"><span class="icon-home"></span> Menu <div  class="well" style="position: absolute;background:#00162B; right: 10px; top: 10px; height: 60px; width: 25%;text-align: center; font-size: 50%">Bienvenid@ <?php echo $_SESSION['session']['nombreUsuario']; ?>&#32; <?php echo $_SESSION['session']['nombreUsuario']; ?></div></a>         
             </div>
             <nav>
                 <ul>

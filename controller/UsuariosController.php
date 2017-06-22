@@ -41,6 +41,7 @@ class UsuariosController extends ControladorBase{
                 //echo "Todo bien";
                 $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
                 $_SESSION["session"]["idRol"] = $oUsu->getIdRol();
+                $_SESSION["session"]["apellido"] = $oUsu->getApellidoUsuario();
                 $_SESSION["session"]["rutUsuario"] = $oUsu->getRutUsuario();
                 $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
                 $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
