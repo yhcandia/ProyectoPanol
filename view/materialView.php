@@ -14,7 +14,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un material");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea activar/desactivar el material seleccionado?");
+                    ventana = confirm("¿Esta seguro que desea desactivar el material seleccionado?");
                     if (ventana) {
                         window.location.href="<?php echo $helper->url("materiales", "borrar"); ?>&id="+id;
                     }
@@ -24,7 +24,7 @@
         <script language="javascript" type="text/javascript">
             function confirmarEditar(id) {
                 if(id=='sinValor'){
-                    alert("Debe seleccionar un materiales");                  
+                    alert("Debe seleccionar un material");                  
                 }else{
                     ventana = confirm("¿Esta seguro que desea actualizar el material seleccionado?");
                     if (ventana) {     

@@ -14,7 +14,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar una categoria");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea eliminar el registro?");
+                    ventana = confirm("¿Esta seguro que desea desactivar la categoria?");
                     if (ventana) {
                         window.location.href="<?php echo $helper->url("categorias", "borrar"); ?>&id="+id;
                     }

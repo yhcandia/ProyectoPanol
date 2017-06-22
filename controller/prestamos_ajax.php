@@ -53,7 +53,7 @@
                     
                             <thead>
 				<th></th>
-                                <th>Id Prestamo</th>
+                                <th>ID Prestamo</th>
                                 <th>Nombre Solicitante</th>
                                 <th>Material</th>
                                 <th>Imagen</th>
@@ -62,7 +62,7 @@
                                 <th>Fecha limite</th>
                                 <th>Observacion</th>
                                 <th>Estado</th>
-                                <th></th>
+                                <th>Seleccionar</th>
                             </thead>
                             <tbody>
                                 
@@ -108,16 +108,16 @@
                                             <td><?php echo $row['fecha_limite'];?></td>                                           
                                             <td><?php echo $row['observacion'];?></td>                                           
                                             <?php if ($row['estado_prestamo']==0){?>
-                                            <td><a readonly title="DESACTIVADO" class="btn btn-danger glyphicon glyphicon-ban-circle"></a></td>
+                                            <td><a readonly title="Desactivado" class="btn btn-danger glyphicon glyphicon-ban-circle"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==1){?>
-                                            <td><a readonly title="RECIBIDO" class="btn btn-success glyphicon glyphicon-ok"></a></td>
+                                            <td><a readonly title="Recibido" class="btn btn-success glyphicon glyphicon-ok"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==2){?>
-                                            <td><a readonly title="PENDIENTE" class="btn btn-warning glyphicon glyphicon-time"></a></td>
+                                            <td><a readonly title="Pendiente" class="btn btn-warning glyphicon glyphicon-time"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==3){?>
-                                            <td><a readonly title="POR REVISAR" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
+                                            <td><a readonly title="Por Revisar" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
                                             <?php }?>
                                            
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_prestamo'];?>" /></td>

@@ -22,7 +22,7 @@
     </div>
      <div class="field_container">
          
-         <label><?php echo "<font color=red>{$error}</font>"; ?></label> 
+         <label><?php echo "<font color=red><b>{$error}</b></font>"; ?></label> 
       
     </div> 
     <div  class="field_container">

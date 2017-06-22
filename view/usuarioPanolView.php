@@ -15,7 +15,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un usuario");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea activar/desactivar el usuario seleccionado?");
+                    ventana = confirm("¿Esta seguro que desea desactivar el usuario seleccionado?");
                     if (ventana) {
                         window.location.href="<?php echo $helper->url("usuariosPanol", "borrar"); ?>&id="+id;
                     }

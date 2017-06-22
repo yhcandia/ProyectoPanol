@@ -14,7 +14,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un rol");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea eliminar el registro?");
+                    ventana = confirm("¿Esta seguro que desea desactivar el rol?");
                     if (ventana) {
                         window.location.href="<?php echo $helper->url("roles", "borrar"); ?>&id="+id;
                     }
@@ -26,7 +26,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un rol");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea actualizar el registro?");
+                    ventana = confirm("¿Esta seguro que desea actualizar el rol?");
                     if (ventana) {     
                         window.location.href="<?php echo $helper->url("roles", "actualizar"); ?>&id="+id;            
                     }

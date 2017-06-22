@@ -14,7 +14,7 @@
                 if(id=='sinValor'){
                     alert("Debe seleccionar un proveedor");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea activar/desactivar el proveedor seleccionado?");
+                    ventana = confirm("¿Esta seguro que desea desactivar el proveedor seleccionado?");
                     if (ventana) {
                         window.location.href="<?php echo $helper->url("proveedores", "borrar"); ?>&id="+id;
                     }

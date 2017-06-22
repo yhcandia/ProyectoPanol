@@ -44,10 +44,10 @@
                     
                             <thead>
 				<th></th>
-                                <th>Id Rol</th>
+                                <th>ID Rol</th>
                                 <th>Nombre</th>
                                 <th>Estado del rol</th>
-                                <th></th>
+                                <th>Seleccionar</th>
                             </thead>
                             <tbody>                          
                             <?php
@@ -58,9 +58,9 @@
                                             <td><?php echo $row['id_rol'];?></td>                                           
                                             <td><?php echo $row['nombre_rol'];?></td>                                                                                 
                                             <?php if ($row['estado_rol']==1){?>
-                                            <td><?php echo "ACTIVO";?></td>
+                                            <td><?php echo "Activo";?></td>
                                             <?php }else{?>
-                                            <td><?php echo "INACTIVO";?></td>
+                                            <td><?php echo "Inactivo";?></td>
                                             <?php } ?>
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_rol'];?>" /></td>
                                     </tr>                                 

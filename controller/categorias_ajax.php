@@ -44,12 +44,12 @@
                     
                             <thead>
 				<th></th>
-                                <th>Id Categoria</th>
+                                <th>ID Categoria</th>
                                 <th>Pañol</th>
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Desechable</th>
-                                <th></th>
+                                <th>Seleccionar</th>
                             </thead>
                             <tbody>                          
                             <?php

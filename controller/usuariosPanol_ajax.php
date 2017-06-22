@@ -52,7 +52,7 @@
                                 <th>Estado</th>
                                 <th>Email</th>
                                 <th>rol</th>
-                                <th></th>
+                                <th>Seleccionar</th>
                             </thead>
                             <tbody>                          
                             <?php

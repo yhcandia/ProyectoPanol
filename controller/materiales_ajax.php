@@ -54,7 +54,7 @@
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Stock</th>
-                                <th></th>
+                                <th>Seleccionar</th>
                             </thead>
                             <tbody>                          
                             <?php
