@@ -45,7 +45,7 @@
                             ?>    
                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-transfer"></span>Solicitar Prestamo</a></li>
-                            <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>
+                            <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>
                             <?php
                         }
                         if ($_SESSION['session']['idRol'] == '3') {
