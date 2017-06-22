@@ -22,7 +22,7 @@
                    if (isset($_SESSION['session'])) {
                         if($_SESSION['session']['idRol'] == '0'){                   
                             ?>    
-                            <li><a href="./contenido.php"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
+                            <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Prestamo</a></li>
                             <li><a href="./index.php?controller=usuarios"><span class="glyphicon glyphicon-user"></span>Usuarios</a></li>
                             <li><a href="./index.php?controller=categorias"><span class="glyphicon glyphicon-book"></span>Categorias</a></li>
@@ -34,7 +34,7 @@
                         }
                         if($_SESSION['session']['idRol'] == '1'){                   
                             ?>    
-                            <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Prestamo</a></li>
                             <li><a href="./index.php?controller=usuariosPanol"><span class="icon-users"></span>Usuarios</a></li>
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
@@ -43,20 +43,20 @@
                         } 
                         if($_SESSION['session']['idRol'] == '2'){                   
                             ?>    
-                            <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Solicitar Prestamo</a></li>
                             <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>
                             <?php
                         } 
                         if($_SESSION['session']['idRol'] == '3' || $_SESSION['session']['idRol'] == '4'){                   
                             ?>  
-                            <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>                        
                             <?php
                         } 
                          if($_SESSION['session']['idRol'] == '5'){                   
                             ?>    
-                            <li><a href="./contenido.php"><span class="icon"></span>Inicio</a></li>
+                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=verReportes"><span class="glyphicon glyphicon-transfer"></span>Ver Reportes</a></li>
                             <?php
                         } 

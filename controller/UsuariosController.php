@@ -15,7 +15,7 @@ class UsuariosController extends ControladorBase{
     }
 
 
-    public function indexPaginaPrincipal(){
+    public function index(){
         
         //Creamos el objeto usuario
         $usuario=new Usuario($this->adapter);
@@ -46,10 +46,10 @@ class UsuariosController extends ControladorBase{
                 $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
                 $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
                 if ($_SESSION["session"]["idRol"] == '0'){
-                $this->redirect("Prestamos", "index");    
+                $this->redirect("index", "index");    
                 }
                 if ($_SESSION["session"]["idRol"] == '1'){
-                $this->redirect("Prestamos", "index");    
+                $this->redirect("index", "index");    
                 }
                
             } else {

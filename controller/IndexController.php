@@ -6,11 +6,8 @@
  * @author Vito
  */
 class IndexController extends ControladorBase{
-    //put your code here
-    
     public function index(){
-        
-        $this->viewIndex("login");
+        $this->viewIndex("index");
     }
     
     
