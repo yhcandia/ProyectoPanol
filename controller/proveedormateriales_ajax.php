@@ -57,7 +57,7 @@
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
                                     <tr>
-                                            <td><span class="glyphicon glyphicon-book"></span></td>
+                                            <td><span class="glyphicon glyphicon-shopping-cart"></span></td>
                                             
                                             <?php
                                             $materiales1=include ('../view/listas/mostrarMateriales.php');

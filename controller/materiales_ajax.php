@@ -61,7 +61,7 @@
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
                                     <tr>
-                                            <td><span class="glyphicon glyphicon-book"></span></td>
+                                            <td><span class="glyphicon glyphicon-folder-close"></span></span></td>
                                             <td><?php echo $row['id_material'];?></td>   
                                             
                                             <?php

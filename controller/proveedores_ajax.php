@@ -55,7 +55,7 @@
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
                                     <tr>
-                                            <td><span class="glyphicon glyphicon-user"></span></td>
+                                            <td><span class="glyphicon glyphicon-briefcase"></span></td>
                                             <td><?php echo $row['rut_proveedor'];?></td>
                                             <td><?php echo $row['nombre_proveedor'];?></td>
                                             <?php if ($row['estado_proveedor']==1){?>
