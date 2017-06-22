@@ -11,7 +11,7 @@
                 position: absolute;
                 top: 20%;
                 width: 100%;
-                 
+
             }
             footer {
                 padding-top:10px;
@@ -24,11 +24,11 @@
             }
         </style>
     </head>
-    
-        <body>
-            <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <div class="container">
+
+    <body>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <div class="container">
             <div class="panel panel-default center-block">
 
                 <div class="panel-footer">
@@ -54,6 +54,7 @@
                                     <th>Nombre</th>
                                     <th>Stock</th>
                                     <th>Seleccionar</th>
+                                    <th>Imagen</th>
                                     </thead>
                                     <tbody> 
                                         <?php while ($row = mysqli_fetch_array($result)) { ?>
@@ -97,6 +98,28 @@
                                                     </div><!-- /.modal-dialog -->
                                                     </div>
                                                 </td>
+                                                <?php
+                                                $foto = $row['imagen'];
+                                                $Base64Img = base64_decode($foto);
+                                                ?>
+                                                <td>
+                                                    <a data-toggle="modal" name="myModalImagebtn<?php echo $row['id_material']; ?>" id="myModalImagebtn<?php echo $row['id_material']; ?>" href="#myModalImage<?php echo $row['id_material']; ?>" title="Ver Imagen" class="btn">Ver Imagen</a>
+                                                    <div id="myModalImage<?php echo $row['id_material']; ?>" class="modal fade" role="dialog">  
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">      
+                                                                <div class="modal-header">        
+                                                                    <button type="button" class="close" data-dismiss="modal">×</button>        
+                                                                    <h4 class="modal-title"><?php echo $row['nombre_material']; ?></h4>      </div> 
+                                                                <center>
+                                                                    <div class="modal-body"><img id="imagenPop" src="data:image/png;base64,<?php echo $foto; ?>" class="img-rounded" width="304" height="236" />   </div>      
+                                                                    <div class="modal-footer">        
+                                                                </center>
+                                                                     
+                                                            </div>  
+                                                        </div>  
+                                                    </div>    
+                                                    </div>
+                                                </td>   
                                             </tr>
 
                                         <?php } ?>
@@ -115,10 +138,10 @@
                 </div>
             </div>
         </div>
-        </div>
-            <footer><center><img src="view/img/logo.png" alt="Duoc Uc"/><center></footer>
-        </div
 
-        </body>
-    
-</html>
+        <footer><center><img src="view/img/logo.png" alt="Duoc Uc"/><center></footer>
+
+
+                    </body>
+
+                    </html>
