@@ -13,7 +13,7 @@
   <div id="login">
   <form id="login_form"  action="<?php echo $helper->url("usuarios","login"); ?>" method="post">
     <div class="field_container">
-      <input type="text" name="nnombre" placeholder="User name" required>
+        <input type="text" name="nnombre" autofocus="" placeholder="User name" required>
     </div>
     
     <div class="field_container">
