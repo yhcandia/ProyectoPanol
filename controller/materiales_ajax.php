@@ -125,11 +125,12 @@
 			
 		} else {
 			?>
-			<div class="alert alert-warning alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h4>Aviso!!!</h4> No hay datos para mostrar<br>
-              <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
-            </div>
+                <div class="panel panel-default col-md-8 center-block">
+                    <div class="panel-body">                
+                    <h4>Aviso!!!</h4> No hay datos para mostrar<br>
+                    <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
+                    </div>
+                </div>
 			<?php
 		}
 	}
