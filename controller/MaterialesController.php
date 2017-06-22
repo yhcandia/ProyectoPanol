@@ -50,7 +50,7 @@ class MaterialesController extends ControladorBase {
                     ));
                 }
             }
-            if ($_SESSION["session"]["idRol"] == "1") {
+            if ($_SESSION["session"]["idRol"] == "1" || $_SESSION["session"]["idRol"] == "0") {
                 //Creamos el objeto usuario
                 $material = new Material($this->adapter);
 
