@@ -54,7 +54,7 @@
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
                                     <tr>
-                                            <td><span class="glyphicon glyphicon-user"></span></td>
+                                            <td><span class="icon-users"></span></td>
                                             <td><?php echo $row['id_rol'];?></td>                                           
                                             <td><?php echo $row['nombre_rol'];?></td>                                                                                 
                                             <?php if ($row['estado_rol']==1){?>
