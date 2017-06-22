@@ -48,7 +48,7 @@
                                 <th>Proveedor</th>
                                 <th>Cantidad Comprada</th>
                                 <th>Precio Unitario</th>
-                                <th>Fecha Compra</th>
+                                <th>Ultima Compra</th>
                                 <th>Total Compra</th>
                                 <th>Seleccionar</th>
                             </thead>

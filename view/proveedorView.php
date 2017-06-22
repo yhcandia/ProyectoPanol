@@ -104,14 +104,14 @@
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("proveedores", "crear"); ?>">
 
-                                        <div class="form-group"><label>RUT: </label> <input type="text" class="form-control" name="rutProveedor"/></div>
-                                        <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreProveedor"/></div>
+                                        <div class="form-group"><label>RUT: </label> <input required="" type="text" class="form-control" name="rutProveedor"/></div>
+                                        <div class="form-group"><label>Nombre: </label><input required="" type="text" class="form-control" name="nombreProveedor"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoProveedor" class="form-control" name="estadoProveedor"/>
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                        <div class="form-group"><label>Direccion: </label><input type="text" class="form-control" name="direccionProveedor"/></div>
+                                        <div class="form-group"><label>Direccion: </label><input required="" type="text" class="form-control" name="direccionProveedor"/></div>
                                         
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
@@ -134,8 +134,8 @@
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("proveedores","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="rut" value="<?php echo $proveedor->rut_proveedor ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>RUT:</label> <input type="text" name="rutProveedor" value="<?php echo $proveedor->rut_proveedor ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreProveedor" value="<?php echo $proveedor->nombre_proveedor ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>RUT:</label> <input type="text" name="rutProveedor" readonly="" value="<?php echo $proveedor->rut_proveedor ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Nombre:</label> <input required="" type="text" name="nombreProveedor" value="<?php echo $proveedor->nombre_proveedor ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoProveedor" class="form-control" name="estadoProveedor"/>
                                                         <?php if ($proveedor->estado_proveedor == 1) {?>
@@ -149,7 +149,7 @@
                                                         <?php } ?>
                                                         
                                                     </select></div>
-                                        <div class="form-group"><label>Direccion:</label> <input type="text" name="direccionProveedor" value="<?php echo $proveedor->direccion_proveedor ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Direccion:</label> <input required="" type="text" name="direccionProveedor" value="<?php echo $proveedor->direccion_proveedor ?>" class="form-control"/></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>

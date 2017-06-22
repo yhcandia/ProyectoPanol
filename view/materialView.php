@@ -47,7 +47,6 @@
 	$(document).ready(function(){
                 $("#valorRadio").attr("value", "sinValor");
 		load(1);  
-		load2(1);  
 	}); 
 	function load(page){
                 $("#valorRadio").attr("value", "sinValor");
@@ -66,22 +65,6 @@
 		})
 	}
         
-        function load2(page){
-                $("#valorRadio").attr("value", "sinValor");
-		var parametros = {"action":"ajax","page":page};
-		$("#loader").fadeIn('slow');
-		$.ajax({
-			url:'controller/materiales_ajax.php',
-			data: parametros,
-			 beforeSend: function(objeto){
-			$("#loader").html("<img src='view/img/loader.gif'>");
-			},
-			success:function(data){
-				$(".outer_div2").html(data).fadeIn('slow');
-				$("#loader").html("");
-			}
-		})
-	}
 	</script>  
         <style>
             .container .panel {
@@ -122,14 +105,28 @@
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("materiales", "crear"); ?>">
 
-                                        <div class="form-group"><label>ID Categoria: </label> <input type="text" class="form-control" name="idCategoria"/></div>
-                                        <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreMaterial"/></div>
+                                        <div class="form-group"><label>Seleccione Categoria: </label>
+                                          
+                                        <select class="form-control" name="idCategoria">
+                                            <?php
+                                            $materialesP = include('listas/mostrarCategorias.php');
+                                            while ($row = mysqli_fetch_row($materialesP)) {
+                                                ?>
+
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+
+                                                <?php
+                                            }
+                                            ?>
+						</select></div>
+                                        
+                                        <div class="form-group"><label>Nombre: </label><input required="" type="text" class="form-control" name="nombreMaterial"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoMaterial" class="form-control" name="estadoMaterial"/>
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                        <div class="form-group"><label>Stock: </label><input type="text" class="form-control" name="stock"/></div>
+                                        <div class="form-group"><label>Stock: </label><input required="" min="0" type="number" class="form-control" name="stock"/></div>
                                         
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
@@ -152,8 +149,23 @@
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("materiales","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="id" value="<?php echo $material->id_material ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>ID Categoria:</label> <input type="text" name="idCategoria" value="<?php echo $material->id_categoria ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreMaterial" value="<?php echo $material->nombre_material ?>" class="form-control"/></div>
+                                        
+                                        <div class="form-group"><label>Seleccione Categoria: </label>
+                                          
+                                            <select class="form-control" name="idCategoria">
+                                            <?php
+                                            $materiales = include('listas/mostrarCategorias.php');
+                                            while ($row = mysqli_fetch_row($materiales)) {
+                                                if ($material->id_categoria==$row[0]){?>
+                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php }
+                                            }
+                                            ?>
+						</select></div>
+                                        
+                                        <div class="form-group"><label>Nombre:</label> <input required="" type="text" name="nombreMaterial" value="<?php echo $material->nombre_material ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoMaterial" class="form-control" name="estadoMaterial"/>
                                                         <?php if ($material->estado_material == 1) {?>
@@ -167,7 +179,7 @@
                                                         <?php } ?>
                                                         
                                                     </select></div>
-                                        <div class="form-group"><label>Stock:</label> <input type="text" name="stock" value="<?php echo $material->stock_material ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Stock:</label> <input required="" min="0" type="number" name="stock" value="<?php echo $material->stock_material ?>" class="form-control"/></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>

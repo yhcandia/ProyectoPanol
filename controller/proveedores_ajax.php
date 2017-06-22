@@ -59,9 +59,9 @@
                                             <td><?php echo $row['rut_proveedor'];?></td>
                                             <td><?php echo $row['nombre_proveedor'];?></td>
                                             <?php if ($row['estado_proveedor']==1){?>
-                                            <td><?php echo "ACTIVO";?></td>
+                                            <td><?php echo "Activo";?></td>
                                             <?php }else{?>
-                                            <td><?php echo "INACTIVO";?></td>
+                                            <td><?php echo "Inactivo";?></td>
                                             <?php } ?>
                                             <td><?php echo $row['direccion_proveedor'];?></td>                                  
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['rut_proveedor'];?>" /></td>

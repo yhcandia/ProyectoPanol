@@ -45,7 +45,7 @@
                             <thead>
 				<th></th>
                                 <th>ID Material</th>
-                                <th>ID Categoria</th>
+                                <th>Nombre Categoria</th>
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Stock</th>
@@ -57,16 +57,29 @@
                                     ?>                                 
                                     <tr>
                                             <td><span class="glyphicon glyphicon-book"></span></td>
-                                            <td><?php echo $row['id_material'];?></td>                                           
-                                            <td><?php echo $row['id_categoria'];?></td>                                           
+                                            <td><?php echo $row['id_material'];?></td>   
+                                            
+                                            <?php
+                                            $categorias=include ('../view/listas/mostrarCategorias.php');
+                                            while ($row2 = mysqli_fetch_row($categorias)) {
+                                                 if ($row2[0]==$row['id_categoria']) {
+                                                ?>
+                                            <td><?php echo $row2[2];?></td>
+                                            <?php } ?>
+
+                                                <?php
+                                            }
+                                            ?>
+                                             
+                                            
                                             <td><?php echo $row['nombre_material'];?></td>   
                                             
                                             <?php if($row['estado_material'] == 1)
-                                                echo "<td>ACTIVO</td>"; ?>
+                                                echo "<td>Activo</td>"; ?>
                                             
                                             <?php if($row['estado_material'] == 0)
                                                 
-                                                 echo "<td>DESACTIVADO</td>"; ?>
+                                                 echo "<td>Desactivado</td>"; ?>
                                             
                                             <td><?php echo $row['stock_material'];?></td>                                           
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_material'];?>" /></td>
