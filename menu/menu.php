@@ -29,6 +29,7 @@
                             <li><a href="./index.php?controller=roles"><span class="icon-users"></span>Roles</a></li>
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
                             <li><a href="./index.php?controller=proveedores"><span class="icon-users"></span>Proveedores</a></li>
+                            <li><a href="./index.php?controller=proveedormateriales"><span class="glyphicon glyphicon-folder-close"></span>Compras</a></li>
                             <?php
                         }
                         if($_SESSION['session']['idRol'] == '1'){                   
@@ -37,8 +38,7 @@
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Prestamo</a></li>
                             <li><a href="./index.php?controller=usuariosPanol"><span class="icon-users"></span>Usuarios</a></li>
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
-                                                  
-                            
+                            <li><a href="./index.php?controller=proveedormateriales"><span class="glyphicon glyphicon-folder-close"></span>Compras</a></li>
                             <?php
                         } 
                         if($_SESSION['session']['idRol'] == '2'){                   

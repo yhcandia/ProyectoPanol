@@ -47,6 +47,7 @@
 	$(document).ready(function(){
                 $("#valorRadio").attr("value", "sinValor");
 		load(1);  
+		load2(1);  
 	}); 
 	function load(page){
                 $("#valorRadio").attr("value", "sinValor");
@@ -60,6 +61,23 @@
 			},
 			success:function(data){
 				$(".outer_div").html(data).fadeIn('slow');
+				$("#loader").html("");
+			}
+		})
+	}
+        
+        function load2(page){
+                $("#valorRadio").attr("value", "sinValor");
+		var parametros = {"action":"ajax","page":page};
+		$("#loader").fadeIn('slow');
+		$.ajax({
+			url:'controller/materiales_ajax.php',
+			data: parametros,
+			 beforeSend: function(objeto){
+			$("#loader").html("<img src='view/img/loader.gif'>");
+			},
+			success:function(data){
+				$(".outer_div2").html(data).fadeIn('slow');
 				$("#loader").html("");
 			}
 		})
@@ -161,6 +179,9 @@
             </div>
               <!--listado de proveedores desde Ajax con paginador-->
             <div class="outer_div">
+                    <div id="loader" class="text-center"></div><!-- Datos ajax Final -->           
+            </div>  
+              <div class="outer_div2" style="position: absolute;">
                     <div id="loader" class="text-center"></div><!-- Datos ajax Final -->           
             </div>  
               <div style="display: none;">

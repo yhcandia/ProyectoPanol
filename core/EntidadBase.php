@@ -105,6 +105,16 @@ class EntidadBase{
         return $resultSet;
     }
     
+    public function getByIdProveedorMaterial($value){
+        $query=$this->db->query("SELECT * FROM proveedor_material WHERE id_proveedor_material='$value'");
+
+        if($row = $query->fetch_object()) {
+           $resultSet=$row;
+        }
+        
+        return $resultSet;
+    }
+    
     public function getByIdMaterial($value){
         $query=$this->db->query("SELECT * FROM material WHERE id_material='$value'");
 
@@ -159,7 +169,7 @@ class EntidadBase{
         return $query;
     }
     
-
+    
     /*
      * Aqui podemos montarnos un monton de métodos que nos ayuden
      * a hacer operaciones con la base de datos de la entidad
