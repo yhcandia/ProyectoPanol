@@ -116,7 +116,8 @@
                                          
                                         <div class="form-group"><label>Seleccione solicitante: </label>
                                           
-                                        <select class="form-control" name="rutUsuario">
+                                            <select class="form-control" name="rutUsuario" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $usuarios = include('listas/mostrarUsuarios.php');
                                             while ($row = mysqli_fetch_row($usuarios)) {
@@ -131,7 +132,8 @@
                                         
                                         <div class="form-group"><label>Seleccione material: </label>
                                           
-                                        <select class="form-control" name="idMaterial">
+                                            <select class="form-control" name="idMaterial" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $materiales = include('listas/mostrarMateriales.php');
                                             while ($row = mysqli_fetch_row($materiales)) {
@@ -155,7 +157,8 @@
                                             </div>
                                             <div class="form-group"><label>Observacion: </label> <input type="text" class="form-control" name="observacion"/></div>
                                             <div class="form-group"><label>Estado de prestamo: </label>
-                                                        <select class="form-control" name="estadoPrestamo"/>
+                                                <select class="form-control" name="estadoPrestamo" required=""/>
+                                                        <option value="">-- Seleccione --</option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1"> Recibido </option>
                                                         <option  class="form-control" value="2"> Pendiente </option>
@@ -184,7 +187,9 @@
                                     <form role="form" action="<?php echo $helper->url("prestamos","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="idPrestamo" value="<?php echo $prestamo->id_prestamo ?>"    class="form-control"/></div>
                                         <div class="form-group"><label>Seleccione solicitante: </label>
-                                        <select class="form-control" name="rutUsuario">
+                                        
+                                            <select class="form-control" name="rutUsuario" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $usuarios = include('listas/mostrarUsuarios.php');
                                             while ($row = mysqli_fetch_row($usuarios)) {
@@ -200,7 +205,8 @@
                                                 
                                             <div class="form-group"><label>Seleccione material: </label>
                                           
-                                        <select class="form-control" name="idMaterial">
+                                                <select class="form-control" name="idMaterial" required=""/>
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $materiales = include('listas/mostrarMateriales.php');
                                             while ($row = mysqli_fetch_row($materiales)) {
@@ -228,7 +234,8 @@
                                 
                                 
                                         <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoPrestamo" class="form-control"/>
+                                            <select name="estadoPrestamo" class="form-control" required=""/>
+                                                        <option value="">-- Seleccione --</option>
                                                         <?php if ($prestamo->estado_prestamo == 0) {?>
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <option  class="form-control" value="1"> Recibido </option>

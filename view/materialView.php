@@ -107,7 +107,8 @@
 
                                         <div class="form-group"><label>Seleccione Categoria: </label>
                                           
-                                        <select class="form-control" name="idCategoria">
+                                            <select class="form-control" name="idCategoria" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $materialesP = include('listas/mostrarCategorias.php');
                                             while ($row = mysqli_fetch_row($materialesP)) {
@@ -152,7 +153,8 @@
                                         
                                         <div class="form-group"><label>Seleccione Categoria: </label>
                                           
-                                            <select class="form-control" name="idCategoria">
+                                            <select class="form-control" name="idCategoria" required="">
+                                                <option value="">-- Seleccione --</option>
                                             <?php
                                             $materiales = include('listas/mostrarCategorias.php');
                                             while ($row = mysqli_fetch_row($materiales)) {

@@ -118,7 +118,8 @@
                                         <div class="form-group"><label>Email Usuario: </label><input type="email" class="form-control" name="emailUsuario" required=""/></div>
                                         <div class="form-group"><label>Escuela: </label><input type="text" class="form-control" name="escuelaUsuario" required=""/></div>
                                         <div class="form-group"><label>Rol: </label>
-                                            <select name="idRol" class="form-control"/>                                           
+                                            <select name="idRol" class="form-control" required=""/>                                           
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $roles = include('listas/mostrarRoles.php');
                                             while ($row = mysqli_fetch_row($roles)) {
@@ -152,11 +153,11 @@
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("usuarios","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="rut" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Rut:</label> <input type="text" name="rutUsuario" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre:</label> <input type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Apellido:</label> <input type="text" name="apellidoUsuario" value="<?php echo $usuario->apellido_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Domicilio:</label> <input type="text" name="domicilioUsuario" value="<?php echo $usuario->domicilio_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Telefono:</label> <input type="text" name="telefonoUsuario" value="<?php echo $usuario->telefono_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Rut:</label> <input required="" type="text" name="rutUsuario" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Nombre:</label> <input required="" type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Apellido:</label> <input required="" type="text" name="apellidoUsuario" value="<?php echo $usuario->apellido_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Domicilio:</label> <input required="" type="text" name="domicilioUsuario" value="<?php echo $usuario->domicilio_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Telefono:</label> <input required="" type="number" min="1" name="telefonoUsuario" value="<?php echo $usuario->telefono_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
                                                         <?php if ($usuario->estado_usuario == 1) {?>
@@ -169,11 +170,12 @@
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <?php } ?>
                                                     </select></div>
-                                        <div class="form-group"><label>emailUsuario:</label> <input type="text" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Escuela:</label> <input type="text" name="escuelaUsuario" value="<?php echo $usuario->escuela_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>idRol:</label> <input type="number" name="idRol" value="<?php echo $usuario->id_rol ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Email Usuario:</label> <input required="" type="email" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Escuela:</label> <input required="" type="text" name="escuelaUsuario" value="<?php echo $usuario->escuela_usuario ?>" class="form-control"/></div>
+                                        
                                         <div class="form-group"><label>Rol: </label>
-                                            <select name="idRol" class="form-control"/>                                           
+                                            <select name="idRol" class="form-control" required=""/>     
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $roles = include('listas/mostrarRoles.php');
                                             while ($row = mysqli_fetch_row($roles)) {
@@ -187,7 +189,7 @@
                                             }
                                             ?>
                                             </select></div>
-                                        <div class="form-group"><label>Contraseña:</label> <input type="password" name="password" value="<?php echo $usuario->password_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Contraseña:</label> <input required="" type="password" name="password" value="<?php echo $usuario->password_usuario ?>" class="form-control"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>

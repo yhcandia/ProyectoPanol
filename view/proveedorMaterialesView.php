@@ -117,7 +117,8 @@
                                                                                 
                                         <div class="form-group"><label>Seleccione material: </label>
                                           
-                                        <select class="form-control" name="id_material">
+                                            <select class="form-control" name="id_material" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $materialesP = include('listas/mostrarMateriales.php');
                                             while ($row = mysqli_fetch_row($materialesP)) {
@@ -132,7 +133,8 @@
                                         
                                         <div class="form-group"><label>Seleccione Proveedor: </label>
                                           
-                                        <select class="form-control" name="id_proveedor">
+                                            <select class="form-control" name="id_proveedor" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $proveedores = include('listas/mostrarProveedores.php');
                                             while ($row = mysqli_fetch_row($proveedores)) {
@@ -177,7 +179,7 @@
                                         
                                         <div class="form-group"><label>Seleccione material: </label>
                                           
-                                            <select class="form-control" name="id_material_disabled" disabled="">
+                                            <select class="form-control" name="id_material_disabled" disabled="" >
                                             <?php
                                             $materiales = include('listas/mostrarMateriales.php');
                                             while ($row = mysqli_fetch_row($materiales)) {
@@ -192,7 +194,8 @@
                                          <div class="form-group"><input type="hidden" name="id_material" value="<?php echo $proveedorMaterial->id_material ?>"    class="form-control"/></div>
                                         
                                         <div class="form-group"><label>Seleccione Proveedor: </label>
-                                        <select class="form-control" name="id_proveedor">
+                                            <select class="form-control" name="id_proveedor" required="">
+                                            <option value="">-- Seleccione --</option>
                                             <?php
                                             $proveedores = include('listas/mostrarProveedores.php');
                                             while ($row = mysqli_fetch_row($proveedores)) {

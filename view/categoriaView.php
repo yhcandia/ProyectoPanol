@@ -106,12 +106,14 @@
 
                                         <div class="form-group"><label>Nombre categoria: </label> <input required type="text" class="form-control" name="nombreCategoria"/></div>
                                         <div class="form-group"><label>Desechable: </label>
-                                                        <select name="desechable" class="form-control" name="desechable"/>
+                                            <select name="desechable" class="form-control" name="desechable" required=""/>
+                                                        <option value="">-- Seleccione --</option>
                                                         <option  class="form-control" value="0"> Desechable </option>
                                                         <option  class="form-control" value="1"> Retornable </option>
                                                         </select></div>
                                         <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoCategoria" class="form-control" name="estadoCategoria"/>
+                                            <select name="estadoCategoria" class="form-control" name="estadoCategoria" required=""/>
+                                                        <option value="">-- Seleccione --</option>
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
@@ -157,12 +159,14 @@
                                         <div class="form-group"><input type="hidden" name="idCategoria" value="<?php echo $categoria->id_categoria ?>"    class="form-control"/></div>
                                         <div class="form-group"><label>Nombre categoria</label> <input type="text" name="nombreCategoria" value="<?php echo $categoria->nombre_categoria ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Desechable: </label>
-                                                        <select name="desechable" class="form-control" />
+                                            <select name="desechable" class="form-control" required=""/>
+                                                        <option value="">-- Seleccione --</option>
                                                         <option  class="form-control" value="0"> Desechable </option>
                                                         <option  class="form-control" value="1"> Retornable </option>
                                                         </select></div>
                                         <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoCategoria" class="form-control"/>
+                                            <select name="estadoCategoria" class="form-control" required=""/>
+                                                        <option value="">-- Seleccione --</option>
                                                         <?php if ($categoria->estado_categoria == 1) {?>
                                                         <option  class="form-control" value="1" selected> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
