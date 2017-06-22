@@ -100,8 +100,14 @@ class UsuariosController extends ControladorBase{
             $usuario->setEscuelaUsuario($_POST["escuelaUsuario"]);
             $usuario->setEmailUsuario($_POST["emailUsuario"]);
             $usuario->setIdRol($_POST["idRol"]);
-            $usuario->setPassword(md5($_POST["password"]));
-            $save=$usuario->update($rut);
+            if(($_POST["password"]) != "")
+            {
+                $usuario->setPassword(md5($_POST["password"]));
+                $save=$usuario->updateConPw($rut);
+            } else {
+                $save=$usuario->updateSinPw($rut);
+            }                
+            
         }
         $this->redirect("Usuarios", "index");
     }

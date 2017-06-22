@@ -75,7 +75,7 @@ class UsuariosPanolController extends ControladorBase{
             $usuario->setTelefonoUsuario($_POST["telefonoUsuario"]);
             $usuario->setEmailUsuario($_POST["emailUsuario"]);
             $usuario->setIdRol($_POST["idRol"]);
-            $usuario->setPassword(sha1($_POST["password"]));
+            $usuario->setPassword(md5($_POST["password"]));
             $save=$usuario->save();
         }
         $this->redirect("UsuariosPanol", "index");
@@ -96,7 +96,13 @@ class UsuariosPanolController extends ControladorBase{
             $usuario->setEscuelaUsuario($_POST["escuelaUsuario"]);
             $usuario->setEmailUsuario($_POST["emailUsuario"]);
             $usuario->setIdRol($_POST["idRol"]);
-            $usuario->setPassword(sha1($_POST["password"]));
+            if(($_POST["password"]) != "")
+            {
+                $usuario->setPassword(md5($_POST["password"]));
+                $save=$usuario->updateConPw($rut);
+            } else {
+                $save=$usuario->updateSinPw($rut);
+            }
             $save=$usuario->update($rut);
         }
         $this->redirect("UsuariosPanol", "index");

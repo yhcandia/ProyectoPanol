@@ -109,7 +109,7 @@
                                         <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreUsuario" required=""/></div>
                                         <div class="form-group"><label>Apellido: </label><input type="text" class="form-control" name="apellidoUsuario" required=""/></div>
                                         <div class="form-group"><label>Domicilio: </label><input type="text" class="form-control" name="domicilioUsuario" required=""/></div>
-                                        <div class="form-group"><label>Telefono: </label><input type="number" min="1" class="form-control" name="telefonoUsuario" required=""/></div>
+                                        <div class="form-group"><label>Telefono: </label><input type="number" min="200000000" class="form-control" name="telefonoUsuario" required=""/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control"/>
                                                         <option  class="form-control" value="1"> Activo </option>
@@ -157,7 +157,7 @@
                                         <div class="form-group"><label>Nombre:</label> <input required="" type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Apellido:</label> <input required="" type="text" name="apellidoUsuario" value="<?php echo $usuario->apellido_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Domicilio:</label> <input required="" type="text" name="domicilioUsuario" value="<?php echo $usuario->domicilio_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Telefono:</label> <input required="" type="number" min="1" name="telefonoUsuario" value="<?php echo $usuario->telefono_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Telefono:</label> <input required="" type="number" min="200000000" name="telefonoUsuario" value="<?php echo $usuario->telefono_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
                                                         <?php if ($usuario->estado_usuario == 1) {?>
@@ -189,7 +189,7 @@
                                             }
                                             ?>
                                             </select></div>
-                                        <div class="form-group"><label>Contraseña:</label> <input required="" type="password" name="password" value="<?php echo $usuario->password_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Contraseña:</label> <input type="password" name="password" placeholder="(no modificada)" class="form-control"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>

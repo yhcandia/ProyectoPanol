@@ -99,7 +99,7 @@ class Usuario extends EntidadBase{
     }
 
     
-    public function update($rut){
+    public function updateConPw($rut){
         $query="UPDATE usuarios SET rut_usuario = '$this->rutUsuario',"
                 . "id_rol = '$this->idRol',"
                 . "nombre_usuario = '$this->nombreUsuario',"
@@ -111,6 +111,22 @@ class Usuario extends EntidadBase{
                 . "domicilio_usuario = '$this->direccionUsuario',"
                 . "estado_usuario = '$this->estadoUsuario',"
                 . "password_usuario='$this->password' where rut_usuario= '$rut'";
+        $update=$this->db()->query($query);
+        $this->db()->error;
+        return $update;
+    }
+    
+    public function updateSinPw($rut){
+        $query="UPDATE usuarios SET rut_usuario = '$this->rutUsuario',"
+                . "id_rol = '$this->idRol',"
+                . "nombre_usuario = '$this->nombreUsuario',"
+                . "mail_usuario = '$this->emailUsuario',"
+                . "estado_usuario = '$this->estadoUsuario',"
+                . "apellido_usuario = '$this->apellidoUsuario',"
+                . "escuela_usuario = '$this->escuelaUsuario',"
+                . "telefono_usuario = '$this->telefonoUsuario',"
+                . "domicilio_usuario = '$this->direccionUsuario',"
+                . "estado_usuario = '$this->estadoUsuario' where rut_usuario= '$rut'";
         $update=$this->db()->query($query);
         $this->db()->error;
         return $update;

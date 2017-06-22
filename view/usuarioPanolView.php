@@ -109,7 +109,7 @@
                                         <div class="form-group"><label>Nombre: </label><input required="" type="text" class="form-control" name="nombreUsuario"/></div>
                                         <div class="form-group"><label>Apellido: </label><input required="" type="text" class="form-control" name="apellidoUsuario"/></div>
                                         <div class="form-group"><label>Domicilio: </label><input required="" type="text" class="form-control" name="domicilioUsuario"/></div>
-                                        <div class="form-group"><label>Telefono: </label><input required="" type="number" min="1" class="form-control" name="telefonoUsuario"/></div>
+                                        <div class="form-group"><label>Telefono: </label><input required="" type="number" min="200000000" class="form-control" name="telefonoUsuario"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control"/>
                                                         <option  class="form-control" value="1"> Activo </option>
@@ -189,7 +189,7 @@
                                             ?>
                                                 </select></div>
                                         
-                                        <div class="form-group"><label>Contraseña:</label> <input required="" type="password" name="password" value="<?php echo $usuario->password_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Contraseña:</label> <input type="password" name="password" placeholder="(no modificada)" class="form-control"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>

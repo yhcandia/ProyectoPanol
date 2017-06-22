@@ -71,15 +71,15 @@
                                             ?>                                           
                                             <td><?php echo $row['nombre_categoria'];?></td>                                           
                                             <?php if ($row['estado_categoria']==1){?>
-                                            <td><?php echo "ACTIVO";?></td>
+                                            <td><?php echo "Activo";?></td>
                                             <?php }else{?>
-                                            <td><?php echo "INACTIVO";?></td>
+                                            <td><?php echo "Inactivo";?></td>
                                             <?php } ?>
                                             
                                             <?php if ($row['desechable']==1){?>
-                                            <td><?php echo "NO";?></td>
+                                            <td><?php echo "Si";?></td>
                                             <?php }else{?>
-                                            <td><?php echo "SI";?></td>
+                                            <td><?php echo "No";?></td>
                                             <?php } ?>
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_categoria'];?>" /></td>
                                     </tr>                                 

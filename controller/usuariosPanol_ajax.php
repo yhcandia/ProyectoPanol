@@ -44,13 +44,13 @@
                     
                             <thead>
 				<th></th>
-                                <th>rut</th>
-                                <th>nombre</th>
-                                <th>apellido</th>
-                                <th>escuela</th>
-                                <th>telefono</th>
-                                <th>estado</th>
-                                <th>email</th>
+                                <th>RUT</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Escuela</th>
+                                <th>Telefono</th>
+                                <th>Estado</th>
+                                <th>Email</th>
                                 <th>rol</th>
                                 <th></th>
                             </thead>
@@ -68,9 +68,9 @@
                                             <td><?php echo $row['escuela_usuario'];?></td>
                                             <td><?php echo $row['telefono_usuario'];?></td>
                                             <?php if ($row['estado_usuario']==1){?>
-                                            <td><?php echo "ACTIVO";?></td>
+                                            <td><?php echo "Activo";?></td>
                                             <?php }else{?>
-                                            <td><?php echo "INACTIVO";?></td>
+                                            <td><?php echo "Inactivo";?></td>
                                             <?php } ?>
                                             <td><?php echo $row['mail_usuario'];?></td>
                                             <td><?php echo $row['id_rol'];?></td>                                           
