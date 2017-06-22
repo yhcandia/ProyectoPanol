@@ -45,7 +45,7 @@
                             <thead>
 				<th></th>
                                 <th>Id Categoria</th>
-                                <th>Id Pañol</th>
+                                <th>Pañol</th>
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Desechable</th>
@@ -58,7 +58,17 @@
                                     <tr>
                                             <td><span class="glyphicon glyphicon-book"></span></td>
                                             <td><?php echo $row['id_categoria'];?></td>                                           
-                                            <td><?php echo $row['id_panol'];?></td>                                           
+                                            <?php
+                                            $panol=include ('../view/listas/mostrarPanol.php');
+                                            while ($row3 = mysqli_fetch_row($panol)) {
+                                                
+                                             if ($row3[0]==$row['id_panol']) {
+                                                ?>
+                                            <td><?php echo $row3[2];?></td>
+                                            <?php
+                                            } 
+                                            }
+                                            ?>                                           
                                             <td><?php echo $row['nombre_categoria'];?></td>                                           
                                             <?php if ($row['estado_categoria']==1){?>
                                             <td><?php echo "ACTIVO";?></td>

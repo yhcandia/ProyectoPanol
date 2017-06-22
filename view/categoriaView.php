@@ -115,8 +115,25 @@
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                            <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" name="idPanol"/></div>
-                                            
+                                         
+                                        <div class="form-group"><label>Pañol: </label>
+                                          
+                                        <select class="form-control" name="idPanol">
+                                            <?php
+                                            $panol = include('listas/mostrarpanol.php');
+                                            while ($row = mysqli_fetch_row($panol)) {
+                                                ?>
+
+                                            <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+
+                                                <?php
+                                            }
+                                            ?>
+						</select></div>
+                                        
+                                        
+                                        
+                                        
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>
@@ -156,8 +173,20 @@
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <?php } ?>
                                                     </select></div>
-                                        <div class="form-group"><label>Id pañol: </label> <input type="number" class="form-control" value="<?php echo $categoria->id_panol ?>"name="idPanol"/></div>
-
+                                         <div class="form-group"><label>Pañol: </label>
+                                        <select class="form-control" name="idPanol">
+                                            <?php
+                                            $panol = include('listas/mostrarpanol.php');
+                                            while ($row = mysqli_fetch_row($panol)) {
+                                                
+                                            if ($categoria->id_panol==$row[0]){?>
+                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
+                                            <?php }
+                                            }
+                                            ?>
+						</select></div>           
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
