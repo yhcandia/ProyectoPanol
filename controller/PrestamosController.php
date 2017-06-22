@@ -65,8 +65,38 @@ class PrestamosController extends ControladorBase{
             $id=$_GET["id"];
             
             
-            $categoria=new Categoria($this->adapter);
-            $categoria->deleteByIdCat($id); 
+            $prestamo=new Prestamo($this->adapter);
+            $prestamo->darBaja($id); 
+        }
+        $this->redirect("Prestamos", "index");
+    }
+    public function recibido(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];
+            
+            
+            $prestamo=new Prestamo($this->adapter);
+            $prestamo->recibido($id); 
+        }
+        $this->redirect("Prestamos", "index");
+    }
+    public function porConfirmar(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];
+            
+            
+            $prestamo=new Prestamo($this->adapter);
+            $prestamo->porConfirmar($id); 
+        }
+        $this->redirect("Prestamos", "index");
+    }
+    public function pendiente(){
+        if(isset($_GET["id"])){ 
+            $id=$_GET["id"];
+            
+            
+            $prestamo=new Prestamo($this->adapter);
+            $prestamo->pendiente($id); 
         }
         $this->redirect("Prestamos", "index");
     }

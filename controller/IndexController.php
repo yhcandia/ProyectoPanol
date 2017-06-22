@@ -10,13 +10,8 @@ class IndexController extends ControladorBase{
     
     public function index(){
         
-        $this->viewIndex("enlaces");
+        $this->viewIndex("login");
     }
     
-    public function redUser(){ 
-        $this->redirect("Usuarios", "index");
-    }
-    public function redRol(){ 
-        $this->redirect("Roles", "index");
-    }
+    
 }

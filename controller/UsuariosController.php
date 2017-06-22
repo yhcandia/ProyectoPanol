@@ -15,7 +15,7 @@ class UsuariosController extends ControladorBase{
     }
 
 
-    public function index(){
+    public function indexPaginaPrincipal(){
         
         //Creamos el objeto usuario
         $usuario=new Usuario($this->adapter);

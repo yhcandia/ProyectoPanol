@@ -13,37 +13,85 @@
         <script language="javascript" type="text/javascript">
             function confirmarRemover(id) {
                 if(id=='sinValor'){
-                    alert("Debe seleccionar una categoria");                  
+                    alert("Debe seleccionar un prestamo");                  
                 }else{
-                    ventana = confirm("¿Esta seguro que desea eliminar el registro?");
+                    ventana = confirm("¿Esta seguro que desea dar de baja el registro?");
                     if (ventana) {
-                        window.location.href="<?php echo $helper->url("categorias", "borrar"); ?>&id="+id;
+                        window.location.href="<?php echo $helper->url("prestamos", "borrar"); ?>&id="+id;
                     }
                 }
             }
         </script>
+        <script language="javascript" type="text/javascript">
+            function confirmarRecibido(id) {
+                if(id=='sinValor'){
+                    alert("Debe seleccionar un prestamo");                  
+                }else{
+                    ventana = confirm("¿Esta seguro que desea cambiar el estado del prestamo?");
+                    if (ventana) {
+                        window.location.href="<?php echo $helper->url("prestamos", "recibido"); ?>&id="+id;
+                    }
+                }
+            }
+        </script>
+        <script language="javascript" type="text/javascript">
+            function confirmarPorConfirmar(id) {
+                if(id=='sinValor'){
+                    alert("Debe seleccionar un prestamo");                  
+                }else{
+                    ventana = confirm("¿Esta seguro que desea cambiar el estado del prestamo?");
+                    if (ventana) {
+                        window.location.href="<?php echo $helper->url("prestamos", "porConfirmar"); ?>&id="+id;
+                    }
+                }
+            }
+        </script>
+        
+        
+        
         <script language="javascript" type="text/javascript">
             function confirmarEditar(id) {
                 if(id=='sinValor'){
                     alert("Debe seleccionar prestamo");                  
                 }else{
                     ventana = confirm("¿Esta seguro que desea actualizar el registro?");
-                    if (ventana) {     
+                    if (ventana) {    
+                        var valida='1';
                         window.location.href="<?php echo $helper->url("prestamos", "actualizar"); ?>&id="+id;            
                     }
                 }
             }
-            function actualiza(){
-                var valida = <?php echo intval(isset($_GET['id']))?>;            
-                if(valida=='1'){   
-                    setTimeout(function(){ $("#modEditar").click(); }, 1000);
-                                   
-                    return true;
+            function confirmarPendiente(id) {
+                if(id=='sinValor'){
+                    alert("Debe seleccionar prestamo");                  
                 }else{
-                    return false;
+                    ventana = confirm("¿Esta seguro que desea actualizar el registro a pendiente?");
+                    if (ventana) {
+                        var valida='2';
+                        window.location.href="<?php echo $helper->url("prestamos", "actualizar"); ?>&id="+id;            
+                    }
                 }
             }
+            
+            
+            
+            function actualiza(){
+                var valida = <?php echo intval(isset($_GET['id']))?>;                     
+                if(valida=='1'){   
+                    setTimeout(function(){ $("#modEditar").click(); }, 1000);
+                    return true;
+
+                }
+                
+                else{
+                return false;
+                }
+                
+                
+                
+            }
         </script>
+        
         
         <script>
             
@@ -173,7 +221,44 @@
 
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->                   
+                    </div><!-- /.modal -->   
+                    
+                    
+                    
+                    
+                    
+                    <div class="modal fade" id="ModalPendiente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                
+                                
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Definir fecha limite</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" action="<?php echo $helper->url("prestamos","limite"); ?>" method="post">
+                                        <div class="form-group"><input type="hidden" name="idPrestamo" value="<?php echo $prestamo->id_prestamo ?>"    class="form-control"/></div>
+                                    
+                                            <div class="form-group"><label >Fecha de devolucion:</label>
+                                            					
+                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_limite)) ?>" type="date" class="form-control" name="fechaDevolucion"/></p>
+                                            </div>
+                                        
+                                        <div class="form-group"><label>Observacion:</label> <input type="text" name="observacion" value="<?php echo $prestamo->observacion ?>"    class="form-control"/></div>
+                                
+                                
+                                        
+                                        
+                                        <button type="submit" class="btn btn-default">Aceptar</button>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                    
+                    
+                  
                     <div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -280,6 +365,10 @@
               <div style="display: none;">
                    <a data-toggle="modal" id="modEditar" href="#ModalEditar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
               </div>
+              <div style="display: none;">
+                   <a data-toggle="modal" id="modPendiente" href="#ModalPendiente" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
+              </div>
+              
             <div>                  
                 <input type="hidden" value="sinValor" id="valorRadio" name="valorRadio">              
             </div>

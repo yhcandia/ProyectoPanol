@@ -126,9 +126,9 @@
                     <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a> 
                     <?echo "        " ?>
-                    <a href="#" title="Marcar Recibido" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
-                    <a href="#" title="Marcar Pendiente" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
-                    <a href="#" title="Marcar Por confirmar" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-pushpin"></a>
+                    <a href="#" title="Marcar Recibido" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
+                    <a href="#" title="Marcar Pendiente" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
+                    <a href="#" title="Marcar Por confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-pushpin"></a>
                     <a href="#" title="Marcar Desactivado" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     </div>
                     

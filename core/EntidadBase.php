@@ -143,6 +143,22 @@ class EntidadBase{
         $query=$this->db->query("UPDATE $this->table SET estado_categoria='0' WHERE id_categoria='$id'"); 
         return $query;
     }
+    public function darBaja($id){
+        $query=$this->db->query("UPDATE $this->table SET estado_prestamo='0' WHERE id_prestamo='$id'"); 
+        return $query;
+    }
+    public function recibido($id){
+        $query=$this->db->query("UPDATE $this->table SET estado_prestamo='1' WHERE id_prestamo='$id'"); 
+        return $query;
+    }
+    public function porConfirmar($id){
+        $query=$this->db->query("UPDATE $this->table SET estado_prestamo='3' WHERE id_prestamo='$id'"); 
+        return $query;
+    }
+    public function pendiente($id){
+        $query=$this->db->query("UPDATE $this->table SET estado_prestamo='2' WHERE id_prestamo='$id'"); 
+        return $query;
+    }
     public function deleteByIdRol($id){
         $query=$this->db->query("UPDATE $this->table SET estado_rol='0' WHERE id_rol='$id'"); 
         return $query;
