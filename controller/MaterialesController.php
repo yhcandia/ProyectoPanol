@@ -42,7 +42,31 @@ class MaterialesController extends ControladorBase{
     public function crear(){
         if(isset($_POST["nombreMaterial"])){
             
+            $foto_name= $_FILES["image"]["name"];
+            $foto_size= $_FILES["image"]["size"];
+            $foto_type= $_FILES["image"]["type"];
+            $foto_temporal= $_FILES["image"]["tmp_name"];
+            # Limitamos los formatos de imagen admitidos a: png, jpg y gif
+            if ($foto_type=="image/x-png" OR $foto_type=="image/png")
+            {
+             $extension="image/png";
+            }
+            if ($foto_type=="image/pjpeg" OR $foto_type=="image/jpeg")
+            {
+             $extension="image/jpeg";
+            }
+            if ($foto_type=="image/gif" OR $foto_type=="image/gif")
+            {
+             $extension="image/gif";
+            }
+            echo $foto_size;
+            $f1= fopen($foto_temporal,"rb");
+            $foto_reconvertida = fread($f1, $foto_size);
+            $foto_reconvertida = base64_encode($foto_reconvertida);
+            fclose($f1);
+            
             $Material=new Material($this->adapter);
+            $Material->setImagen($foto_reconvertida);
             $Material->setIdCategoria($_POST["idCategoria"]); 
             $Material->setNombreMaterial($_POST["nombreMaterial"]); 
             $Material->setEstadoMaterial($_POST["estadoMaterial"]);
@@ -57,11 +81,35 @@ class MaterialesController extends ControladorBase{
         if(isset($_POST["id"])){
             
             $id=$_POST["id"];
+            $foto_name= $_FILES["image"]["name"];
+            $foto_size= $_FILES["image"]["size"];
+            $foto_type= $_FILES["image"]["type"];
+            $foto_temporal= $_FILES["image"]["tmp_name"];
+            # Limitamos los formatos de imagen admitidos a: png, jpg y gif
+            if ($foto_type=="image/x-png" OR $foto_type=="image/png")
+            {
+             $extension="image/png";
+            }
+            if ($foto_type=="image/pjpeg" OR $foto_type=="image/jpeg")
+            {
+             $extension="image/jpeg";
+            }
+            if ($foto_type=="image/gif" OR $foto_type=="image/gif")
+            {
+             $extension="image/gif";
+            }
+            echo $foto_size;
+            $f1= fopen($foto_temporal,"rb");
+            $foto_reconvertida = fread($f1, $foto_size);
+            $foto_reconvertida = base64_encode($foto_reconvertida);
+            fclose($f1);
+            
             $material=new Material($this->adapter);
             $material->setIdCategoria($_POST["idCategoria"]);
             $material->setNombreMaterial($_POST["nombreMaterial"]);
             $material->setEstadoMaterial($_POST["estadoMaterial"]);
             $material->setStock($_POST["stock"]);
+            $material->setImagen($foto_reconvertida);
             $save=$material->update($id);
         }
         $this->redirect("Materiales", "index");

@@ -36,6 +36,11 @@
                               $("#valorRadio").attr("value", $('input:radio[name=valor1]:checked').val());
                           });
                       });
+                      function enviarValorUrl(val){
+                        var val2 = val;                         
+                        var elemento = document.querySelector('#imagenPop');
+                        elemento.setAttribute("src",val2);
+                      }
                 </script>
                 <div class="panel panel-default col-md-8 center-block">
                     <div class="panel-body ">Materiales</div>
@@ -81,7 +86,11 @@
                                                 
                                                  echo "<td>Desactivado</td>"; ?>
                                             
-                                            <td><?php echo $row['stock_material'];?></td>                                           
+                                            <td><?php echo $row['stock_material'];?></td> 
+                                            <?php $foto = $row['imagen'];
+                                            $Base64Img = base64_decode($foto); ?>
+                                            <td>
+                                            <a data-toggle="modal" name="myModalImagebtn" id="myModalImagebtn" href="#myModalImage" onclick="enviarValorUrl('data:image/png;base64,<?php echo $foto;?>')" title="Ver Imagen" class="btn">Ver Imagen</a></td>   
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_material'];?>" /></td>
                                     </tr>                                 
                                    <?php
@@ -98,6 +107,19 @@
                     <a href="#" title="Desactivar" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a>       
                 </div>
+                </div>
+                <div id="myModalImage" class="modal fade" role="dialog">  
+                    <div class="modal-dialog">
+                        <div class="modal-content">      
+                            <div class="modal-header">        
+                                <button type="button" class="close" data-dismiss="modal">×</button>        
+                                <h4 class="modal-title">Imagen</h4>      </div>      
+                            <div class="modal-body"><img id="imagenPop" src="" class="img-rounded" width="304" height="236" />   </div>      
+                            <div class="modal-footer">        
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>     
+                            </div>  
+                        </div>  
+                    </div>    
                 </div>
 			<?php
 			

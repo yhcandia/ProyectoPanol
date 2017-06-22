@@ -103,7 +103,7 @@
                                     <h4 class="modal-title">Agregar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" method="post" action="<?php echo $helper->url("materiales", "crear"); ?>">
+                                    <form role="form" method="post" action="<?php echo $helper->url("materiales", "crear"); ?>" enctype="multipart/form-data">
 
                                         <div class="form-group"><label>Seleccione Categoria: </label>
                                           
@@ -127,7 +127,7 @@
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
                                         <div class="form-group"><label>Stock: </label><input required="" min="0" type="number" class="form-control" name="stock"/></div>
-                                        
+                                        <div class="form-group"><label>Imagen: </label><input type="file" class="form-control" name="image" accept="image/*"/></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>
@@ -147,7 +147,7 @@
                                     <h4 class="modal-title">Editar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" action="<?php echo $helper->url("materiales","update"); ?>" method="post">
+                                    <form role="form" action="<?php echo $helper->url("materiales","update"); ?>" method="post" enctype="multipart/form-data">
                                         <div class="form-group"><input type="hidden" name="id" value="<?php echo $material->id_material ?>"    class="form-control"/></div>
                                         
                                         <div class="form-group"><label>Seleccione Categoria: </label>
@@ -180,7 +180,7 @@
                                                         
                                                     </select></div>
                                         <div class="form-group"><label>Stock:</label> <input required="" min="0" type="number" name="stock" value="<?php echo $material->stock_material ?>" class="form-control"/></div>
-                                        
+                                        <div class="form-group"><label>Imagen: </label><input type="file" class="form-control" name="image" accept="image/*"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>
