@@ -25,7 +25,7 @@ class MaterialesController extends ControladorBase {
 
     public function index() {
         if (isset($_SESSION['session'])) {
-            if ($_SESSION["session"]["idRol"] == "3") {
+            if ($_SESSION["session"]["idRol"] == "2") {
 
                 if (isset($_REQUEST["name"])) {
                     $this->busqueda();
@@ -43,7 +43,7 @@ class MaterialesController extends ControladorBase {
 
                     $consulta = "SELECT * FROM material ORDER BY id_material ASC LIMIT " . (($paginacion->get_page() - 1) * $resul_x_pagina) . ',' . $resul_x_pagina;
                     $result = $this->adapter->query($consulta);
-                    $this->view("solicituprofesor", array(
+                    $this->view("solicitudprofesor", array(
                         "paginacion" => $paginacion,
                         "num_registros" => $num_registros,
                         "result" => $result
@@ -172,7 +172,7 @@ class MaterialesController extends ControladorBase {
 
             $consulta = "SELECT * FROM material WHERE nombre_material LIKE '%" . $name . "%' ORDER BY nombre_material ASC LIMIT " . (($paginacion->get_page() - 1) * $resul_x_pagina) . "," . $resul_x_pagina;
             $result = $this->adapter->query($consulta);
-            $this->view("solicituprofesor", array(
+            $this->view("solicitudprofesor", array(
                 "paginacion" => $paginacion,
                 "num_registros" => $num_registros,
                 "result" => $result
