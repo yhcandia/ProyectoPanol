@@ -84,14 +84,13 @@
                                             
                                             <?php
                                             $materiales=include ('../view/listas/mostrarMateriales.php');
-                                            while ($row2 = mysqli_fetch_row($materiales)) {
+                                            while ($row3 = mysqli_fetch_row($materiales)) {
+                                                
+                                             if ($row3[0]==$row['id_material']) {
                                                 ?>
-                                            <?php if ($row2[0]==$row['id_material']) {
-                                                ?>
-                                            <td><?php echo $row2[2];?></td>
-                                            <?php } ?>
-
-                                                <?php
+                                            <td><?php echo $row3[2];?></td>
+                                            <?php
+                                            } 
                                             }
                                             ?>
                                                                             

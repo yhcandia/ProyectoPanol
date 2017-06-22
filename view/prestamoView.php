@@ -137,7 +137,7 @@
                                             while ($row = mysqli_fetch_row($materiales)) {
                                                 ?>
 
-                                                <option value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
 
                                                 <?php
                                             }
