@@ -54,6 +54,7 @@
                                 <th>Nombre</th>
                                 <th>Estado</th>
                                 <th>Stock</th>
+                                <th>Imagen</th>
                                 <th>Seleccionar</th>
                             </thead>
                             <tbody>                          

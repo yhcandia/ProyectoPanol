@@ -121,7 +121,7 @@
                                             ?>
 						</select></div>
                                         
-                                        <div class="form-group"><label>Nombre: </label><input required="" type="text" class="form-control" name="nombreMaterial"/></div>
+                                        <div class="form-group"><label>Nombre: </label><input maxlength="32" required="" type="text" class="form-control" name="nombreMaterial"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoMaterial" class="form-control" name="estadoMaterial"/>
                                                         <option  class="form-control" value="1"> Activo </option>
@@ -167,7 +167,7 @@
                                             ?>
 						</select></div>
                                         
-                                        <div class="form-group"><label>Nombre:</label> <input required="" type="text" name="nombreMaterial" value="<?php echo $material->nombre_material ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Nombre:</label> <input maxlength="32" required="" type="text" name="nombreMaterial" value="<?php echo $material->nombre_material ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoMaterial" class="form-control" name="estadoMaterial"/>
                                                         <?php if ($material->estado_material == 1) {?>

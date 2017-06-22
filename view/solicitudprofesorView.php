@@ -74,7 +74,7 @@
                                                                 <form  method="post" action="<?php echo $helper->url("prestamos", "prestamoProfesor"); ?>">
                                                                     <div class="modal-body" >
                                                                         <div class="form-group">
-                                                                            <label for="obs">id material a solicitar :</label>
+                                                                            <label for="obs">ID material a Solicitar :</label>
                                                                             <input type="text" class="form-control" readonly="readonly" value="<?php echo $row['id_material']; ?>" name="id_material" required>
                                                                         </div>
 
@@ -85,7 +85,7 @@
 
                                                                         <div class="form-group">
                                                                             <label for="obs">Observacion</label>
-                                                                            <input type="text" class="form-control" name="observacion" required>
+                                                                            <input maxlength="64" type="text" class="form-control" name="observacion" required>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <input type="submit"  value="solicitar" class="btn btn-default"/>

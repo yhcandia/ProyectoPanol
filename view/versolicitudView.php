@@ -60,16 +60,16 @@
                                                 <td><?php echo $row['fecha_prestamo']; ?></td>
                                                 <td><?php echo $row['fecha_limite']; ?></td>
                                                 <?php if ($row['estado_prestamo']==0){?>
-                                                <td><?php echo "DESACTIVADO";?></td>
+                                                <td><?php echo "Desactivado";?></td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==1){?>
-                                                <td><?php echo "RECIBIDO";?></td>
+                                                <td><?php echo "Recibido";?></td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==2){?>
-                                                <td><?php echo "PENDIENTE";?></td>
+                                                <td><?php echo "Pendiente";?></td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==3){?>
-                                                <td><?php echo "POR CONFIRMAR";?></td>
+                                                <td><?php echo "Por Confirmar";?></td>
                                                 <?php }?>
                                                 <?php
                                                 $foto = $row['imagen'];

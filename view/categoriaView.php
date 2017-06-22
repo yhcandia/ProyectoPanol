@@ -104,7 +104,7 @@
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("categorias", "crear"); ?>">
 
-                                        <div class="form-group"><label>Nombre categoria: </label> <input required type="text" class="form-control" name="nombreCategoria"/></div>
+                                        <div class="form-group"><label>Nombre categoria: </label> <input maxlength="32" required type="text" class="form-control" name="nombreCategoria"/></div>
                                         <div class="form-group"><label>Desechable: </label>
                                             <select name="desechable" class="form-control" name="desechable" required=""/>
                                                         <option value="">-- Seleccione --</option>
@@ -157,7 +157,7 @@
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("categorias","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="idCategoria" value="<?php echo $categoria->id_categoria ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre categoria</label> <input type="text" name="nombreCategoria" value="<?php echo $categoria->nombre_categoria ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Nombre categoria</label> <input maxlength="32" type="text" name="nombreCategoria" value="<?php echo $categoria->nombre_categoria ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Desechable: </label>
                                             <select name="desechable" class="form-control" required=""/>
                                                         <option value="">-- Seleccione --</option>

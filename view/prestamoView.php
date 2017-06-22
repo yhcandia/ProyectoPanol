@@ -174,7 +174,7 @@
                                 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title">Agregar</h4>
+                                    <h4 class="modal-title">Crear Prestamo</h4>
                                     
                                 </div>
                                 <div class="modal-body">
@@ -189,7 +189,7 @@
                                             while ($row = mysqli_fetch_row($usuarios)) {
                                                 ?>
 
-                                            <option value="<?php echo $row[0] ?>"  ><?php echo $row[2] ?></option>
+                                            <option value="<?php echo $row[0] ?>"  ><?php echo $row[2]." ".$row[3]; ?></option>
                                                 
                                                 <?php
                                             }
@@ -213,7 +213,7 @@
                                             ?>
 						</select></div>
                                         
-                                        <div class="form-group"><label>Cantidad: </label> <input type="number"  min='1'  max='1' id="cantidad" class="form-control" name="cantidad"/></div>
+                                        <div class="form-group"><label>Cantidad: </label> <input type="number"  min='1' id="cantidad" class="form-control" name="cantidad" required=""/></div>
                                             <div class="form-group"><label >Fecha de presamo:</label>
                                             					
                                                     <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fechaPrestamo"/></p>
@@ -223,7 +223,7 @@
                                             					
                                                     <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fechaDevolucion"/></p>
                                             </div>
-                                            <div class="form-group"><label>Observacion: </label> <input type="text" class="form-control" name="observacion"/></div>
+                                            <div class="form-group"><label>Observacion: </label> <input maxlength="64" type="text" class="form-control" name="observacion"/></div>
                                             <div class="form-group"><label>Estado de prestamo: </label>
                                                 <select class="form-control" name="estadoPrestamo" required=""/>
                                                         <option value="">-- Seleccione --</option>

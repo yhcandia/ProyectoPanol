@@ -147,9 +147,9 @@
                                             ?>
 						</select></div>
                                             <div class="form-group"><label>Cantidad Comprada: </label> <input type="number" required="" min="1" class="form-control" name="cantidad_comprada"/></div>
-                                            <div class="form-group"><label >Precio Unitario:</label> <input type="number" required="" min="1" class="form-control" name="precio_unitario"/></div>
+                                            <div class="form-group"><label>Precio Unitario:</label> <input type="number" required="" min="1" class="form-control" name="precio_unitario"/></div>
 
-                                            <div class="form-group"><label >Fecha de Compra:</label>
+                                            <div class="form-group"><label>Fecha de Compra:</label>
                                             					
                                                     <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fecha_compra"/></p>
                                             </div>
@@ -212,7 +212,7 @@
                                         <div class="form-group"><label>Cantidad Comprada:</label> <input type="number" required="" min="1" name="cantidad_comprada" value="<?php echo $proveedorMaterial->cantidad_comprada ?>"    class="form-control"/></div>
                                         <div class="form-group"><label>Precio Unitario:</label> <input type="number"required="" min="1" name="precio_unitario" value="<?php echo $proveedorMaterial->precio_unitario ?>"    class="form-control"/></div>
                                         
-                                        <div class="form-group"><label >Ultima Compra:</label>
+                                        <div class="form-group"><label>Ultima Compra:</label>
                                             					
                                                     <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($proveedorMaterial->fecha_compra)) ?>" type="date" class="form-control" name="fecha_compra"/></p>
                                             </div>

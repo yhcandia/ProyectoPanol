@@ -66,6 +66,137 @@
 		})
 	}
 	</script>  
+        <script language="javascript" type="text/javascript">
+            function revisarDigito( dvr )
+{	
+	dv = dvr + ""	
+	if ( dv != '0' && dv != '1' && dv != '2' && dv != '3' && dv != '4' && dv != '5' && dv != '6' && dv != '7' && dv != '8' && dv != '9' && dv != 'k'  && dv != 'K')	
+	{		
+		alert("Debe ingresar un digito verificador valido");		
+		window.document.form1.rutUsuario.focus();		
+		window.document.form1.rutUsuario.select();		
+		return false;	
+	}	
+	return true;
+}
+
+function revisarDigito2( crut )
+{	
+	largo = crut.length;	
+	if ( largo < 2 )	
+	{		
+		alert("Debe ingresar el rut completo")		
+		window.document.form1.rutUsuario.focus();		
+		window.document.form1.rutUsuario.select();		
+		return false;	
+	}	
+	if ( largo > 2 )		
+		rut = crut.substring(0, largo - 1);	
+	else		
+		rut = crut.charAt(0);	
+	dv = crut.charAt(largo-1);	
+	revisarDigito( dv );	
+
+	if ( rut == null || dv == null )
+		return 0	
+
+	var dvr = '0'	
+	suma = 0	
+	mul  = 2	
+
+	for (i= rut.length -1 ; i >= 0; i--)	
+	{	
+		suma = suma + rut.charAt(i) * mul		
+		if (mul == 7)			
+			mul = 2		
+		else    			
+			mul++	
+	}	
+	res = suma % 11	
+	if (res==1)		
+		dvr = 'k'	
+	else if (res==0)		
+		dvr = '0'	
+	else	
+	{		
+		dvi = 11-res		
+		dvr = dvi + ""	
+	}
+	if ( dvr != dv.toLowerCase() )	
+	{		
+		alert("EL rut es incorrecto")		
+		window.document.form1.rutUsuario.focus();		
+		window.document.form1.rutUsuario.select();		
+		return false	
+	}
+
+	return true
+}
+
+function Rut(texto)
+{	
+	var tmpstr = "";	
+	for ( i=0; i < texto.length ; i++ )		
+		if ( texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-' )
+			tmpstr = tmpstr + texto.charAt(i);	
+	texto = tmpstr;	
+	largo = texto.length;	
+
+	if ( largo < 2 )	
+	{		
+		alert("Debe ingresar el rut completo")		
+		window.document.form1.rutUsuario.focus();		
+		window.document.form1.rutUsuario.select();		
+		return false;	
+	}	
+
+	for (i=0; i < largo ; i++ )	
+	{			
+		if ( texto.charAt(i) !="0" && texto.charAt(i) != "1" && texto.charAt(i) !="2" && texto.charAt(i) != "3" && texto.charAt(i) != "4" && texto.charAt(i) !="5" && texto.charAt(i) != "6" && texto.charAt(i) != "7" && texto.charAt(i) !="8" && texto.charAt(i) != "9" && texto.charAt(i) !="k" && texto.charAt(i) != "K" )
+ 		{			
+			alert("El valor ingresado no corresponde a un R.U.T valido");			
+			window.document.form1.rutUsuario.focus();			
+			window.document.form1.rutUsuario.select();			
+			return false;		
+		}	
+	}	
+
+	var invertido = "";	
+	for ( i=(largo-1),j=0; i>=0; i--,j++ )		
+		invertido = invertido + texto.charAt(i);	
+	var dtexto = "";	
+	dtexto = dtexto + invertido.charAt(0);	
+	dtexto = dtexto + '-';	
+	cnt = 0;	
+
+	for ( i=1,j=2; i<largo; i++,j++ )	
+	{		
+		//alert("i=[" + i + "] j=[" + j +"]" );		
+		if ( cnt == 3 )		
+		{			
+			dtexto = dtexto + '.';			
+			j++;			
+			dtexto = dtexto + invertido.charAt(i);			
+			cnt = 1;		
+		}		
+		else		
+		{				
+			dtexto = dtexto + invertido.charAt(i);			
+			cnt++;		
+		}	
+	}	
+
+	invertido = "";	
+	for ( i=(dtexto.length-1),j=0; i>=0; i--,j++ )		
+		invertido = invertido + dtexto.charAt(i);	
+
+	window.document.form1.rutUsuario.value = invertido.toUpperCase()		
+
+	if ( revisarDigito2(texto) )		
+		return true;	
+
+	return false;
+        }</script>
         <style>
             .container .panel {
                 position: absolute;
@@ -103,20 +234,20 @@
                                     <h4 class="modal-title">Agregar</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" name="form1" method="post" action="<?php echo $helper->url("usuarios", "crear"); ?>" onsubmit="javascript:return Rut(document.form1.rut.value)">
+                                    <form role="form" name="form1" method="post" action="<?php echo $helper->url("usuarios", "crear"); ?>" onSubmit="javascript:return Rut(document.form1.rutUsuario.value)">
 
-                                        <div class="form-group"><label>RUT: </label> <input type="text" name="rutUsuario" class="form-control" required=""/></div>
-                                        <div class="form-group"><label>Nombre: </label><input type="text" class="form-control" name="nombreUsuario" required=""/></div>
-                                        <div class="form-group"><label>Apellido: </label><input type="text" class="form-control" name="apellidoUsuario" required=""/></div>
-                                        <div class="form-group"><label>Domicilio: </label><input type="text" class="form-control" name="domicilioUsuario" required=""/></div>
-                                        <div class="form-group"><label>Telefono: </label><input type="number" min="200000000" class="form-control" name="telefonoUsuario" required=""/></div>
+                                        <div class="form-group"><label>RUT: </label> <input maxlength="12" type="text" name="rutUsuario" class="form-control" required=""/></div>
+                                        <div class="form-group"><label>Nombre: </label><input maxlength="32" type="text" class="form-control" name="nombreUsuario" required=""/></div>
+                                        <div class="form-group"><label>Apellido: </label><input maxlength="32" type="text" class="form-control" name="apellidoUsuario" required=""/></div>
+                                        <div class="form-group"><label>Domicilio: </label><input maxlength="128" type="text" class="form-control" name="domicilioUsuario" required=""/></div>
+                                        <div class="form-group"><label>Telefono: </label><input type="number" min="200000000" max="999999999" class="form-control" name="telefonoUsuario" required=""/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control"/>
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                        <div class="form-group"><label>Email Usuario: </label><input type="email" class="form-control" name="emailUsuario" required=""/></div>
-                                        <div class="form-group"><label>Escuela: </label><input type="text" class="form-control" name="escuelaUsuario" required=""/></div>
+                                        <div class="form-group"><label>Email Usuario: </label><input maxlength="64" type="email" class="form-control" name="emailUsuario" required=""/></div>
+                                        <div class="form-group"><label>Escuela: </label><input maxlength="32" type="text" class="form-control" name="escuelaUsuario" required=""/></div>
                                         <div class="form-group"><label>Rol: </label>
                                             <select name="idRol" class="form-control" required=""/>                                           
                                             <option value="">-- Seleccione --</option>
@@ -131,7 +262,7 @@
                                             }
                                             ?>
                                             </select></div>                                   
-                                        <div class="form-group"><label>Contraseña: </label><input required="" type="password" class="form-control" name="password"/></div>
+                                        <div class="form-group"><label>Contraseña: </label><input maxlength="32" required="" type="password" class="form-control" name="password"/></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>
                                 </div>
@@ -153,11 +284,11 @@
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("usuarios","update"); ?>" method="post">
                                         <div class="form-group"><input type="hidden" name="rut" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Rut:</label> <input required="" type="text" name="rutUsuario" value="<?php echo $usuario->rut_usuario ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Nombre:</label> <input required="" type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Apellido:</label> <input required="" type="text" name="apellidoUsuario" value="<?php echo $usuario->apellido_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Domicilio:</label> <input required="" type="text" name="domicilioUsuario" value="<?php echo $usuario->domicilio_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Telefono:</label> <input required="" type="number" min="200000000" name="telefonoUsuario" value="<?php echo $usuario->telefono_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>RUT:</label> <input maxlength="12" required="" type="text" name="rutUsuario" value="<?php echo $usuario->rut_usuario ?>" class="form-control" readonly=""/></div>
+                                        <div class="form-group"><label>Nombre:</label> <input maxlength="32" required="" type="text" name="nombreUsuario" value="<?php echo $usuario->nombre_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Apellido:</label> <input maxlength="32" required="" type="text" name="apellidoUsuario" value="<?php echo $usuario->apellido_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Domicilio:</label> <input maxlength="128" required="" type="text" name="domicilioUsuario" value="<?php echo $usuario->domicilio_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Telefono:</label> <input required="" type="number" min="200000000" max="999999999" name="telefonoUsuario" value="<?php echo $usuario->telefono_usuario ?>" class="form-control"/></div>
                                         <div class="form-group"><label>Estado: </label>
                                                         <select name="estadoUsuario" class="form-control" name="estadoUsuario"/>
                                                         <?php if ($usuario->estado_usuario == 1) {?>
@@ -170,8 +301,8 @@
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <?php } ?>
                                                     </select></div>
-                                        <div class="form-group"><label>Email Usuario:</label> <input required="" type="email" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Escuela:</label> <input required="" type="text" name="escuelaUsuario" value="<?php echo $usuario->escuela_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Email Usuario:</label> <input maxlength="64" required="" type="email" name="emailUsuario" value="<?php echo $usuario->mail_usuario ?>" class="form-control"/></div>
+                                        <div class="form-group"><label>Escuela:</label> <input required="" maxlength="32" type="text" name="escuelaUsuario" value="<?php echo $usuario->escuela_usuario ?>" class="form-control"/></div>
                                         
                                         <div class="form-group"><label>Rol: </label>
                                             <select name="idRol" class="form-control" required=""/>     
@@ -189,7 +320,7 @@
                                             }
                                             ?>
                                             </select></div>
-                                        <div class="form-group"><label>Contraseña:</label> <input type="password" name="password" placeholder="(no modificada)" class="form-control"/></div>
+                                        <div class="form-group"><label>Contraseña:</label> <input maxlength="32" type="password" name="password" placeholder="(no modificada)" class="form-control"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>
