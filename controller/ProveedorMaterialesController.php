@@ -74,7 +74,7 @@ class ProveedorMaterialesController extends ControladorBase{
             $id=$_GET["id"];            
             $proveedorMaterial=new ProveedorMaterial($this->adapter);
             $datos['proveedorMaterial'] = $proveedorMaterial->getByIdProveedorMaterial($id); 
-            $this->view("proveedorMaterial",$datos);
+            $this->view("proveedorMateriales",$datos);
         }
         
     }

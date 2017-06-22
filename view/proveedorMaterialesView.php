@@ -173,29 +173,15 @@
                                 </div>
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("proveedormateriales","update"); ?>" method="post">
-                                        <div class="form-group"><input type="hidden" name="id_proveedor_material value="<?php echo $proveedormaterial->id_proveedor_material ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Seleccione solicitante: </label>
-                                        <select class="form-control" name="rutUsuario">
-                                            <?php
-                                            $usuarios = include('listas/mostrarUsuarios.php');
-                                            while ($row = mysqli_fetch_row($usuarios)) {
-                                                
-                                            if ($prestamo->rut_usuario==$row[0]){?>
-                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-                                            <?php } else { ?>
-                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-                                            <?php }
-                                            }
-                                            ?>
-						</select></div>
-                                                
-                                            <div class="form-group"><label>Seleccione material: </label>
+                                        <div class="form-group"><input type="hidden" name="id" value="<?php echo $proveedorMaterial->id_proveedor_material ?>"    class="form-control"/></div>
+                                        
+                                        <div class="form-group"><label>Seleccione material: </label>
                                           
-                                        <select class="form-control" name="idMaterial">
+                                        <select class="form-control" name="id_material">
                                             <?php
                                             $materiales = include('listas/mostrarMateriales.php');
                                             while ($row = mysqli_fetch_row($materiales)) {
-                                                if ($prestamo->id_material==$row[0]){?>
+                                                if ($proveedorMaterial->id_material==$row[0]){?>
                                                 <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
                                             <?php } else { ?>
                                                 <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
@@ -203,51 +189,29 @@
                                             }
                                             ?>
 						</select></div>
-                                        <div class="form-group"><label>Cantidad Comprada:</label> <input type="text" name="cantidad" value="<?php echo $proveedormaterial->cantidad_comprada ?>"    class="form-control"/></div>
                                         
-                                        <div class="form-group"><label >Fecha de presamo:</label>
+                                        <div class="form-group"><label>Seleccione Proveedor: </label>
+                                        <select class="form-control" name="id_proveedor">
+                                            <?php
+                                            $proveedores = include('listas/mostrarProveedores.php');
+                                            while ($row = mysqli_fetch_row($proveedores)) {
+                                                
+                                            if ($proveedorMaterial->id_proveedor==$row[1]){?>
+                                                <option selected value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $row[1] ?>"><?php echo $row[2] ?></option>
+                                            <?php }
+                                            }
+                                            ?>
+						</select></div>
+                                                
+                                        <div class="form-group"><label>Cantidad Comprada:</label> <input type="text" name="cantidad_comprada" value="<?php echo $proveedorMaterial->cantidad_comprada ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Precio Unitario:</label> <input type="text" name="precio_unitario" value="<?php echo $proveedorMaterial->precio_unitario ?>"    class="form-control"/></div>
+                                        
+                                        <div class="form-group"><label >Fecha de Compra:</label>
                                             					
-                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_prestamo)) ?>" type="date" class="form-control" name="fechaPrestamo"/></p>
+                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($proveedorMaterial->fecha_compra)) ?>" type="date" class="form-control" name="fecha_compra"/></p>
                                             </div>
-                                        
-                                            <div class="form-group"><label >Fecha de devolucion:</label>
-                                            					
-                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_limite)) ?>" type="date" class="form-control" name="fechaDevolucion"/></p>
-                                            </div>
-                                        
-                                        <div class="form-group"><label>Observacion:</label> <input type="text" name="observacion" value="<?php echo $prestamo->observacion ?>"    class="form-control"/></div>
-                                
-                                
-                                        <div class="form-group"><label>Estado: </label>
-                                                        <select name="estadoPrestamo" class="form-control"/>
-                                                        <?php if ($prestamo->estado_prestamo == 0) {?>
-                                                        <option  class="form-control" value="0" selected> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
-                                                        <option  class="form-control" value="2"> Pendiente </option>
-                                                        <option  class="form-control" value="3"> Por confirmar </option>
-                                                        <?php } 
-                                                        
-                                                        if ($prestamo->estado_prestamo == 1) {?>
-                                                        <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1" selected > Recibido </option>
-                                                        <option  class="form-control" value="2"> Pendiente </option>
-                                                        <option  class="form-control" value="3"> Por confirmar </option>
-                                                        <?php }
-                                                        
-                                                        if ($prestamo->estado_prestamo == 2) {?>
-                                                        <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
-                                                        <option  class="form-control" value="2" selected> Pendiente </option>
-                                                        <option  class="form-control" value="3"> Por confirmar </option>
-                                                        <?php }
-                                                        
-                                                        if ($prestamo->estado_prestamo == 3) {?>
-                                                        <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
-                                                        <option  class="form-control" value="2"> Pendiente </option>
-                                                        <option  class="form-control" value="3" selected> Por confirmar </option>
-                                                        <?php }?>
-                                                    </select></div>
                                         
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
