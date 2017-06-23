@@ -42,7 +42,7 @@
                         elemento.setAttribute("src",val2);
                       }
                 </script>
-                <div class="panel panel-default col-md-8 center-block">
+                <div class="panel panel-default col-md-16 center-block">
                     <div class="panel-body ">Materiales</div>
                       <div class="panel-footer">   
                         <table class="table">

@@ -37,7 +37,7 @@
                           });
                       });
                 </script>
-                <div class="panel panel-default col-md-8 center-block">
+                <div class="panel panel-default col-md-16 center-block">
                     <div class="panel-body ">Datos Usuario</div>
                       <div class="panel-footer">   
                         <table class="table">

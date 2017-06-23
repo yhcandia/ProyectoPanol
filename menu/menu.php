@@ -51,8 +51,6 @@
                         if ($_SESSION['session']['idRol'] == '3') {
                             ?>  
                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
-                            <li><a href="./index.php?controller=materiales"><span class="icon"></span>Solicitar Prestamo</a></li>
-
                             <li><a href="./index.php?controller=verPrestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>                        
                             <?php
                         }
