@@ -91,9 +91,9 @@ class MaterialesController extends ControladorBase {
 
             $Material = new Material($this->adapter);
             $Material->setImagen($foto_reconvertida);
-            $Material->setIdCategoria($_POST["idCategoria"]);
-            $Material->setNombreMaterial($_POST["nombreMaterial"]);
-            $Material->setEstadoMaterial($_POST["estadoMaterial"]);
+            $Material->setIdCategoria(addslashes($_POST["idCategoria"]));
+            $Material->setNombreMaterial(addslashes($_POST["nombreMaterial"]));
+            $Material->setEstadoMaterial(addslashes($_POST["estadoMaterial"]));
             $Material->setStock($_POST["stock"]);
 
             $save = $Material->save();
@@ -126,10 +126,10 @@ class MaterialesController extends ControladorBase {
             fclose($f1);
 
             $material = new Material($this->adapter);
-            $material->setIdCategoria($_POST["idCategoria"]);
-            $material->setNombreMaterial($_POST["nombreMaterial"]);
-            $material->setEstadoMaterial($_POST["estadoMaterial"]);
-            $material->setStock($_POST["stock"]);
+            $material->setIdCategoria(addslashes($_POST["idCategoria"]));
+            $material->setNombreMaterial(addslashes($_POST["nombreMaterial"]));
+            $material->setEstadoMaterial(addslashes($_POST["estadoMaterial"]));
+            $material->setStock(addslashes($_POST["stock"]));
             $material->setImagen($foto_reconvertida);
             $save = $material->update($id);
         }

@@ -34,11 +34,11 @@ class CategoriasController extends ControladorBase{
             
             //Creamos un usuario
             $Categoria=new Categoria($this->adapter);
-            $Categoria->setId_categoria($_POST["idPanol"]); 
-            $Categoria->setId_panol($_POST["idPanol"]); 
-            $Categoria->setNombreCategoria($_POST["nombreCategoria"]); 
-            $Categoria->setDesechable($_POST["desechable"]); 
-            $Categoria->setEstadoCategoria($_POST["estadoCategoria"]); 
+            $Categoria->setId_categoria(addslashes($_POST["idPanol"])); 
+            $Categoria->setId_panol(addslashes($_POST["idPanol"])); 
+            $Categoria->setNombreCategoria(addslashes($_POST["nombreCategoria"])); 
+            $Categoria->setDesechable(addslashes($_POST["desechable"])); 
+            $Categoria->setEstadoCategoria(addslashes($_POST["estadoCategoria"])); 
             $save=$Categoria->save();
         }
         $this->redirect("Categorias", "index");
@@ -61,10 +61,10 @@ class CategoriasController extends ControladorBase{
             //Creamos un usuario
             $id=$_POST["idCategoria"];
             $categoria=new Categoria($this->adapter);
-            $categoria->setNombreCategoria($_POST["nombreCategoria"]);
-            $categoria->setEstadoCategoria($_POST["estadoCategoria"]);
-            $categoria->setId_panol($_POST["idPanol"]);
-            $categoria->setDesechable($_POST["desechable"]);
+            $categoria->setNombreCategoria(addslashes($_POST["nombreCategoria"]));
+            $categoria->setEstadoCategoria(addslashes($_POST["estadoCategoria"]));
+            $categoria->setId_panol(addslashes($_POST["idPanol"]));
+            $categoria->setDesechable(addslashes($_POST["desechable"]));
             $save=$categoria->update($id);
         }
         $this->redirect("Categorias", "index");

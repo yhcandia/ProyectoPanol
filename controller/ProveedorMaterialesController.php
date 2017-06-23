@@ -43,11 +43,11 @@ class ProveedorMaterialesController extends ControladorBase{
         if(isset($_POST["id_material"])){
             
             $ProveedorMaterial=new ProveedorMaterial($this->adapter);
-            $ProveedorMaterial->setId_material($_POST["id_material"]); 
-            $ProveedorMaterial->setId_proveedor($_POST["id_proveedor"]); 
-            $ProveedorMaterial->setCantidad_comprada($_POST["cantidad_comprada"]);
-            $ProveedorMaterial->setPrecio_unitario($_POST["precio_unitario"]); 
-            $ProveedorMaterial->setFecha_compra($_POST["fecha_compra"]); 
+            $ProveedorMaterial->setId_material(addslashes($_POST["id_material"])); 
+            $ProveedorMaterial->setId_proveedor(addslashes($_POST["id_proveedor"])); 
+            $ProveedorMaterial->setCantidad_comprada(addslashes($_POST["cantidad_comprada"]));
+            $ProveedorMaterial->setPrecio_unitario(addslashes($_POST["precio_unitario"])); 
+            $ProveedorMaterial->setFecha_compra(addslashes($_POST["fecha_compra"])); 
             
             $save=$ProveedorMaterial->save();
         }
@@ -59,11 +59,11 @@ class ProveedorMaterialesController extends ControladorBase{
             
             $id=$_POST["id"];
             $proveedorMaterial=new ProveedorMaterial($this->adapter);
-            $proveedorMaterial->setId_material($_POST["id_material"]);
-            $proveedorMaterial->setId_proveedor($_POST["id_proveedor"]);
-            $proveedorMaterial->setCantidad_comprada($_POST["cantidad_comprada"]);
-            $proveedorMaterial->setPrecio_unitario($_POST["precio_unitario"]);
-            $proveedorMaterial->setFecha_compra($_POST["fecha_compra"]);
+            $proveedorMaterial->setId_material(addslashes($_POST["id_material"]));
+            $proveedorMaterial->setId_proveedor(addslashes($_POST["id_proveedor"]));
+            $proveedorMaterial->setCantidad_comprada(addslashes($_POST["cantidad_comprada"]));
+            $proveedorMaterial->setPrecio_unitario(addslashes($_POST["precio_unitario"]));
+            $proveedorMaterial->setFecha_compra(addslashes($_POST["fecha_compra"]));
             $save=$proveedorMaterial->update($id);
         }
         $this->redirect("ProveedorMateriales", "index");

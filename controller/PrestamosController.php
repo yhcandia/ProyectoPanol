@@ -40,16 +40,17 @@ class PrestamosController extends ControladorBase {
 
             //Creamos un usuario
             $Prestamo = new Prestamo($this->adapter);
-            $Prestamo->setRut_usuario($_SESSION["session"]["rutUsuario"]);
-            $Prestamo->setId_material($_REQUEST["id_material"]);
-            $Prestamo->setCantidad($_REQUEST["cant"]);
+            $Prestamo->setRut_usuario(addslashes($_SESSION["session"]["rutUsuario"]));
+            $Prestamo->setId_material(addslashes($_REQUEST["id_material"]));
+            $Prestamo->setCantidad(addslashes($_REQUEST["cant"]));
             $Prestamo->setFecha_prestamo(date('Y-m-d'));
-            $Prestamo->setObservacion($_REQUEST["observacion"]);
+            $Prestamo->setObservacion(addslashes($_REQUEST["observacion"]));
             $Prestamo->setEstado_prestamo(3);
 
             $save = $Prestamo->save();
         }
         $this->redirect("Materiales", "index");
+           
     }
 
     public function crear() {
@@ -57,13 +58,13 @@ class PrestamosController extends ControladorBase {
 
             //Creamos un usuario
             $Prestamo = new Prestamo($this->adapter);
-            $Prestamo->setRut_usuario($_POST["rutUsuario"]);
-            $Prestamo->setId_material($_POST["idMaterial"]);
-            $Prestamo->setCantidad($_POST["cantidad"]);
-            $Prestamo->setFecha_prestamo($_POST["fechaPrestamo"]);
-            $Prestamo->setFecha_limite($_POST["fechaDevolucion"]);
-            $Prestamo->setObservacion($_POST["observacion"]);
-            $Prestamo->setEstado_prestamo($_POST["estadoPrestamo"]);
+            $Prestamo->setRut_usuario(addslashes($_POST["rutUsuario"]));
+            $Prestamo->setId_material(addslashes($_POST["idMaterial"]));
+            $Prestamo->setCantidad(addslashes($_POST["cantidad"]));
+            $Prestamo->setFecha_prestamo(addslashes($_POST["fechaPrestamo"]));
+            $Prestamo->setFecha_limite(addslashes($_POST["fechaDevolucion"]));
+            $Prestamo->setObservacion(addslashes($_POST["observacion"]));
+            $Prestamo->setEstado_prestamo(addslashes($_POST["estadoPrestamo"]));
 
             $save = $Prestamo->save();
         }
@@ -75,11 +76,11 @@ class PrestamosController extends ControladorBase {
 
             //Creamos un usuario
             $Prestamo = new Prestamo($this->adapter);
-            $Prestamo->setRut_usuario($_POST["rutUsuario"]);
-            $Prestamo->setId_material($_POST["idMaterial"]);
-            $Prestamo->setCantidad($_POST["cantidad"]);
-            $Prestamo->setFecha_prestamo($_POST["fechaPrestamo"]);
-            $Prestamo->setObservacion($_POST["observacion"]);
+            $Prestamo->setRut_usuario(addslashes($_POST["rutUsuario"]));
+            $Prestamo->setId_material(addslashes($_POST["idMaterial"]));
+            $Prestamo->setCantidad(addslashes($_POST["cantidad"]));
+            $Prestamo->setFecha_prestamo(addslashes($_POST["fechaPrestamo"]));
+            $Prestamo->setObservacion(addslashes($_POST["observacion"]));
 
             $save = $Prestamo->saveProfesor();
         }
@@ -136,13 +137,13 @@ class PrestamosController extends ControladorBase {
             //Creamos un usuario
             $id = $_POST["idPrestamo"];
             $prestamo = new Prestamo($this->adapter);
-            $prestamo->setRut_usuario($_POST["rutUsuario"]);
-            $prestamo->setId_material($_POST["idMaterial"]);
-            $prestamo->setCantidad($_POST["cantidad"]);
-            $prestamo->setFecha_prestamo($_POST["fechaPrestamo"]);
-            $prestamo->setFecha_limite($_POST["fechaDevolucion"]);
-            $prestamo->setObservacion($_POST["observacion"]);
-            $prestamo->setEstado_prestamo($_POST["estadoPrestamo"]);
+            $prestamo->setRut_usuario(addslashes($_POST["rutUsuario"]));
+            $prestamo->setId_material(addslashes($_POST["idMaterial"]));
+            $prestamo->setCantidad(addslashes($_POST["cantidad"]));
+            $prestamo->setFecha_prestamo(addslashes($_POST["fechaPrestamo"]));
+            $prestamo->setFecha_limite(addslashes($_POST["fechaDevolucion"]));
+            $prestamo->setObservacion(addslashes($_POST["observacion"]));
+            $prestamo->setEstado_prestamo(addslashes($_POST["estadoPrestamo"]));
             $save = $prestamo->update($id);
         }
         $this->redirect("Prestamos", "index");

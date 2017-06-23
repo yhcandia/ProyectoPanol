@@ -42,10 +42,10 @@ class ProveedoresController extends ControladorBase{
         if(isset($_POST["nombreProveedor"])){
             
             $Proveedor=new Proveedor($this->adapter);
-            $Proveedor->setRut_proveedor($_POST["rutProveedor"]); 
-            $Proveedor->setNombre_proveedor($_POST["nombreProveedor"]); 
-            $Proveedor->setEstado_proveedor($_POST["estadoProveedor"]); 
-            $Proveedor->setDireccion_Proveedor($_POST["direccionProveedor"]);
+            $Proveedor->setRut_proveedor(addslashes($_POST["rutProveedor"])); 
+            $Proveedor->setNombre_proveedor(addslashes($_POST["nombreProveedor"])); 
+            $Proveedor->setEstado_proveedor(addslashes($_POST["estadoProveedor"])); 
+            $Proveedor->setDireccion_Proveedor(addslashes($_POST["direccionProveedor"]));
             $save=$Proveedor->save();
         }
         $this->redirect("Proveedores", "index");
@@ -59,10 +59,10 @@ class ProveedoresController extends ControladorBase{
             //Creamos un prov
             $rut=$_POST["rut"];
             $proveedor=new Proveedor($this->adapter);
-            $proveedor->setRut_proveedor($_POST["rutProveedor"]);
-            $proveedor->setNombre_proveedor($_POST["nombreProveedor"]);
-            $proveedor->setEstado_proveedor($_POST["estadoProveedor"]);
-            $proveedor->setDireccion_Proveedor($_POST["direccionProveedor"]);
+            $proveedor->setRut_proveedor(addslashes($_POST["rutProveedor"]));
+            $proveedor->setNombre_proveedor(addslashes($_POST["nombreProveedor"]));
+            $proveedor->setEstado_proveedor(addslashes($_POST["estadoProveedor"]));
+            $proveedor->setDireccion_Proveedor(addslashes($_POST["direccionProveedor"]));
             $save=$proveedor->update($rut);
         }
         $this->redirect("Proveedores", "index");

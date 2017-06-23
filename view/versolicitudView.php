@@ -42,8 +42,8 @@
 
                                 <table class="table">
                                     <thead>
-                                    <th>ID DE PRESTAMO</th>
-                                    <th>ID DEL MATERIAL</th>
+                                    <th>ID Unica Prestamo</th>
+                                    <th>ID del Material</th>
                                     <th>Cantidad Solicitada</th>
                                     <th>Fecha Prestamo</th>
                                     <th>Fecha Limite</th>

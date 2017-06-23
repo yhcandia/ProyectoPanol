@@ -50,8 +50,8 @@ class RolesController extends ControladorBase{
             
             //Creamos un usuario
             $Rol=new Rol($this->adapter);
-            $Rol->setNombreRol($_POST["nombreRol"]); 
-            $Rol->setEstadoRol($_POST["estadoRol"]); 
+            $Rol->setNombreRol(addslashes($_POST["nombreRol"])); 
+            $Rol->setEstadoRol(addslashes($_POST["estadoRol"])); 
             $save=$Rol->save();
         }
         $this->redirect("Roles", "index");
@@ -63,8 +63,8 @@ class RolesController extends ControladorBase{
             //Creamos un usuario
             $id=$_POST["idRol"];
             $rol=new Rol($this->adapter);
-            $rol->setNombreRol($_POST["nombreRol"]);
-            $rol->setEstadoRol($_POST["estadoRol"]);
+            $rol->setNombreRol(addslashes($_POST["nombreRol"]));
+            $rol->setEstadoRol(addslashes($_POST["estadoRol"]));
             $save=$rol->update($id);
         }
         $this->redirect("Roles", "index");

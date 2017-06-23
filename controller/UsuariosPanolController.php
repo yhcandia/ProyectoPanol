@@ -67,15 +67,15 @@ class UsuariosPanolController extends ControladorBase{
             
             //Creamos un usuario
             $usuario=new Usuario($this->adapter);
-            $usuario->setRutUsuario($_POST["rutUsuario"]);
-            $usuario->setNombreUsuario($_POST["nombreUsuario"]);
-            $usuario->setApellidoUsuario($_POST["apellidoUsuario"]);
-            $usuario->setEstadoUsuario($_POST["estadoUsuario"]);
-            $usuario->setDireccionUsuario($_POST["domicilioUsuario"]);
-            $usuario->setEscuelaUsuario($_POST["escuelaUsuario"]);
-            $usuario->setTelefonoUsuario($_POST["telefonoUsuario"]);
-            $usuario->setEmailUsuario($_POST["emailUsuario"]);
-            $usuario->setIdRol($_POST["idRol"]);
+            $usuario->setRutUsuario(addslashes($_POST["rutUsuario"]));
+            $usuario->setNombreUsuario(addslashes(["nombreUsuario"]));
+            $usuario->setApellidoUsuario(addslashes($_POST["apellidoUsuario"]));
+            $usuario->setEstadoUsuario(addslashes($_POST["estadoUsuario"]));
+            $usuario->setDireccionUsuario(addslashes($_POST["domicilioUsuario"]));
+            $usuario->setEscuelaUsuario(addslashes($_POST["escuelaUsuario"]));
+            $usuario->setTelefonoUsuario(addslashes($_POST["telefonoUsuario"]));
+            $usuario->setEmailUsuario(addslashes($_POST["emailUsuario"]));
+            $usuario->setIdRol(addslashes($_POST["idRol"]));
             $usuario->setPassword(md5($_POST["password"]));
             $save=$usuario->save();
         }
@@ -88,15 +88,15 @@ class UsuariosPanolController extends ControladorBase{
             //Creamos un usuario
             $rut=$_POST["rut"];
             $usuario=new Usuario($this->adapter);
-            $usuario->setRutUsuario($_POST["rutUsuario"]);
-            $usuario->setNombreUsuario($_POST["nombreUsuario"]);
-            $usuario->setApellidoUsuario($_POST["apellidoUsuario"]);
-            $usuario->setEstadoUsuario($_POST["estadoUsuario"]);
-            $usuario->setDireccionUsuario($_POST["domicilioUsuario"]);
-            $usuario->setTelefonoUsuario($_POST["telefonoUsuario"]);
-            $usuario->setEscuelaUsuario($_POST["escuelaUsuario"]);
-            $usuario->setEmailUsuario($_POST["emailUsuario"]);
-            $usuario->setIdRol($_POST["idRol"]);
+            $usuario->setRutUsuario(addslashes($_POST["rutUsuario"]));
+            $usuario->setNombreUsuario(addslashes($_POST["nombreUsuario"]));
+            $usuario->setApellidoUsuario(addslashes($_POST["apellidoUsuario"]));
+            $usuario->setEstadoUsuario(addslashes($_POST["estadoUsuario"]));
+            $usuario->setDireccionUsuario(addslashes($_POST["domicilioUsuario"]));
+            $usuario->setTelefonoUsuario(addslashes($_POST["telefonoUsuario"]));
+            $usuario->setEscuelaUsuario(addslashes($_POST["escuelaUsuario"]));
+            $usuario->setEmailUsuario(addslashes($_POST["emailUsuario"]));
+            $usuario->setIdRol(addslashes($_POST["idRol"]));
             if(($_POST["password"]) != "")
             {
                 $usuario->setPassword(md5($_POST["password"]));
