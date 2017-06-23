@@ -13,10 +13,9 @@
                 width: 100%;
 
             }
-            footer {
-                padding-top:10px;
+            footer {             
                 width:100%;
-                top: 80%;
+                top: 100%;
                 height:60px;
                 position:absolute;
                 bottom:0;
@@ -63,7 +62,7 @@
                                                 <td><?php echo "Desactivado";?></td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==1){?>
-                                                <td><?php echo "Recibido";?></td>
+                                                <td><?php echo "Aprobado";?> <b>(Retirar en totem Pañol)</b></td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==2){?>
                                                 <td><?php echo "Pendiente";?></td>
@@ -128,9 +127,10 @@
                     </div>
                 </div>
             </div>
+            <footer><center><img src="view/img/logo.png" alt="Duoc Uc"/><center></footer>
         </div>
 
-        <footer><center><img src="view/img/logo.png" alt="Duoc Uc"/><center></footer>
+       
 
 
                     </body>

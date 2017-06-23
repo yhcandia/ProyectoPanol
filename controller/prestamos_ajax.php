@@ -111,7 +111,7 @@
                                             <td><a readonly title="Desactivado" class="btn btn-danger glyphicon glyphicon-ban-circle"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==1){?>
-                                            <td><a readonly title="Recibido" class="btn btn-success glyphicon glyphicon-ok"></a></td>
+                                            <td><a readonly title="Aprobado" class="btn btn-success glyphicon glyphicon-ok"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==2){?>
                                             <td><a readonly title="Pendiente" class="btn btn-warning glyphicon glyphicon-time"></a></td>
@@ -135,7 +135,7 @@
                     <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a> 
                     <?echo "        " ?>
-                    <a href="#" title="Marcar Recibido" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
+                    <a href="#" title="Marcar Aprobado" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
                     <a href="#" title="Marcar Pendiente" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
                     <a href="#" title="Marcar Por confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-eye-open"></a>
                     <a href="#" title="Marcar Desactivado" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>

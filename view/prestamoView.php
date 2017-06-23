@@ -142,7 +142,7 @@
         <style>
             .container .panel {
                 position: absolute;
-                top: 250%;
+                top: 280%;
                 left: 50%;
                 transform: translateX(-50%) translateY(-50%);
             }
@@ -152,7 +152,7 @@
             footer {
                 padding-top:10px;
                 width:100%;
-                top: 520%;
+                top: 560%;
                 height:60px;
                 position:absolute;
                 bottom:0;
@@ -228,7 +228,7 @@
                                                 <select class="form-control" name="estadoPrestamo" required=""/>
                                                         <option value="">-- Seleccione --</option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
+                                                        <option  class="form-control" value="1"> Aprobado </option>
                                                         <option  class="form-control" value="2"> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por confirmar </option>
                                                     </select></div>
@@ -343,28 +343,28 @@
                                                         <option value="">-- Seleccione --</option>
                                                         <?php if ($prestamo->estado_prestamo == 0) {?>
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
+                                                        <option  class="form-control" value="1"> Aprobado </option>
                                                         <option  class="form-control" value="2"> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por confirmar </option>
                                                         <?php } 
                                                         
                                                         if ($prestamo->estado_prestamo == 1) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1" selected > Recibido </option>
+                                                        <option  class="form-control" value="1" selected > Aprobado </option>
                                                         <option  class="form-control" value="2"> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por confirmar </option>
                                                         <?php }
                                                         
                                                         if ($prestamo->estado_prestamo == 2) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
+                                                        <option  class="form-control" value="1"> Aprobado </option>
                                                         <option  class="form-control" value="2" selected> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por confirmar </option>
                                                         <?php }
                                                         
                                                         if ($prestamo->estado_prestamo == 3) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
-                                                        <option  class="form-control" value="1"> Recibido </option>
+                                                        <option  class="form-control" value="1"> Aprobado </option>
                                                         <option  class="form-control" value="2" selected> Pendiente </option>
                                                         <option  class="form-control" value="3" > Por confirmar </option>
                                                         <?php }?>
