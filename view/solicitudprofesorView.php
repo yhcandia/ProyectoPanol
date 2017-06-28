@@ -85,7 +85,7 @@
 
                                                                         <div class="form-group">
                                                                             <label for="obs">Observacion</label>
-                                                                            <input maxlength="64" type="text" class="form-control" name="observacion" required>
+                                                                            <input maxlength="64" type="text" class="form-control" name="observacion">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <input type="submit"  value="Solicitar" class="btn btn-default"/>

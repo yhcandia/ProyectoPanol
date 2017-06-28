@@ -51,7 +51,7 @@
                                 <th>Telefono</th>
                                 <th>Estado</th>
                                 <th>Email</th>
-                                <th>rol</th>
+                                <th>Rol</th>
                                 <th>Seleccionar</th>
                             </thead>
                             <tbody>                          

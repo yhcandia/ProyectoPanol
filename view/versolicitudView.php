@@ -57,7 +57,14 @@
                                                 <td><?php echo $row['id_material']; ?></td>
                                                 <td><?php echo $row['cantidad']; ?></td>
                                                 <td><?php echo $row['fecha_prestamo']; ?></td>
-                                                <td><?php echo $row['fecha_limite']; ?></td>
+                                                
+                                                <td>
+                                                <?php if ($row['fecha_limite'] == "0000-00-00") {
+                                                echo "N/A";
+                                                } else { ?>
+                                                <?php echo $row['fecha_limite']; }?>   
+                                                </td>
+                                                
                                                 <?php if ($row['estado_prestamo']==0){?>
                                                 <td><?php echo "Desactivado";?></td>
                                                 <?php }?>

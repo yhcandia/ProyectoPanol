@@ -53,7 +53,7 @@
                     
                             <thead>
 				<th></th>
-                                <th>ID Prestamo</th>
+                                <th>ID Unica Prestamo</th>
                                 <th>Nombre Solicitante</th>
                                 <th>Material</th>
                                 <th>Imagen</th>
@@ -104,9 +104,17 @@
                                             }
                                             ?>                     
                                             <td><?php echo $row['cantidad'];?></td>                                           
-                                            <td><?php echo $row['fecha_prestamo'];?></td>                                           
-                                            <td><?php echo $row['fecha_limite'];?></td>                                           
-                                            <td><?php echo $row['observacion'];?></td>                                           
+                                            <td><?php echo $row['fecha_prestamo'];?></td>   
+                                            
+                                           <td>
+                                                <?php if ($row['fecha_limite'] == "0000-00-00") {
+                                                echo "N/A";
+                                                } else { ?>
+                                                <?php echo $row['fecha_limite']; }?>   
+                                            </td>  
+                                            
+                                            <td><?php echo $row['observacion'];?></td>  
+                                            
                                             <?php if ($row['estado_prestamo']==0){?>
                                             <td><a readonly title="Desactivado" class="btn btn-danger glyphicon glyphicon-ban-circle"></a></td>
                                             <?php }?>
