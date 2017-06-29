@@ -58,6 +58,7 @@ class PrestamosController extends ControladorBase {
 
             //Creamos un usuario
             $Prestamo = new Prestamo($this->adapter);
+            $Correo = new Correo($this->adapter);
             $Prestamo->setRut_usuario(addslashes($_POST["rutUsuario"]));
             $Prestamo->setId_material(addslashes($_POST["idMaterial"]));
             $Prestamo->setCantidad(addslashes($_POST["cantidad"]));
@@ -65,7 +66,17 @@ class PrestamosController extends ControladorBase {
             $Prestamo->setFecha_limite(addslashes($_POST["fechaDevolucion"]));
             $Prestamo->setObservacion(addslashes($_POST["observacion"]));
             $Prestamo->setEstado_prestamo(addslashes($_POST["estadoPrestamo"]));
-
+            $Correo->setAsunto("Usted tiene un nuevo prestamo");
+            $Correo->setParametro1($Prestamo->getRut_usuario());
+            $Correo->setParametro2($Prestamo->getId_material());
+            $Correo->setParametro3($Prestamo->getCantidad());
+            $Correo->setParametro4($Prestamo->getFecha_prestamo());
+            $Correo->setParametro5($Prestamo->getFecha_limite());
+            $Correo->setParametro6($Prestamo->getObservacion());
+            $Correo->setParametro7($Prestamo->getEstado_prestamo());
+            $Correo->setPara('victor.lastra96@gmail.com');
+            $Correo->envioCorreoPrestamo();
+            
             $save = $Prestamo->save();
         }
         $this->redirect("Prestamos", "index");

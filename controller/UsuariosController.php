@@ -70,6 +70,7 @@ class UsuariosController extends ControladorBase{
             
             //Creamos un usuario
             $usuario=new Usuario($this->adapter);
+            $Correo = new Correo($this->adapter);
             $usuario->setRutUsuario(addslashes($_POST["rutUsuario"]));
             $usuario->setNombreUsuario(addslashes($_POST["nombreUsuario"]));
             $usuario->setApellidoUsuario(addslashes($_POST["apellidoUsuario"]));
@@ -80,6 +81,13 @@ class UsuariosController extends ControladorBase{
             $usuario->setEmailUsuario(addslashes($_POST["emailUsuario"]));
             $usuario->setIdRol(addslashes($_POST["idRol"]));
             $usuario->setPassword(md5($_POST["password"]));
+            $Correo->setAsunto("Credenciales Panol Web");
+            $Correo->setParametro1($usuario->getRutUsuario());
+            $Correo->setParametro2($_POST["password"]);
+            $Correo->setParametro3($_POST["nombreUsuario"]);
+            $Correo->setParametro4($_POST["apellidoUsuario"]);
+            $Correo->setPara($usuario->getEmailUsuario());
+            $Correo->envioCorreoUsuario();
             $save=$usuario->save();
         }
         $this->redirect("Usuarios", "index");
