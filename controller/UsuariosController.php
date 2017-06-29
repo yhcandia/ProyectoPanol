@@ -81,11 +81,11 @@ class UsuariosController extends ControladorBase{
             $usuario->setEmailUsuario(addslashes($_POST["emailUsuario"]));
             $usuario->setIdRol(addslashes($_POST["idRol"]));
             $usuario->setPassword(md5($_POST["password"]));
-            $Correo->setAsunto("Credenciales Panol Web");
+            $Correo->setAsunto("Credenciales Usuario");
             $Correo->setParametro1($usuario->getRutUsuario());
-            $Correo->setParametro2($_POST["password"]);
-            $Correo->setParametro3($_POST["nombreUsuario"]);
-            $Correo->setParametro4($_POST["apellidoUsuario"]);
+            $Correo->setParametro2(addslashes($_POST["password"]));
+            $Correo->setParametro3(addslashes($_POST["nombreUsuario"]));
+            $Correo->setParametro4(addslashes($_POST["apellidoUsuario"]));
             $Correo->setPara($usuario->getEmailUsuario());
             $Correo->envioCorreoUsuario();
             $save=$usuario->save();

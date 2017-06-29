@@ -125,16 +125,18 @@ class Correo extends EntidadBase{
 	$mail->SetFrom(GMAIL, GNAME);
 	$mail->Subject = $this->asunto;
 	$mail->Body = "Se ha agregado un nuevo prestamo a su nombre.\n"
-                . "Datos: \n"
-                . "Rut:     \t $this->parametro1 \n"
+                . "Datos. \n"
+                . "RUT:     \t $this->parametro1 \n"
                 . "Material:\t $this->parametro2 \n"
                 . "Cantidad:\t $this->parametro3 \n"
                 . "Fecha prestamo:\t $this->parametro4 \n"
                 . "Fecha devolucion:\t $this->parametro5 \n"
                 . "Observacion:\t $this->parametro6 \n"
                 . "Estado:\t $this->parametro7 \n"
-                . "Para verificar esta informacion favor ingrese a Panol Web";
+                . "Para verificar esta informacion favor ingrese a Panol Web.";
 	$mail->AddAddress($this->para);
+        //$mail->AddCC("correodelpanolero@correoc.l","Nombre Panolero"); AHI HABRIA QUE DEFINIR UN CORREO DEL SISTEMA PAÑOL
+        //PODRIA SER EL MISMO DEL QUE ENVIA PO O NO? AL FINAL ES 1 CORREO PA TODO EL SISTEMA O ALGO ASI CREO YO.
 	if(!$mail->Send()) {
 		echo 'Error: '.$mail->ErrorInfo;
 	} else {
@@ -156,10 +158,10 @@ class Correo extends EntidadBase{
 	$mail->SetFrom(GMAIL, GNAME);
 	$mail->Subject = $this->asunto;
 	$mail->Body = "Estimad@ $this->parametro3 $this->parametro4, sus credenciales de acceso son:\n"
-                . "Credenciales: \n"
+                . "Credenciales. \n"
                 . "Nombre de usuario:\t $this->parametro1 \n"
                 . "Password:\t $this->parametro2 \n"
-                . "Para verificar esta informacion favor ingrese a Panol Web mediante su usuario y password";
+                . "Para verificar esta informacion favor ingrese a Panol Web mediante su usuario y password.";
 	$mail->AddAddress($this->para);
 	if(!$mail->Send()) {
 		echo 'Error: '.$mail->ErrorInfo;

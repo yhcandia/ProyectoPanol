@@ -95,6 +95,16 @@ class EntidadBase{
         return $resultSet;
     }
     
+    public function getEmailByRut($id){
+        $query=$this->db->query("SELECT email_usuario FROM usuarios WHERE rut_usuario='$id'");
+
+        if($row = $query->fetch_object()) {
+           $resultSet=$row;
+        }
+        
+        return $resultSet['email_usuario'];
+    }
+    
     public function getByRutProveedor($id){
         $query=$this->db->query("SELECT * FROM proveedor WHERE rut_proveedor='$id'");
 
