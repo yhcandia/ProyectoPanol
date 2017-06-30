@@ -113,9 +113,9 @@ class PrestamosController extends ControladorBase {
              if($estado == 0)
                  $estado = "Desactivado";
              if($estado == 1)
-                 $estado = "Aprobado";
+                 $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Pendiente";
+                 $estado = "Por Retirar";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -178,9 +178,9 @@ class PrestamosController extends ControladorBase {
              if($estado == 0)
                  $estado = "Desactivado";
              if($estado == 1)
-                 $estado = "Aprobado";
+                 $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Pendiente";
+                 $estado = "Por Retirar";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -225,9 +225,9 @@ class PrestamosController extends ControladorBase {
              if($estado == 0)
                  $estado = "Desactivado";
              if($estado == 1)
-                 $estado = "Aprobado";
+                 $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Pendiente";
+                 $estado = "Por Retirar";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -271,9 +271,9 @@ class PrestamosController extends ControladorBase {
              if($estado == 0)
                  $estado = "Desactivado";
              if($estado == 1)
-                 $estado = "Aprobado";
+                 $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Pendiente";
+                 $estado = "Por Retirar";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -331,9 +331,9 @@ class PrestamosController extends ControladorBase {
              if($estado == 0)
                  $estado = "Desactivado";
              if($estado == 1)
-                 $estado = "Aprobado";
+                 $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Pendiente";
+                 $estado = "Por Retirar";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
