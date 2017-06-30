@@ -66,10 +66,6 @@
                             </thead>
                             <tbody>
                                 
-                                
-                                
-                                
-                                
                             <?php
                             while($row = mysqli_fetch_array($query)){                         
                                     ?>                                 
@@ -128,7 +124,9 @@
                                             <td><a readonly title="Por Revisar" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
                                             <?php }?>
                                            
+                                            <?php if ($row['estado_prestamo']!= 0){?>
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_prestamo'];?>" /></td>
+                                            <?php }?>
                                     </tr>                                 
                                    <?php
                             }

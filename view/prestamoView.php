@@ -214,7 +214,7 @@
 						</select></div>
                                         
                                         <div class="form-group"><label>Cantidad: </label> <input type="number"  min='1' id="cantidad" class="form-control" name="cantidad" required=""/></div>
-                                            <div class="form-group"><label >Fecha de presamo:</label>
+                                            <div class="form-group"><label >Fecha de prestamo:</label>
                                             					
                                                     <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d');?>" type="date" class="form-control" name="fechaPrestamo"/></p>
 
@@ -290,52 +290,24 @@
                                 </div>
                                 <div class="modal-body">
                                     <form role="form" action="<?php echo $helper->url("prestamos","update"); ?>" method="post">
-                                        <div class="form-group"><input type="hidden" name="idPrestamo" value="<?php echo $prestamo->id_prestamo ?>"    class="form-control"/></div>
-                                        <div class="form-group"><label>Seleccione solicitante: </label>
+                                        <div class="form-group"><label>ID Prestamo:</label> <div class="form-group"><input type="text" name="idPrestamo" value="<?php echo $prestamo->id_prestamo ?>" readonly="" class="form-control"/></div>
                                         
-                                            <select class="form-control" name="rutUsuario" required="">
-                                            <option value="">-- Seleccione --</option>
-                                            <?php
-                                            $usuarios = include('listas/mostrarUsuarios.php');
-                                            while ($row = mysqli_fetch_row($usuarios)) {
+                                            <div class="form-group"><label>RUT Usuario:</label> <input type="text" name="rutUsuario" value="<?php echo $prestamo->rut_usuario ?>" readonly class="form-control"/></div>
                                                 
-                                            if ($prestamo->rut_usuario==$row[0]){?>
-                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-                                            <?php } else { ?>
-                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-                                            <?php }
-                                            }
-                                            ?>
-						</select></div>
-                                                
-                                            <div class="form-group"><label>Seleccione material: </label>
-                                          
-                                                <select class="form-control" name="idMaterial" required=""/>
-                                            <option value="">-- Seleccione --</option>
-                                            <?php
-                                            $materiales = include('listas/mostrarMateriales.php');
-                                            while ($row = mysqli_fetch_row($materiales)) {
-                                                if ($prestamo->id_material==$row[0]){?>
-                                                <option selected value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-                                            <?php } else { ?>
-                                                <option value="<?php echo $row[0] ?>"><?php echo $row[2] ?></option>
-                                            <?php }
-                                            }
-                                            ?>
-						</select></div>
-                                        <div class="form-group"><label>Cantidad:</label> <input type="text" id="cantidad" min='1' max='1' name="cantidad" value="<?php echo $prestamo->cantidad ?>"    class="form-control"/></div>
+                                            <div class="form-group"><label>ID Material:</label> <input type="text" name="idMaterial" value="<?php echo $prestamo->id_material ?>" readonly class="form-control"/></div>
+                                            <div class="form-group"><label>Cantidad:</label> <input type="text" id="cantidad" min='1' max='1' name="cantidad" value="<?php echo $prestamo->cantidad ?>" readonly="" class="form-control"/></div>
                                         
                                         <div class="form-group"><label >Fecha de presamo:</label>
                                             					
-                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_prestamo)) ?>" type="date" class="form-control" name="fechaPrestamo"/></p>
+                                            <p><input readonly=" "min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_prestamo)) ?>" type="date" class="form-control" name="fechaPrestamo"/></p>
                                             </div>
                                         
                                             <div class="form-group"><label >Fecha de devolucion:</label>
                                             					
-                                                    <p><input min="2016-01-01" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_limite)) ?>" type="date" class="form-control" name="fechaDevolucion"/></p>
+                                                    <p><input min="<?php echo date('Y-m-d',strtotime($prestamo->fecha_prestamo)) ?>" max="2018-12-31" value="<?php echo date('Y-m-d',strtotime($prestamo->fecha_prestamo)) ?>" type="date" class="form-control" name="fechaDevolucion"/></p>
                                             </div>
                                         
-                                        <div class="form-group"><label>Observacion:</label> <input type="text" name="observacion" value="<?php echo $prestamo->observacion ?>"    class="form-control"/></div>
+                                        <div class="form-group"><label>Observacion:</label> <input type="text" name="observacion" value="<?php echo $prestamo->observacion ?>"  class="form-control"/></div>
                                 
                                 
                                         <div class="form-group"><label>Estado: </label>
@@ -365,8 +337,8 @@
                                                         if ($prestamo->estado_prestamo == 3) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1"> Aprobado </option>
-                                                        <option  class="form-control" value="2" selected> Pendiente </option>
-                                                        <option  class="form-control" value="3" > Por confirmar </option>
+                                                        <option  class="form-control" value="2" > Pendiente </option>
+                                                        <option  class="form-control" value="3" selected> Por confirmar </option>
                                                         <?php }?>
                                                     </select></div>
                                         

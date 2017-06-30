@@ -9,6 +9,7 @@ class Correo extends EntidadBase{
     private $para;
     private $asunto;
     private $cuerpo;
+    private $parametro0;
     private $parametro1;
     private $parametro2;
     private $parametro3;
@@ -16,8 +17,8 @@ class Correo extends EntidadBase{
     private $parametro5;
     private $parametro6;
     private $parametro7;
- 
-    
+    private $parametro8;
+     
     public function __construct($adapter) {
         $table="correo";
         parent::__construct($table, $adapter);
@@ -89,6 +90,10 @@ class Correo extends EntidadBase{
     function setCuerpo($cuerpo) {
         $this->cuerpo = $cuerpo;
     }
+    
+    function setParametro0($parametro0) {
+        $this->parametro0 = $parametro0;
+    }
 
     function setParametro1($parametro1) {
         $this->parametro1 = $parametro1;
@@ -109,6 +114,10 @@ class Correo extends EntidadBase{
     function setParametro5($parametro5) {
         $this->parametro5 = $parametro5;
     }
+    
+    function setParametro8($parametro8) {
+        $this->parametro8 = $parametro8;
+    }
 
     function envioCorreoPrestamo(){
         require_once('config/global.php');
@@ -124,9 +133,10 @@ class Correo extends EntidadBase{
 	        
 	$mail->SetFrom(GMAIL, GNAME);
 	$mail->Subject = $this->asunto;
-	$mail->Body = "Se ha agregado un nuevo prestamo a su nombre.\n"
+	$mail->Body = "$this->parametro8 \n"
                 . "Datos. \n"
                 . "RUT:     \t $this->parametro1 \n"
+                . "Nombre:     \t $this->parametro0 \n"
                 . "Material:\t $this->parametro2 \n"
                 . "Cantidad:\t $this->parametro3 \n"
                 . "Fecha prestamo:\t $this->parametro4 \n"
@@ -135,7 +145,7 @@ class Correo extends EntidadBase{
                 . "Estado:\t $this->parametro7 \n"
                 . "Para verificar esta informacion favor ingrese a Panol Web.";
 	$mail->AddAddress($this->para);
-        //$mail->AddCC("correodelpanolero@correoc.l","Nombre Panolero"); AHI HABRIA QUE DEFINIR UN CORREO DEL SISTEMA PAÑOL
+        $mail->AddCC(CORREOPANOL,"Solicitud Profesor"); //AHI HABRIA QUE DEFINIR UN CORREO DEL SISTEMA PAÑOL
         //PODRIA SER EL MISMO DEL QUE ENVIA PO O NO? AL FINAL ES 1 CORREO PA TODO EL SISTEMA O ALGO ASI CREO YO.
 	if(!$mail->Send()) {
 		echo 'Error: '.$mail->ErrorInfo;

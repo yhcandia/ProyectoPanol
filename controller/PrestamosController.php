@@ -48,6 +48,30 @@ class PrestamosController extends ControladorBase {
             $Prestamo->setEstado_prestamo(3);
 
             $save = $Prestamo->save();
+            
+            //Correo
+            $material = new Material($this->adapter);
+            $material = $material->getByIdMaterial(addslashes($_POST["id_material"]));   
+            $nombreMaterial = $material->nombre_material;
+            
+            $usuario = new Usuario($this->adapter);
+            $usuario = $usuario->getByRut(addslashes($_SESSION["session"]["rutUsuario"]));
+            $nombreSolicitante = $usuario->nombre_usuario ." ". $usuario->apellido_usuario;
+            $correoUsuario = $usuario->mail_usuario;
+            
+            $Correo = new Correo($this->adapter);
+            $Correo->setAsunto("Nuevo Prestamo");
++            $Correo->setParametro0($nombreSolicitante);
++            $Correo->setParametro1($Prestamo->getRut_usuario());
++            $Correo->setParametro2($nombreMaterial);
++            $Correo->setParametro3($Prestamo->getCantidad());
++            $Correo->setParametro4($Prestamo->getFecha_prestamo());
++            $Correo->setParametro5("N/A");
++            $Correo->setParametro6($Prestamo->getObservacion());
++            $Correo->setParametro7("Por Confirmar");
+             $Correo->setParametro8("Se ha creado un nuevo prestamo a su nombre.");
++            $Correo->setPara($correoUsuario);
++            $Correo->envioCorreoPrestamo();
         }
         $this->redirect("Materiales", "index");
            
@@ -75,15 +99,27 @@ class PrestamosController extends ControladorBase {
             $usuario = new Usuario($this->adapter);
             $usuario = $usuario->getByRut(addslashes($_POST["rutUsuario"]));
             $correoUsuario = $usuario->mail_usuario;
+            $nombreSolicitante = $usuario->nombre_usuario ." ". $usuario->apellido_usuario;
             
             $Correo->setAsunto("Nuevo Prestamo");
+            $Correo->setParametro0($nombreSolicitante);
 +            $Correo->setParametro1($Prestamo->getRut_usuario());
 +            $Correo->setParametro2($nombreMaterial);
 +            $Correo->setParametro3($Prestamo->getCantidad());
 +            $Correo->setParametro4($Prestamo->getFecha_prestamo());
 +            $Correo->setParametro5($Prestamo->getFecha_limite());
 +            $Correo->setParametro6($Prestamo->getObservacion());
-+            $Correo->setParametro7($Prestamo->getEstado_prestamo());
+             $estado = $Prestamo->getEstado_prestamo();
+             if($estado == 0)
+                 $estado = "Desactivado";
+             if($estado == 1)
+                 $estado = "Aprobado";
+             if($estado == 2)
+                 $estado = "Pendiente";
+             if($estado == 3)
+                 $estado = "Por Confirmar";
++            $Correo->setParametro7($estado);
++            $Correo->setParametro8("Se ha creado un nuevo prestamo a su nombre.");
 +            $Correo->setPara($correoUsuario);
 +            $Correo->envioCorreoPrestamo();
             
@@ -112,9 +148,45 @@ class PrestamosController extends ControladorBase {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
 
-
             $prestamo = new Prestamo($this->adapter);
             $prestamo->darBaja($id);
+            
+            //Correo
+            $objPrestamo = $prestamo->getByIdPrest($id);
+            $idMaterial = $objPrestamo->id_material;
+            $rutUsuario = $objPrestamo->rut_usuario;
+            
+            $material = new Material($this->adapter);
+            $material = $material->getByIdMaterial(addslashes($idMaterial));   
+            $nombreMaterial = $material->nombre_material;
+            
+            $usuario = new Usuario($this->adapter);
+            $usuario = $usuario->getByRut(addslashes($rutUsuario));
+            $nombreSolicitante = $usuario->nombre_usuario ." ". $usuario->apellido_usuario;
+            $correoUsuario = $usuario->mail_usuario;
+            
+            $Correo = new Correo($this->adapter);
+            $Correo->setAsunto("Nuevo Estado Prestamo: DESACTIVADO");
++            $Correo->setParametro0($nombreSolicitante);
++            $Correo->setParametro1($objPrestamo->rut_usuario);
++            $Correo->setParametro2($nombreMaterial);
++            $Correo->setParametro3($objPrestamo->cantidad);
++            $Correo->setParametro4($objPrestamo->fecha_prestamo);
++            $Correo->setParametro5($objPrestamo->fecha_limite);
++            $Correo->setParametro6($objPrestamo->observacion);
+            $estado = $objPrestamo->estado_prestamo;
+             if($estado == 0)
+                 $estado = "Desactivado";
+             if($estado == 1)
+                 $estado = "Aprobado";
+             if($estado == 2)
+                 $estado = "Pendiente";
+             if($estado == 3)
+                 $estado = "Por Confirmar";
++            $Correo->setParametro7($estado);
+             $Correo->setParametro8("Se ha actualizado a DESACTIVADO el estado de un prestamo registrado a su nombre.");
++            $Correo->setPara($correoUsuario);
++            $Correo->envioCorreoPrestamo();
         }
         $this->redirect("Prestamos", "index");
     }
@@ -123,9 +195,45 @@ class PrestamosController extends ControladorBase {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
 
-
             $prestamo = new Prestamo($this->adapter);
             $prestamo->recibido($id);
+            
+            //Correo
+            $objPrestamo = $prestamo->getByIdPrest($id);
+            $idMaterial = $objPrestamo->id_material;
+            $rutUsuario = $objPrestamo->rut_usuario;
+            
+            $material = new Material($this->adapter);
+            $material = $material->getByIdMaterial(addslashes($idMaterial));   
+            $nombreMaterial = $material->nombre_material;
+            
+            $usuario = new Usuario($this->adapter);
+            $usuario = $usuario->getByRut(addslashes($rutUsuario));
+            $nombreSolicitante = $usuario->nombre_usuario ." ". $usuario->apellido_usuario;
+            $correoUsuario = $usuario->mail_usuario;
+            
+            $Correo = new Correo($this->adapter);
+            $Correo->setAsunto("Nuevo Estado Prestamo: APROBADO");
++            $Correo->setParametro0($nombreSolicitante);
++            $Correo->setParametro1($objPrestamo->rut_usuario);
++            $Correo->setParametro2($nombreMaterial);
++            $Correo->setParametro3($objPrestamo->cantidad);
++            $Correo->setParametro4($objPrestamo->fecha_prestamo);
++            $Correo->setParametro5($objPrestamo->fecha_limite);
++            $Correo->setParametro6($objPrestamo->observacion);
+            $estado = $objPrestamo->estado_prestamo;
+             if($estado == 0)
+                 $estado = "Desactivado";
+             if($estado == 1)
+                 $estado = "Aprobado";
+             if($estado == 2)
+                 $estado = "Pendiente";
+             if($estado == 3)
+                 $estado = "Por Confirmar";
++            $Correo->setParametro7($estado);
+             $Correo->setParametro8("Se ha actualizado a APROBADO el estado de un prestamo registrado a su nombre.");
++            $Correo->setPara($correoUsuario);
++            $Correo->envioCorreoPrestamo();
         }
         $this->redirect("Prestamos", "index");
     }
@@ -133,10 +241,45 @@ class PrestamosController extends ControladorBase {
     public function porConfirmar() {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
-
-
             $prestamo = new Prestamo($this->adapter);
             $prestamo->porConfirmar($id);
+            
+            //Correo
+            $objPrestamo = $prestamo->getByIdPrest($id);
+            $idMaterial = $objPrestamo->id_material;
+            $rutUsuario = $objPrestamo->rut_usuario;
+            
+            $material = new Material($this->adapter);
+            $material = $material->getByIdMaterial(addslashes($idMaterial));   
+            $nombreMaterial = $material->nombre_material;
+            
+            $usuario = new Usuario($this->adapter);
+            $usuario = $usuario->getByRut(addslashes($rutUsuario));
+            $nombreSolicitante = $usuario->nombre_usuario ." ". $usuario->apellido_usuario;
+            $correoUsuario = $usuario->mail_usuario;
+            
+            $Correo = new Correo($this->adapter);
+            $Correo->setAsunto("Nuevo Estado Prestamo: POR CONFIRMAR");
++            $Correo->setParametro0($nombreSolicitante);
++            $Correo->setParametro1($objPrestamo->rut_usuario);
++            $Correo->setParametro2($nombreMaterial);
++            $Correo->setParametro3($objPrestamo->cantidad);
++            $Correo->setParametro4($objPrestamo->fecha_prestamo);
++            $Correo->setParametro5($objPrestamo->fecha_limite);
++            $Correo->setParametro6($objPrestamo->observacion);
+            $estado = $objPrestamo->estado_prestamo;
+             if($estado == 0)
+                 $estado = "Desactivado";
+             if($estado == 1)
+                 $estado = "Aprobado";
+             if($estado == 2)
+                 $estado = "Pendiente";
+             if($estado == 3)
+                 $estado = "Por Confirmar";
++            $Correo->setParametro7($estado);
+             $Correo->setParametro8("Se ha actualizado a POR CONFIRMAR el estado de un prestamo registrado a su nombre.");
++            $Correo->setPara($correoUsuario);
++            $Correo->envioCorreoPrestamo();
         }
         $this->redirect("Prestamos", "index");
     }
@@ -144,8 +287,6 @@ class PrestamosController extends ControladorBase {
     public function pendiente() {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
-
-
             $prestamo = new Prestamo($this->adapter);
             $prestamo->pendiente($id);
         }
@@ -166,6 +307,39 @@ class PrestamosController extends ControladorBase {
             $prestamo->setObservacion(addslashes($_POST["observacion"]));
             $prestamo->setEstado_prestamo(addslashes($_POST["estadoPrestamo"]));
             $save = $prestamo->update($id);
+            
+            //Correo
+            $material = new Material($this->adapter);
+            $material = $material->getByIdMaterial(addslashes($_POST["idMaterial"]));   
+            $nombreMaterial = $material->nombre_material;
+            
+            $usuario = new Usuario($this->adapter);
+            $usuario = $usuario->getByRut(addslashes($_POST["rutUsuario"]));
+            $nombreSolicitante = $usuario->nombre_usuario ." ". $usuario->apellido_usuario;
+            $correoUsuario = $usuario->mail_usuario;
+            
+            $Correo = new Correo($this->adapter);
+            $Correo->setAsunto("Prestamo Actualizado");
++            $Correo->setParametro0($nombreSolicitante);
++            $Correo->setParametro1($prestamo->getRut_usuario());
++            $Correo->setParametro2($nombreMaterial);
++            $Correo->setParametro3($prestamo->getCantidad());
++            $Correo->setParametro4($prestamo->getFecha_prestamo());
++            $Correo->setParametro5($prestamo->getFecha_limite());
++            $Correo->setParametro6($prestamo->getObservacion());
+            $estado = $prestamo->getEstado_prestamo();
+             if($estado == 0)
+                 $estado = "Desactivado";
+             if($estado == 1)
+                 $estado = "Aprobado";
+             if($estado == 2)
+                 $estado = "Pendiente";
+             if($estado == 3)
+                 $estado = "Por Confirmar";
++            $Correo->setParametro7($estado);
+             $Correo->setParametro8("Se ha actualizado un prestamo registrado a su nombre.");
++            $Correo->setPara($correoUsuario);
++            $Correo->envioCorreoPrestamo();
         }
         $this->redirect("Prestamos", "index");
     }

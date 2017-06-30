@@ -41,8 +41,8 @@
 
                                 <table class="table">
                                     <thead>
-                                    <th>ID Unica Prestamo</th>
-                                    <th>ID del Material</th>
+                                    <th>ID Prestamo</th>
+                                    <th>ID Material</th>
                                     <th>Cantidad Solicitada</th>
                                     <th>Fecha Prestamo</th>
                                     <th>Fecha Limite</th>
@@ -77,6 +77,7 @@
                                                 <?php if ($row['estado_prestamo']==3){?>
                                                 <td><?php echo "Por Confirmar";?></td>
                                                 <?php }?>
+                                                
                                                 <?php
                                                 $foto = $row['imagen'];
                                                 $Base64Img = base64_decode($foto);
