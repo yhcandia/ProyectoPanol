@@ -34,7 +34,7 @@
                 <div class="panel-footer">
                     <form action="<?php echo $helper->url("materiales", "index"); ?>" method="post">
                         <div class="form-group">
-                            <label>Buscar: </label>
+                            <label>Buscar por nombre: </label>
                             <input type="text" class="form-control" name="name" class="form-control"/>
                         </div>        
                         <div class="form-group">
@@ -84,11 +84,11 @@
                                                                         </div>
 
                                                                         <div class="form-group">
-                                                                            <label for="obs">Observacion</label>
+                                                                            <label for="obs">Observación</label>
                                                                             <input maxlength="64" type="text" class="form-control" name="observacion">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <input type="submit"  value="Solicitar" class="btn btn-default"/>
+                                                                            <input type="submit"  value="Confirmar" class="btn btn-default"/>
                                                                         </div> 
                                                                     </div>   
                                                                 </form>

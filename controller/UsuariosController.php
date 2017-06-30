@@ -31,28 +31,34 @@ class UsuariosController extends ControladorBase{
             "allusers"=>$allusers
         ));
     }
-     public function login() {
+    public function login() {
 
         if (isset($_REQUEST["nnombre"]) && isset($_REQUEST["npassword"])) {
             $oUsu = new Usuario($this->adapter);
             $oUsu->setRutUsuario($_REQUEST["nnombre"]);
             $oUsu->setPassword(md5($_REQUEST["npassword"]));
-            if ($oUsu->VerificaUsuarioClave()) {
-                //echo "Todo bien";
-                $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
-                $_SESSION["session"]["idRol"] = $oUsu->getIdRol();
-                $_SESSION["session"]["apellido"] = $oUsu->getApellidoUsuario();
-                $_SESSION["session"]["rutUsuario"] = $oUsu->getRutUsuario();
-                $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
-                $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
-               
-                $this->redirect("index", "index");    
-                
-               
+            if($oUsu->VerificaExiste()){
+                        if ($oUsu->VerificaUsuarioClave()) {
+                            //echo "Todo bien";
+                            $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
+                            $_SESSION["session"]["idRol"] = $oUsu->getIdRol();
+                            $_SESSION["session"]["apellido"] = $oUsu->getApellidoUsuario();
+                            $_SESSION["session"]["rutUsuario"] = $oUsu->getRutUsuario();
+                            $_SESSION["session"]["emailUsuario"] = $oUsu->getEmailUsuario();
+                            $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
+
+                            $this->redirect("index", "index");    
+
+
+                        } else {
+                            $this->view("login", array(
+                                "error" => "La clave es incorrecta"
+                            ));
+                        }
             } else {
-                $this->view("login", array(
-                    "error" => "El usuario o la clave es incorrecta"
-                ));
+                            $this->view("login", array(
+                                "error" => "El usuario no existe"
+                            ));
             }
         }else {
                $this->view("login", array(
