@@ -20,12 +20,12 @@
 		$adjacents  = 4; //brecha entre páginas después de varios adyacentes
 		$offset = ($page - 1) * $per_page;
 		//Cuenta el número total de filas de la tabla*/
-		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM prestamo ");
+		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM prestamo WHERE estado_prestamo>1 ");
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 		$total_pages = ceil($numrows/$per_page);
 		$reload = 'prestamoView.php';
 		//consulta principal para recuperar los datos
-		$query = mysqli_query($con,"SELECT * FROM prestamo LIMIT $offset,$per_page");
+		$query = mysqli_query($con,"SELECT * FROM prestamo WHERE estado_prestamo>1 LIMIT $offset,$per_page");
                 
 		
 		if ($numrows>0){

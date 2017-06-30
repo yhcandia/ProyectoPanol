@@ -150,11 +150,13 @@ class PrestamosController extends ControladorBase {
 
             $prestamo = new Prestamo($this->adapter);
             $prestamo->darBaja($id);
-            
-            //Correo
             $objPrestamo = $prestamo->getByIdPrest($id);
             $idMaterial = $objPrestamo->id_material;
             $rutUsuario = $objPrestamo->rut_usuario;
+            $prestamo->setCantidad($objPrestamo->cantidad);
+            $prestamo->setId_material($idMaterial);
+            $prestamo->SumaInventario();
+            //Correo
             
             $material = new Material($this->adapter);
             $material = $material->getByIdMaterial(addslashes($idMaterial));   
@@ -198,10 +200,14 @@ class PrestamosController extends ControladorBase {
             $prestamo = new Prestamo($this->adapter);
             $prestamo->recibido($id);
             
-            //Correo
             $objPrestamo = $prestamo->getByIdPrest($id);
             $idMaterial = $objPrestamo->id_material;
             $rutUsuario = $objPrestamo->rut_usuario;
+            $prestamo->setCantidad($objPrestamo->cantidad);
+            $prestamo->setId_material($idMaterial);
+            $prestamo->SumaInventario();
+            //Correo
+            
             
             $material = new Material($this->adapter);
             $material = $material->getByIdMaterial(addslashes($idMaterial));   

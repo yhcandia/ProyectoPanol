@@ -80,7 +80,8 @@
 
                                                                         <div class="form-group">
                                                                             <label for="cantidad">Cantidad</label>
-                                                                            <input type="number" class="form-control" min="1" max="<?php echo $row['stock_material']; ?>" id="cant" name="cant" required>
+                                                                            <?php $maximo=$row['stock_material']-1 ; ?>
+                                                                            <input type="number" class="form-control" min="1" max="<?php echo $maximo; ?>" id="cant" name="cant" required>
                                                                         </div>
 
                                                                         <div class="form-group">

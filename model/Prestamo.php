@@ -96,7 +96,22 @@ class Prestamo extends EntidadBase{
                        '".$this->estado_prestamo."');";
         $save=$this->db()->query($query);
         //$this->db()->error;
+        $this->RestaInventario();
         return $save;
+    }
+    public function RestaInventario(){
+        
+        $query="UPDATE material SET stock_material = stock_material - '$this->cantidad' WHERE id_material = '$this->id_material'";
+        $save=$this->db()->query($query);
+        return $save;
+        
+    }
+    public function SumaInventario(){
+        
+        $query="UPDATE material SET stock_material = stock_material + '$this->cantidad' WHERE id_material = '$this->id_material'";
+        $save=$this->db()->query($query);
+        return $save;
+        
     }
     public function saveProfesor(){
         $query="INSERT INTO prestamo (id_prestamo,rut_usuario,id_material,cantidad,fecha_prestamo,fecha_limite,observacion,estado_prestamo)
@@ -122,6 +137,7 @@ class Prestamo extends EntidadBase{
                 . "observacion = '$this->observacion',"
                 . "estado_prestamo='$this->estado_prestamo' where id_prestamo= '$id'";
         $update=$this->db()->query($query);
+      
         $this->db()->error;
         return $update;
     }
