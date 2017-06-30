@@ -153,6 +153,40 @@ class Correo extends EntidadBase{
 		echo 'Mensaje enviado!';
 	}
     }
+    function envioCorreoCambioPrestamo(){
+        require_once('config/global.php');
+        require_once('PHPMailer/PHPMailerAutoload.php');
+	$mail = new PHPMailer();
+	$mail->IsSMTP();
+	$mail->SMTPAuth = true; 
+        $mail->SMTPSecure = 'tls';
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+	$mail->Username = GUSR;  
+	$mail->Password = GPWD;   
+	        
+	$mail->SetFrom(GMAIL, GNAME);
+	$mail->Subject = $this->asunto;
+	$mail->Body = "$this->parametro8 \n"
+                . "Datos. \n"
+                . "RUT:     \t $this->parametro1 \n"
+                . "Nombre:     \t $this->parametro0 \n"
+                . "Material:\t $this->parametro2 \n"
+                . "Cantidad:\t $this->parametro3 \n"
+                . "Fecha prestamo:\t $this->parametro4 \n"
+                . "Fecha devolucion:\t $this->parametro5 \n"
+                . "Observacion:\t $this->parametro6 \n"
+                . "Estado:\t $this->parametro7 \n"
+                . "Para verificar esta informacion favor ingrese a Panol Web.";
+	$mail->AddAddress($this->para);
+        $mail->AddCC(CORREOPANOL,"Solicitud Profesor"); //AHI HABRIA QUE DEFINIR UN CORREO DEL SISTEMA PAÑOL
+        //PODRIA SER EL MISMO DEL QUE ENVIA PO O NO? AL FINAL ES 1 CORREO PA TODO EL SISTEMA O ALGO ASI CREO YO.
+	if(!$mail->Send()) {
+		echo 'Error: '.$mail->ErrorInfo;
+	} else {
+		echo 'Mensaje enviado!';
+	}
+    }
     function envioCorreoUsuario(){
         require_once('config/global.php');
         require_once('PHPMailer/PHPMailerAutoload.php');

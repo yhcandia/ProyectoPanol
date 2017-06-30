@@ -34,6 +34,23 @@ class PrestamosController extends ControladorBase {
             }
         }
     }
+    public function indexTotal() {
+        if (isset($_SESSION['session'])) {
+            if ($_SESSION["session"]["idRol"] == "2" || $_SESSION["session"]["idRol"] == "3") {
+                $this->misSolicitudes();
+            } else {
+                //Creamos el objeto usuario
+                $usuario = new Usuario($this->adapter);
+
+                //Conseguimos todos los usuarios
+                $allusers = $usuario->getAllUsers();
+                //$_SESSION["session"]["usersession"] =$allusers;
+                $this->view("prestamoTodo", array(
+                    "allusers" => $allusers
+                ));
+            }
+        }
+    }
 
     public function prestamoProfesor() {
         if (isset($_REQUEST["id_material"])) {

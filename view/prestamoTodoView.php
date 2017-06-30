@@ -123,7 +123,7 @@
 		$("#loader").fadeIn('slow');
                 
 		$.ajax({
-			url:'controller/prestamos_ajax.php',
+			url:'controller/prestamosTotales_ajax.php',
 			data: parametros,
 			 beforeSend: function(objeto){
 			$("#loader").html("<img src='view/img/loader.gif'>");
