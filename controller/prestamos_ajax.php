@@ -115,16 +115,16 @@
                                             <td><a readonly title="Desactivado" class="btn btn-danger glyphicon glyphicon-ban-circle"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==1){?>
-                                            <td><a readonly title="Aprobado" class="btn btn-success glyphicon glyphicon-ok"></a></td>
+                                            <td><a readonly title="Finalizado" class="btn btn-success glyphicon glyphicon-ok"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==2){?>
-                                            <td><a readonly title="Pendiente" class="btn btn-warning glyphicon glyphicon-time"></a></td>
+                                            <td><a readonly title="Por Retirar" class="btn btn-warning glyphicon glyphicon-time"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==3){?>
-                                            <td><a readonly title="Por Revisar" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
+                                            <td><a readonly title="Por Confirmar" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
                                             <?php }?>
                                            
-                                            <?php if ($row['estado_prestamo']!= 0){?>
+                                            <?php if ($row['estado_prestamo']!= 0 && $row['estado_prestamo']!= 1){?>
                                             <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_prestamo'];?>" /></td>
                                             <?php }?>
                                     </tr>                                 
@@ -141,9 +141,9 @@
                     <a data-toggle="modal" href="#ModalAgregar" title="Agregar" class="btn btn-success glyphicon glyphicon-plus"></a>
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a> 
                     <?echo "        " ?>
-                    <a href="#" title="Marcar Aprobado" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
-                    <a href="#" title="Marcar Pendiente" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
-                    <a href="#" title="Marcar Por confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-eye-open"></a>
+                    <a href="#" title="Marcar Finalizado" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
+                    <a href="#" title="Marcar Por Retirar" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
+                    <a href="#" title="Marcar Por Confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-eye-open"></a>
                     <a href="#" title="Marcar Desactivado" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     </div>
                 </div>

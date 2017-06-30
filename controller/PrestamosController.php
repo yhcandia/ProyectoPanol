@@ -213,7 +213,7 @@ class PrestamosController extends ControladorBase {
             $correoUsuario = $usuario->mail_usuario;
             
             $Correo = new Correo($this->adapter);
-            $Correo->setAsunto("Nuevo Estado Prestamo: APROBADO");
+            $Correo->setAsunto("Nuevo Estado Prestamo: FINALIZADO");
 +            $Correo->setParametro0($nombreSolicitante);
 +            $Correo->setParametro1($objPrestamo->rut_usuario);
 +            $Correo->setParametro2($nombreMaterial);
@@ -231,7 +231,7 @@ class PrestamosController extends ControladorBase {
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
-             $Correo->setParametro8("Se ha actualizado a APROBADO el estado de un prestamo registrado a su nombre.");
+             $Correo->setParametro8("Se ha actualizado a FINALIZADO el estado de un prestamo registrado a su nombre.");
 +            $Correo->setPara($correoUsuario);
 +            $Correo->envioCorreoPrestamo();
         }
