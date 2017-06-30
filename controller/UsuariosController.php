@@ -39,6 +39,7 @@ class UsuariosController extends ControladorBase{
             $oUsu->setPassword(md5($_REQUEST["npassword"]));
             if($oUsu->VerificaExiste()){
                         if ($oUsu->VerificaUsuarioClave()) {
+                            if($oUsu->getEstadoUsuario()==1 || $oUsu->getIdRol() ==3 || $oUsu->getIdRol() ==2){
                             //echo "Todo bien";
                             $_SESSION["session"]["nombreUsuario"] = $oUsu->getNombreUsuario();
                             $_SESSION["session"]["idRol"] = $oUsu->getIdRol();
@@ -48,7 +49,12 @@ class UsuariosController extends ControladorBase{
                             $_SESSION["session"]["estadoUsuario"] = $oUsu->getEstadoUsuario();
 
                             $this->redirect("index", "index");    
-
+                            } else {
+                            $this->view("login", array(
+                                "mensaje" => "Su cuenta a sido desactivada, para activarla comuniquese con el pañolero",
+                                "error" => "CUENTA DESACTIVADA"
+                            ));
+                            }
 
                         } else {
                             $this->view("login", array(

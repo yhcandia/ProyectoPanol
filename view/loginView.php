@@ -9,7 +9,13 @@
 
 </head>
 
-<body>		
+<body>	
+      <?php if(isset($mensaje) ) { ?>
+        <script>alert("<?php echo $mensaje;?>");</script>
+        <?php  
+        unset($mensaje);
+         }
+        ?>
   <div id="login">
   <form id="login_form"  action="<?php echo $helper->url("usuarios","login"); ?>" method="post">
     <div class="field_container">
