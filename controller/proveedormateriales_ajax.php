@@ -60,7 +60,7 @@
                                             <td><span class="glyphicon glyphicon-shopping-cart"></span></td>
                                             
                                             <?php
-                                            $materiales1=include ('../view/listas/mostrarMateriales.php');
+                                            $materiales1=include ('../view/listas/mostrarMaterialesSinEstado.php');
                                             while ($row2 = mysqli_fetch_row($materiales1)) {
                                                  if ($row2[0]==$row['id_material']) {
                                                 ?>
@@ -71,7 +71,7 @@
                                             } ?>
                                             
                                             <?php
-                                            $proveedores1=include ('../view/listas/mostrarProveedores.php');
+                                            $proveedores1=include ('../view/listas/mostrarProveedoresSinEstado.php');
                                             while ($row2 = mysqli_fetch_row($proveedores1)) {
                                                  if ($row2[1]==$row['id_proveedor']) {
                                                 ?>

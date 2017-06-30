@@ -115,7 +115,7 @@ class PrestamosController extends ControladorBase {
              if($estado == 1)
                  $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Por Retirar";
+                 $estado = "Pendiente";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -180,7 +180,7 @@ class PrestamosController extends ControladorBase {
              if($estado == 1)
                  $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Por Retirar";
+                 $estado = "Pendiente";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -227,7 +227,7 @@ class PrestamosController extends ControladorBase {
              if($estado == 1)
                  $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Por Retirar";
+                 $estado = "Pendiente";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -273,7 +273,7 @@ class PrestamosController extends ControladorBase {
              if($estado == 1)
                  $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Por Retirar";
+                 $estado = "Pendiente";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);
@@ -333,7 +333,7 @@ class PrestamosController extends ControladorBase {
              if($estado == 1)
                  $estado = "Finalizado";
              if($estado == 2)
-                 $estado = "Por Retirar";
+                 $estado = "Pendiente";
              if($estado == 3)
                  $estado = "Por Confirmar";
 +            $Correo->setParametro7($estado);

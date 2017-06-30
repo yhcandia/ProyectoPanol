@@ -149,7 +149,7 @@ class Usuario extends EntidadBase{
         return $save;
     }
     function VerificaUsuarioClave(){
-        $sql="SELECT * FROM usuarios WHERE rut_usuario='$this->rutUsuario' and password_usuario='$this->password'";
+        $sql="SELECT * FROM usuarios WHERE rut_usuario='$this->rutUsuario' and password_usuario='$this->password' and estado_usuario = '1'";
               
         $resultado=  $this->db()->query($sql);
                

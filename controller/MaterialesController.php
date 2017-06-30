@@ -105,6 +105,13 @@ class MaterialesController extends ControladorBase {
         if (isset($_POST["id"])) {
 
             $id = $_POST["id"];
+            $material = new Material($this->adapter);
+            $material->setIdCategoria(addslashes($_POST["idCategoria"]));
+            $material->setNombreMaterial(addslashes($_POST["nombreMaterial"]));
+            $material->setEstadoMaterial(addslashes($_POST["estadoMaterial"]));
+            $material->setStock(addslashes($_POST["stock"]));
+            if($_FILES["image"]["name"] != "")
+            {
             $foto_name = $_FILES["image"]["name"];
             $foto_size = $_FILES["image"]["size"];
             $foto_type = $_FILES["image"]["type"];
@@ -124,14 +131,13 @@ class MaterialesController extends ControladorBase {
             $foto_reconvertida = fread($f1, $foto_size);
             $foto_reconvertida = base64_encode($foto_reconvertida);
             fclose($f1);
-
-            $material = new Material($this->adapter);
-            $material->setIdCategoria(addslashes($_POST["idCategoria"]));
-            $material->setNombreMaterial(addslashes($_POST["nombreMaterial"]));
-            $material->setEstadoMaterial(addslashes($_POST["estadoMaterial"]));
-            $material->setStock(addslashes($_POST["stock"]));
             $material->setImagen($foto_reconvertida);
             $save = $material->update($id);
+            } else {
+                $save = $material->updateSinFoto($id);
+            }
+            
+            
         }
         $this->redirect("Materiales", "index");
     }

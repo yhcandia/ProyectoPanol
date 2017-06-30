@@ -72,7 +72,7 @@
                                                 <td><?php echo "Finalizado";?> </td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==2){?>
-                                                <td><?php echo "Por Retirar";?> <b>(Retirar en totem Pañol)</b></td>
+                                                <td><?php echo "Pendiente";?> <b>(Retirar en totem Pañol)</b></td>
                                                 <?php }?>
                                                 <?php if ($row['estado_prestamo']==3){?>
                                                 <td><?php echo "Por Confirmar";?></td>

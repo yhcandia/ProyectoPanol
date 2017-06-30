@@ -73,7 +73,7 @@
                                             <td><?php echo $row['mail_usuario'];?></td>
                                             
                                             <?php
-                                            $usuarios=include ('../view/listas/mostrarRoles.php');
+                                            $usuarios=include ('../view/listas/mostrarRolesSinEstado.php');
                                             while ($row2 = mysqli_fetch_row($usuarios)) {
                                                  if ($row2[0]==$row['id_rol']) {
                                                 ?>

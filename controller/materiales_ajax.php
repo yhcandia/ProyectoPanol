@@ -66,7 +66,7 @@
                                             <td><?php echo $row['id_material'];?></td>   
                                             
                                             <?php
-                                            $categorias=include ('../view/listas/mostrarCategorias.php');
+                                            $categorias=include ('../view/listas/mostrarCategoriasSinEstado.php');
                                             while ($row2 = mysqli_fetch_row($categorias)) {
                                                  if ($row2[0]==$row['id_categoria']) {
                                                 ?>

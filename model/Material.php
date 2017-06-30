@@ -75,6 +75,16 @@ class Material extends EntidadBase{
         $this->db()->error;
         return $update;
     }
+    
+    public function updateSinFoto($id){
+        $query="UPDATE material SET id_categoria= '$this->idCategoria',"
+                . "nombre_material = '$this->nombreMaterial',"
+                . "estado_material = '$this->estadoMaterial',"
+                . "stock_material = '$this->stock' where id_material= '$id'";
+        $update=$this->db()->query($query);
+        $this->db()->error;
+        return $update;
+    }
 
     public function save(){
         $query="INSERT INTO material (id_categoria,nombre_material,estado_material,stock_material,imagen)

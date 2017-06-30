@@ -229,7 +229,7 @@
                                                         <option value="">-- Seleccione --</option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1"> Finalizado </option>
-                                                        <option  class="form-control" value="2"> Por Retirar </option>
+                                                        <option  class="form-control" value="2"> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por Confirmar </option>
                                                     </select></div>
                                             
@@ -316,28 +316,28 @@
                                                         <?php if ($prestamo->estado_prestamo == 0) {?>
                                                         <option  class="form-control" value="0" selected> Desactivado </option>
                                                         <option  class="form-control" value="1"> Finalizado </option>
-                                                        <option  class="form-control" value="2"> Por Retirar </option>
+                                                        <option  class="form-control" value="2"> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por Confirmar </option>
                                                         <?php } 
                                                         
                                                         if ($prestamo->estado_prestamo == 1) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1" selected > Finalizado </option>
-                                                        <option  class="form-control" value="2"> Por Retirar </option>
+                                                        <option  class="form-control" value="2"> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por Confirmar </option>
                                                         <?php }
                                                         
                                                         if ($prestamo->estado_prestamo == 2) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1"> Finalizado </option>
-                                                        <option  class="form-control" value="2" selected> Por Retirar </option>
+                                                        <option  class="form-control" value="2" selected> Pendiente </option>
                                                         <option  class="form-control" value="3"> Por Confirmar </option>
                                                         <?php }
                                                         
                                                         if ($prestamo->estado_prestamo == 3) {?>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                         <option  class="form-control" value="1"> Finalizado </option>
-                                                        <option  class="form-control" value="2" > Por Retirar </option>
+                                                        <option  class="form-control" value="2" > Pendiente </option>
                                                         <option  class="form-control" value="3" selected> Por Confirmar </option>
                                                         <?php }?>
                                                     </select></div>

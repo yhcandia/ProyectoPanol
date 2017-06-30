@@ -73,7 +73,7 @@
                                             <td><span class="glyphicon glyphicon-book"></span></td>
                                             <td><?php echo $row['id_prestamo'];?></td>
                                             <?php
-                                            $usuarios=include ('../view/listas/mostrarUsuarios.php');
+                                            $usuarios=include ('../view/listas/mostrarUsuariosSinEstado.php');
                                             while ($row2 = mysqli_fetch_row($usuarios)) {
                                                  if ($row2[0]==$row['rut_usuario']) {
                                                 ?>
@@ -85,7 +85,7 @@
                                             ?>
 
                                             <?php
-                                            $materiales=include ('../view/listas/mostrarMateriales.php');
+                                            $materiales=include ('../view/listas/mostrarMaterialesSinEstado.php');
                                             while ($row3 = mysqli_fetch_row($materiales)) {
                                                 
                                              if ($row3[0]==$row['id_material']) {
@@ -118,7 +118,7 @@
                                             <td><a readonly title="Finalizado" class="btn btn-success glyphicon glyphicon-ok"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==2){?>
-                                            <td><a readonly title="Por Retirar" class="btn btn-warning glyphicon glyphicon-time"></a></td>
+                                            <td><a readonly title="Pendiente" class="btn btn-warning glyphicon glyphicon-time"></a></td>
                                             <?php }?>
                                             <?php if ($row['estado_prestamo']==3){?>
                                             <td><a readonly title="Por Confirmar" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
@@ -142,7 +142,7 @@
                     <a href="#" title="Editar" onClick="confirmarEditar($('#valorRadio').val())" class="btn btn-info glyphicon glyphicon-edit"></a> 
                     <?echo "        " ?>
                     <a href="#" title="Marcar Finalizado" onClick="confirmarRecibido($('#valorRadio').val())" class="btn btn-success glyphicon glyphicon-ok"></a>
-                    <a href="#" title="Marcar Por Retirar" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
+                    <a href="#" title="Marcar Pendiente" onClick="confirmarPendiente($('#valorRadio').val())" class="btn btn-warning glyphicon glyphicon-time"></a>
                     <a href="#" title="Marcar Por Confirmar" onClick="confirmarPorConfirmar($('#valorRadio').val())" class="btn btn-primary glyphicon glyphicon-eye-open"></a>
                     <a href="#" title="Marcar Desactivado" onClick="confirmarRemover($('#valorRadio').val())" class="btn btn-danger glyphicon glyphicon-ban-circle"></a>
                     </div>

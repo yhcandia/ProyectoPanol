@@ -181,8 +181,9 @@
                                                         <?php } ?>
                                                         
                                                     </select></div>
+                                        
                                         <div class="form-group"><label>Stock:</label> <input required="" min="0" type="number" name="stock" value="<?php echo $material->stock_material ?>" class="form-control"/></div>
-                                        <div class="form-group"><label>Imagen: </label><input type="file" required="" class="form-control" name="image" accept="image/*"/></div>
+                                        <div class="form-group"><label>Imagen (si no carga archivo, no se modifica): </label> <input type="file" id="files" class="form-control" name="image" accept="image/*"/></div>
                                         <button type="submit" class="btn btn-default">Editar</button>
                                     </form>
                                 </div>
