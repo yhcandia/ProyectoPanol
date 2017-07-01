@@ -19,7 +19,7 @@ class PrestamosController extends ControladorBase {
 
     public function index() {
         if (isset($_SESSION['session'])) {
-            if ($_SESSION["session"]["idRol"] == "2" || $_SESSION["session"]["idRol"] == "3") {
+            if ($_SESSION["session"]["idRol"] == "2" || $_SESSION["session"]["idRol"] == "3" || $_SESSION["session"]["idRol"] == "4") {
                 $this->misSolicitudes();
             } else {
                 //Creamos el objeto usuario
@@ -36,7 +36,7 @@ class PrestamosController extends ControladorBase {
     }
     public function indexTotal() {
         if (isset($_SESSION['session'])) {
-            if ($_SESSION["session"]["idRol"] == "2" || $_SESSION["session"]["idRol"] == "3") {
+             if ($_SESSION["session"]["idRol"] == "2" || $_SESSION["session"]["idRol"] == "3" || $_SESSION["session"]["idRol"] == "4") {
                 $this->misSolicitudes();
             } else {
                 //Creamos el objeto usuario

@@ -101,6 +101,7 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     <h4 class="modal-title">Agregar</h4>
+                                    <h5><font color="red">Todos los campos son obligatorios</font></h5>
                                 </div>
                                 <div class="modal-body">
                                     <form role="form" method="post" action="<?php echo $helper->url("materiales", "crear"); ?>" enctype="multipart/form-data">

@@ -126,10 +126,11 @@
                                             <?php if ($row['estado_prestamo']==3){?>
                                             <td><a readonly title="Por Confirmar" class="btn btn-primary glyphicon glyphicon-eye-open"></a></td>
                                             <?php }?>
-                                           
+                                            <td>
                                             <?php if ($row['estado_prestamo']!= 0 && $row['estado_prestamo']!= 1){?>
-                                            <td><input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_prestamo'];?>" /></td>
+                                           <input type="radio" id="valor1" name="valor1" value="<?php echo $row['id_prestamo'];?>" />
                                             <?php }?>
+                                           </td>
                                     </tr>                                 
                                    <?php
                             }
