@@ -148,7 +148,13 @@ class Usuario extends EntidadBase{
         $this->db()->error;
         return $save;
     }
-    
+     function cambiarClave(){
+          $query="UPDATE usuarios SET password_usuario = '$this->password'"
+               ."where rut_usuario= '$this->rutUsuario'";
+        $update=$this->db()->query($query);
+        $this->db()->error;
+        return $update;
+    }
     function VerificaExiste(){
         $sql="SELECT * FROM usuarios WHERE rut_usuario='$this->rutUsuario'";  
         $resultado=  $this->db()->query($sql);              

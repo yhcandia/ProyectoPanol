@@ -2,7 +2,7 @@
 class UsuariosController extends ControladorBase{
     public $conectar;
     public $adapter;
-	
+    
     public function __construct() {
         parent::__construct();
 		 
@@ -17,19 +17,24 @@ class UsuariosController extends ControladorBase{
 
     public function index(){
         
-        //Creamos el objeto usuario
+         //Creamos el objeto usuario
         $usuario=new Usuario($this->adapter);
         
         //Conseguimos todos los usuarios
         $allusers=$usuario->getAll();
 
 		//Producto
-        
+        if(isset($_REQUEST["cambio"])){
+           $this->view("cambioPwd",array(
+            "nulo"=>""
+        ));
+        }else{
        
         //Cargamos la vista index y le pasamos valores
         $this->view("usuario",array(
             "allusers"=>$allusers
         ));
+        }
     }
     public function login() {
 
@@ -73,8 +78,29 @@ class UsuariosController extends ControladorBase{
             }
     }
     public function logout(){
+       
         session_destroy();
-        $this->redirect("Usuarios", "index");
+         $this->redirect("Usuarios", "index");
+        
+        
+    }
+        public function cambiarPwd(){
+        if(isset($_REQUEST["pwdactual"])){
+           $oUsu = new Usuario($this->adapter);
+           $oUsu->setRutUsuario($_SESSION["session"]["rutUsuario"]);
+           $oUsu->setPassword(md5($_REQUEST["pwdactual"]));
+           if ($oUsu->VerificaUsuarioClave()) {
+               $oUsu->setPassword(md5($_REQUEST["pwd"]));
+               $up= $oUsu->cambiarClave();
+               $_SESSION['mensaje']="La password ha sido cambiada con exito";
+           }  else {
+               $_SESSION['mensaje']="La password actual es incorrecta";
+           }
+        }
+           $this->view("cambioPwd",array(
+            "nulo"=>""
+        ));
+        
         
     }
     public function crear(){

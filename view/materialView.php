@@ -64,12 +64,34 @@
 			}
 		})
 	}
+        function agregarcodigo(){
+                //alert("hola");
+                document.getElementById("codigo").innerHTML="";
+                if(document.getElementById("stock").value>0){
+                    var capa = document.getElementById("codigo");
+                    //var h1 = document.createElement("h1");
+                    var titulo = document.createElement("titulo");
+                    titulo.innerHTML='<label>Codigo: </label>'
+                    capa.appendChild(titulo);
+                    for (var i = 0; i < document.getElementById("stock").value ; i++) {
+                        var nuevo = document.createElement("nuevo");
+
+                        //h1.innerHTML ='<div class="field_container"><input type="text" id="la" name="hola" placeholder="como va"></div>'; 
+                        nuevo.innerHTML = '<br><div class="form-group"><input class="form-control" type="text" id="codigo' + i + '" name="codigo' + i + '" placeholder="ingrese codigo al producto nro '+(i+1)+'" required></div>';
+                        // capa.innerHTML ='<div class="field_container"><input type="text" id="la" name="hola" placeholder="como va"></div>'; 
+                        //capa.appendChild('<div class="field_container"><input type="text" id="la" name="hola" placeholder="como va"></div>');
+                        capa.appendChild(nuevo);
+
+                        //capa.insertBefore(nuevo, capa.firstElementChild);
+                    }
+                }
+            }
         
 	</script>  
         <style>
             .container .panel {
                 position: absolute;
-                top: 250%;
+                top: 280%;
                 left: 50%;
                 transform: translateX(-50%) translateY(-50%);
             }
@@ -128,7 +150,10 @@
                                                         <option  class="form-control" value="1"> Activo </option>
                                                         <option  class="form-control" value="0"> Desactivado </option>
                                                     </select></div>
-                                        <div class="form-group"><label>Stock: </label><input required="" min="0" type="number" class="form-control" name="stock"/></div>
+                                        <div class="form-group"><label>Stock: </label><input required="" min="0" id="stock" type="number" class="form-control" name="stock" onKeyUp="agregarcodigo()"/></div>
+                                        <div id="codigo" class="form-group">
+                                            
+                                        </div>
                                         <div class="form-group"><label>Imagen: </label><input required="" type="file" class="form-control" name="image" accept="image/*"/></div>
                                         <button type="submit" class="btn btn-default">Agregar</button>
                                     </form>

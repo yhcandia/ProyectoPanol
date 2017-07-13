@@ -95,8 +95,15 @@ class MaterialesController extends ControladorBase {
             $Material->setNombreMaterial(addslashes($_POST["nombreMaterial"]));
             $Material->setEstadoMaterial(addslashes($_POST["estadoMaterial"]));
             $Material->setStock($_POST["stock"]);
-
+              if($_POST["stock"]>0){
+                for($i=0;$i<$_POST["stock"];$i++){
+                    $arreglo[$i]=$_POST["codigo".$i.""];
+                }
+                $save=$Material->saveConCodigo($arreglo);
+            }else{
+            //print_r($arreglo);
             $save = $Material->save();
+            }
         }
         $this->redirect("Materiales", "index");
     }

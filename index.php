@@ -1,4 +1,7 @@
 <?php
+
+ob_start();
+
 session_start();
 //Configuración global
 require_once 'config/global.php';
@@ -33,3 +36,6 @@ if (isset($_SESSION['session'])) {
 
     </body>
 </html>
+<?php
+ob_end_flush();
+?>

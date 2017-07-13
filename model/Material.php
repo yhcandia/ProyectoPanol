@@ -85,7 +85,31 @@ class Material extends EntidadBase{
         $this->db()->error;
         return $update;
     }
-
+    public function saveConCodigo($arreglo){
+        $query="INSERT INTO material (id_categoria,nombre_material,estado_material,stock_material,imagen)
+                VALUES('".$this->idCategoria."',
+                       '".$this->nombreMaterial."',
+                       '".$this->estadoMaterial."',
+                       '".$this->stock."',
+                       '".$this->imagen."');";
+        $save=$this->db()->query($query);
+        $query="SELECT MAX(id_material) AS id FROM material";
+        $rs=$this->db()->query($query);
+        if ($row = mysqli_fetch_row($rs)) {
+        $id = trim($row[0]);
+        }
+         if($this->stock>0){
+                for($i=0;$i<$this->stock;$i++){
+                    $query="INSERT INTO detalle_material (id_material,codigo,estado)
+                        VALUES('".$id."',
+                        '".$arreglo[$i]."',    
+                       '1');";
+                    $save=$this->db()->query($query);
+                }
+            }
+        $this->db()->error;
+        return $save;
+    }
     public function save(){
         $query="INSERT INTO material (id_categoria,nombre_material,estado_material,stock_material,imagen)
                 VALUES('".$this->idCategoria."',

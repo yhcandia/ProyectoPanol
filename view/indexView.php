@@ -11,25 +11,25 @@
             footer {
                 padding-top:10px;
                 width:100%;
-                top: 500px;
+                top: 200px;
                 height:60px;
                 position:relative;
                 bottom:0;
                 border-top: solid 5px #FAAF3A;
             }
             .container {
-                position: absolute;
                 left: 50%;
-                transform: translateX(-50%) translateY(-50%);
+                max-width: 400px;
+                top: 10%;   
             }
         </style>
     <body style="background-color:#012C56;" onload="actualiza()">
         
     </body>
     <div class="container" style="color: white;">
-        <div style="width: 100%;text-align: center;position: relative;float: left;top: 200px "><h1>Sistema Pañol Web.</h1></div>
-        <div style="width: 100%;text-align: center;position: relative;float: left;top: 210px   "><img src="view/img/libroPanol.png" width="200px" height="30%"></div>
-        <div style="width: 100%;text-align: center;position: relative; float: left;top: 220px "><h1>
+        <div style="width: 100%;text-align: center;position: relative;float: left; "><h1>Sistema Pañol Web.</h1></div>
+        <div style="width: 100%;text-align: center;position: relative;float: left; "><img src="view/img/libroPanol.png" width="200px" height="30%"></div>
+        <div style="width: 100%;text-align: center;position: relative; float: left;"><h1>
            <?php if($_SESSION["session"]["idRol"]==0){ ?>
                Administrador
            <?php }if($_SESSION["session"]["idRol"]==1){ ?>

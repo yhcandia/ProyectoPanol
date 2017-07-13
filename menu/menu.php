@@ -30,6 +30,8 @@
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
                             <li><a href="./index.php?controller=proveedores"><span class="glyphicon glyphicon-briefcase"></span>Proveedores</a></li>
                             <li><a href="./index.php?controller=proveedormateriales"><span class="glyphicon glyphicon-shopping-cart"></span>Compras</a></li>
+                             <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                           
                             <?php
                         }
                         if ($_SESSION['session']['idRol'] == '1') {
@@ -39,6 +41,8 @@
                             <li><a href="./index.php?controller=usuariosPanol"><span class="icon-users"></span>Usuarios</a></li>
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
                             <li><a href="./index.php?controller=proveedormateriales"><span class="glyphicon glyphicon-shopping-cart"></span>Compras</a></li>
+                            <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                           
                             <?php
                         }
                         if ($_SESSION['session']['idRol'] == '2') {
@@ -48,24 +52,32 @@
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-transfer"></span>Solicitar Prestamo</a></li>
                             <?php } ?>
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>
+                            <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                            
                             <?php
                         }
                         if ($_SESSION['session']['idRol'] == '3') {
                             ?>  
                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>                        
+                            <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                           
                             <?php
                         }
                         if ($_SESSION['session']['idRol'] == '4') {
                             ?>  
                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=prestamos"><span class="glyphicon glyphicon-transfer"></span>Ver Prestamo</a></li>                        
+                            <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                           
                             <?php
                         }
                         if ($_SESSION['session']['idRol'] == '5') {
                             ?>    
                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=verReportes"><span class="glyphicon glyphicon-transfer"></span>Ver Reportes</a></li>
+                            <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                           
                             <?php
                         }
                     }
