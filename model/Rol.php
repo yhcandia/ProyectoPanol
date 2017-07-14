@@ -1,9 +1,5 @@
 <?php
-/**
- * Description of Rol
- *
- * @author Vito
- */
+
 class Rol extends EntidadBase{
     private $idRol;
     private $nombreRol;

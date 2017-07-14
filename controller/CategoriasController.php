@@ -1,9 +1,4 @@
 <?php
-/**
- * Description of CategoriasController
- *
- * @author Vito
- */
 class CategoriasController extends ControladorBase{
     public $conectar;
     public $adapter;

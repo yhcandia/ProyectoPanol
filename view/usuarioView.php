@@ -52,13 +52,9 @@
 	function load(page){
                 $("#valorRadio").attr("value", "sinValor");
 		var parametros = {"action":"ajax","page":page};
-		$("#loader").fadeIn('slow');
 		$.ajax({
 			url:'controller/usuarios_ajax.php',
-			data: parametros,
-			 beforeSend: function(objeto){
-			$("#loader").html("<img src='view/img/loader.gif'>");
-			},
+			data: parametros,			 
 			success:function(data){
 				$(".outer_div").html(data).fadeIn('slow');
 				$("#loader").html("");

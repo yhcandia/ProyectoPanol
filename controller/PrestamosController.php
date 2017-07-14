@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of PrestamosController
- *
- * @author Vito
- */
 class PrestamosController extends ControladorBase {
 
     public $conectar;

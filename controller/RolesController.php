@@ -1,9 +1,5 @@
 <?php
-/**
- * Description of RolesController
- *
- * @author Vito
- */
+
 class RolesController extends ControladorBase{
      public $conectar;
     public $adapter;

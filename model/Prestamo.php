@@ -1,9 +1,5 @@
 <?php
-/**
- * Description of Categoria
- *
- * @author Vito
- */
+
 class Prestamo extends EntidadBase{
     private $id_prestamo;
     private $rut_usuario;

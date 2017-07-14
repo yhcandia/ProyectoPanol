@@ -1,9 +1,5 @@
 <?php
-/**
- * Description of Categoria
- *
- * @author Vito
- */
+
 class Categoria extends EntidadBase{
     private $id_categoria;
     private $id_panol;

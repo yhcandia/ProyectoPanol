@@ -61,7 +61,7 @@ section {
 @media screen and (min-width:0px ) {
 	header nav {
 		width:200px;
-		height:580px;
+		height:650px;
 		left:-100%;
 		margin:0;
 		position: absolute;

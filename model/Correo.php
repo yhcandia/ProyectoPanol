@@ -1,9 +1,5 @@
 <?php
-/**
- * Description of Material
- *
- * @author Vito
- */
+
 class Correo extends EntidadBase{
     private $de;
     private $para;

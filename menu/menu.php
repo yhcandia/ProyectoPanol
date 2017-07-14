@@ -31,6 +31,7 @@
                             <li><a href="./index.php?controller=proveedores"><span class="glyphicon glyphicon-briefcase"></span>Proveedores</a></li>
                             <li><a href="./index.php?controller=proveedormateriales"><span class="glyphicon glyphicon-shopping-cart"></span>Compras</a></li>
                              <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                             <li><a href="./index.php?controller=graficos&action=index"><span class="glyphicon glyphicon-stats"></span>Graficos</a></li>
                            
                             <?php
                         }
@@ -42,6 +43,7 @@
                             <li><a href="./index.php?controller=materiales"><span class="glyphicon glyphicon-folder-close"></span>Materiales</a></li>
                             <li><a href="./index.php?controller=proveedormateriales"><span class="glyphicon glyphicon-shopping-cart"></span>Compras</a></li>
                             <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
+                             <li><a href="./index.php?controller=graficos&action=index"><span class="glyphicon glyphicon-stats"></span>Graficos</a></li>
                            
                             <?php
                         }
@@ -77,7 +79,7 @@
                             <li><a href="./index.php?controller=index"><span class="glyphicon glyphicon-home"></span>Inicio</a></li> 
                             <li><a href="./index.php?controller=verReportes"><span class="glyphicon glyphicon-transfer"></span>Ver Reportes</a></li>
                             <li><a href="./index.php?controller=usuarios&cambio=1"><span class="glyphicon glyphicon-book"></span>Cambio de clave</a></li>
-                           
+                             <li><a href="./index.php?controller=graficos&action=index"><span class="glyphicon glyphicon-stats"></span>Graficos</a></li>
                             <?php
                         }
                     }
